@@ -38,7 +38,7 @@
                     <input type="" hidden  class="form-control" name="id_user" value="{{Auth::user()->id}}"/>
                     <div class="form-group row">
                         <div class="col-lg-6">
-                            <label>รายงานครั้งที่</label><select id="pro" class="form-control" name="round" style="width: 100%;">
+                            <label>รายงานครั้งที่</label><select id="pro" class="form-control" name="round" style="width: 100%;" required>
                                 <option value="" selected>--ประชุมครั้งที่--</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
