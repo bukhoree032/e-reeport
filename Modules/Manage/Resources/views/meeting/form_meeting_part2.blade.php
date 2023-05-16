@@ -100,6 +100,11 @@
                             <input type="text" class="form-control " name="guard" placeholder="การปฏิบัติหน้าที่เวรยาม" />
                         </div>
 
+                        <div class="col-lg-12  margin_top">
+                            <label>1.4 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other1" placeholder="การปฏิบัติหน้าที่เวรยาม" />
+                        </div>
+
 
                         <label class="  margin_top"><b>2. ภารกิจด้านแผนงานและการพัฒนาด้านเศรษฐกิจ(พัฒนากรประจำตำบล):</b></label>
 
@@ -129,11 +134,22 @@
                             <input type="text" class="form-control " name="government" placeholder="โครงการของส่วนราชการในตำบล" />
                         </div>
 
+                        <div class="col-lg-12  margin_top">
+                            <label>2.3 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other2" placeholder="การปฏิบัติหน้าที่เวรยาม" />
+                        </div>
+
 
                         <div class="col-lg-12  margin_top">
                             <label><b>3. ภารกิจด้านประสานแผนงานพัฒนาพื้นที่และงบประมาณ (ปลัด อปท.):</b></label>
                             <input type="text" class="form-control " name="coordinate" placeholder="ภารกิจด้านประสานแผนงานพัฒนาพื้นที่และงบประมาณ" />
                         </div>
+
+                        <div class="col-lg-12  margin_top">
+                            <label>3.1 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other3" placeholder="การปฏิบัติหน้าที่เวรยาม" />
+                        </div>
+
 
 
                         <label class="  margin_top"><b>4.ภารกิจด้านการพัฒนาสังคม สาธารณสุขและสิ่งแวดล้อม (ผอ.รพ.สต.):</b></label>
@@ -150,6 +166,11 @@
                             <label>4.3 ผู้สูงอายุ :</label>
                             <input type="text" class="form-control " name="elder" placeholder="ผู้สูงอายุ" />
                         </div>
+
+                        <div class="col-lg-12  margin_top">
+                            <label>4.4 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other4" placeholder="การปฏิบัติหน้าที่เวรยาม" />
+                        </div>
                         
 
 
@@ -159,11 +180,22 @@
                             <label>5.1 สถานการณ์เด็กหลุดจากระบบการศึกษา :</label>
                             <input type="text" class="form-control " name="education" placeholder="สถานการณ์เด็กหลุดจากระบบการศึกษา" />
                         </div>
+
+                        <div class="col-lg-12  margin_top">
+                            <label>5.2 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other5" placeholder="การปฏิบัติหน้าที่เวรยาม" />
+                        </div>
                         
                         <div class="col-lg-12  margin_top">
                             <label><b>6. กลุ่มภารกิจด้านอำนวยการและการบริหาร(ปลัดอำเภอผู้เป้นหัวหน้าประจำตำบล):</b></label>
                             <input type="text" class="form-control " name="executive" placeholder="กลุ่มภารกิจด้านอำนวยการและการบริหาร" />
                         </div>
+
+                        <div class="col-lg-12  margin_top">
+                            <label>6.1 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other6" placeholder="การปฏิบัติหน้าที่เวรยาม" />
+                        </div>
+
 
                         <div class="col-lg-12  margin_top">
                             <label>มติที่ประชุม:</label>
