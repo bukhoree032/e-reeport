@@ -1,0 +1,55 @@
+{
+    "menu": [{
+            "url": "/",
+            "name": "Dashboard",
+            "icon": "menu-icon tf-icons bx bx-home-circle",
+            "slug": "dashboard-analytics"
+        },
+        {
+            "menuHeader": "MENU"
+        },
+        {
+            "url": "activity",
+            "icon": "menu-icon tf-icons bx bx-table",
+            "name": "จัดการกิจกรรม",
+            "slug": "tables-basic"
+        },
+
+
+
+
+        {
+            "name": "บันทึกการประชุม",
+            "icon": "menu-icon tf-icons bx bx-collection",
+            "slug": "cards-basic",
+            "url": "/meeting"
+        },
+        {
+            "name": "รายงานการประชุม",
+            "url": "report",
+            "icon": "menu-icon tf-icons bx bx-detail",
+            "slug": "icons-boxicons"
+        }
+
+
+
+
+
+
+
+
+
+
+        ,
+        {
+            "menuHeader": "Misc"
+        },
+        {
+            "url": "https://themeselection.com/support/",
+            "icon": "menu-icon tf-icons bx bx-support",
+            "name": "Support",
+            "slug": "support",
+            "target": "_blank"
+        }
+    ]
+}
