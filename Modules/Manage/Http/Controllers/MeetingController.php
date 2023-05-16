@@ -49,7 +49,14 @@ class MeetingController extends UploadeFileController
         $page_title = 'บันทึกการประชุม';
         $page_description = '';
 
-        $data['result'] = $this->Repository->show('flowers');
+        $db = "meeting";
+
+        $result = $this->Repository->index($db,Auth::user()->id);
+        if(isset($result[0])){
+            $totalmeeting = count($result);
+            $data['resultID'] = $this->Repository->ShowId($result[$totalmeeting-1]->id,'meeting');
+        }
+
         $data['resultAmphures'] = $this->Repository->show('amphures');
         $data['resultProvinces'] = $this->Repository->show('provinces');
         $data['resultDistricts'] = $this->Repository->districts('provinces');
