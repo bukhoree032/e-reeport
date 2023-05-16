@@ -55,7 +55,7 @@
                         <div class="col-lg-6">
                             <label>พ.ศ:</label>
                             <select id="pro" class="form-control" name="year_round" style="width: 100%;">
-                                <option selected>-- ปี --</option>
+                                <option value="" selected>-- ปี --</option>
                                 <option value="2560">2560</option>
                                 <option value="2561">2561</option>
                                 <option value="2562">2562</option>
@@ -71,7 +71,7 @@
                         <div class="col-lg-4 margin_top">
                             <label>แบบรายงานผลการดำเนินงานประจำเดือน:</label>
                             <select id="pro" class="form-control" name="month" style="width: 100%;">
-                                <option selected>--เดือน--</option>
+                                <option value="" selected>--เดือน--</option>
                                 <option value="มกราคม">มกราคม</option>
                                 <option value="กุมภาพันธ์">กุมภาพันธ์</option>
                                 <option value="มีนาคม">มีนาคม</option>
@@ -144,7 +144,7 @@
                         <div class="col-lg-6">
                             <label>ประจำเดือน</label>
                             <select id="pro" class="form-control" name="month1" style="width: 100%;">
-                                <option selected>--เดือน--</option>
+                                <option value="" selected>--เดือน--</option>
                                 <option value="มกราคม">มกราคม</option>
                                 <option value="กุมภาพันธ์">กุมภาพันธ์</option>
                                 <option value="มีนาคม">มีนาคม</option>
