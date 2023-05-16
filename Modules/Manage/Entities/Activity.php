@@ -12,6 +12,8 @@ class Activity extends Model
         'id_districts',
         'name',
         'numberpeople',
-        'location'
+        'budget',
+        'lat',
+        'log'
     ];
 }

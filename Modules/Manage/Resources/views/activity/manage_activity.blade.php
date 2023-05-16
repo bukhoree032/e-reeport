@@ -23,6 +23,7 @@
             <th>ลำดับ</th>
             <th>ชื่อกิจกรรม</th>
             <th>จำนวนครัวเรือน</th>
+            <th>งบประมาณ</th>
             <th>ละติจูด</th>
             <th>เวลาแก้ไข</th>
             <th>จัดการ</th>
@@ -33,7 +34,8 @@
           <tr><td>{{ $item+1 }}</td>
             <td>{{ $value->name}}</td>
             <td>{{ $value->numberpeople}}</td>
-            <td>{{ $value->location }}</td>
+            <td>{{ $value->budget}}</td>
+            <td>{{ $value->lat }},{{ $value->log }}</td>
             <td>{{ $value->updated_at }}</td>
             <td>
                 <div class="dropdown">

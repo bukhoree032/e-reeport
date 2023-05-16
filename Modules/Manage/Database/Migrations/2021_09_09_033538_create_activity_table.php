@@ -19,7 +19,9 @@ class CreateActivityTable extends Migration
             $table->string('id_districts')->nullable();
             $table->string('name')->nullable();
             $table->string('numberpeople')->nullable();
-            $table->string('location')->nullable();
+            $table->string('budget')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('log')->nullable();
             
             $table->timestamps();
         });

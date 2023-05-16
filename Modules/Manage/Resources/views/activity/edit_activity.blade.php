@@ -40,13 +40,21 @@
                             <label>ชื่อกิจกรรม:</label>
                             <input type="text" class="form-control" name="name" value="{{$resultID->name}}" placeholder="ชื่อกิจกรรม" />
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-2">
                             <label>จำนวนครัวเรือน:</label>
                             <input type="text" class="form-control" name="numberpeople" value="{{$resultID->numberpeople}}" placeholder="จำนวนครัวเรือน" />
                         </div>
-                        <div class="col-lg-4">
-                            <label>ละติจูด/ลองติจูด:</label>
-                            <input type="text" class="form-control" name="location" value="{{$resultID->location}}" placeholder="ละติจูด/ลองติจูด" />
+                        <div class="col-lg-2">
+                            <label>งบประมาณ:</label>
+                            <input type="text" class="form-control" name="budget" value="{{$resultID->budget}}" placeholder="งบประมาณ" />
+                        </div>
+                        <div class="col-lg-2">
+                            <label>ละติจูด:</label>
+                            <input type="text" class="form-control" name="lat" value="{{$resultID->lat}}" placeholder="ละติจูด" />
+                        </div>
+                        <div class="col-lg-2">
+                            <label>ลองติจูด:</label>
+                            <input type="text" class="form-control" name="log" value="{{$resultID->log}}" placeholder="ลองติจูด" />
                         </div>
                     </div>
                     
