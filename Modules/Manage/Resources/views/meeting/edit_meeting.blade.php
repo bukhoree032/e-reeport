@@ -555,6 +555,11 @@
                             <label>1.3 การปฏิบัติหน้าที่เวรยาม:</label>
                             <input type="text" class="form-control " name="guard" placeholder="การปฏิบัติหน้าที่เวรยาม"  value="{{$resultID->guard}}"/>
                         </div>
+
+                        <div class="col-lg-12  margin_top">
+                            <label>1.4 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other1" placeholder="การปฏิบัติหน้าที่เวรยาม" value="{{$resultID->other1}}"/>
+                        </div>
                 
                 
                         <label><b>2. ภารกิจด้านแผนงานและการพัฒนาด้านเศรษฐกิจ(พัฒนากรประจำตำบล):</b></label>
@@ -576,11 +581,21 @@
                             <label>2.2 โครงการของส่วนราชการในตำบล:</label>
                             <input type="text" class="form-control " name="government" placeholder="โครงการของส่วนราชการในตำบล"  value="{{$resultID->government}}"/>
                         </div>
+
+                        <div class="col-lg-12  margin_top">
+                            <label>2.3 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other2" placeholder="อื่นๆ:" value="{{$resultID->other2}}"/>
+                        </div>
                 
                 
                         <div class="col-lg-12  margin_top">
                             <label>3. ภารกิจด้านประสานแผนงานพัฒนาพื้นที่และงบประมาณ (ปลัด อปท.):</label>
                             <input type="text" class="form-control " name="coordinate" placeholder="ภารกิจด้านประสานแผนงานพัฒนาพื้นที่และงบประมาณ" value="{{$resultID->coordinate}}" />
+                        </div>
+
+                        <div class="col-lg-12  margin_top">
+                            <label>3.1 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other3" placeholder="อื่นๆ:" value="{{$resultID->other3}}"/>
                         </div>
                 
                 
@@ -598,6 +613,11 @@
                             <label>4.3 ผู้สูงอายุ :</label>
                             <input type="text" class="form-control " name="elder" placeholder="ผู้สูงอายุ"  value="{{$resultID->elder}}" />
                         </div>
+
+                        <div class="col-lg-12  margin_top">
+                            <label>4.4 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other4" placeholder="อื่นๆ:" value="{{$resultID->other4}}"/>
+                        </div>
                         
                 
                 
@@ -607,10 +627,20 @@
                             <label>5.1 สถานการณ์เด็กหลุดจากระบบการศึกษา :</label>
                             <input type="text" class="form-control " name="education" placeholder="สถานการณ์เด็กหลุดจากระบบการศึกษา" value="{{$resultID->education}}"/>
                         </div>
+
+                        <div class="col-lg-12  margin_top">
+                            <label>5.2 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other5" placeholder="อื่นๆ:" value="{{$resultID->other5}}"/>
+                        </div>
                         
                         <div class="col-lg-12  margin_top">
                             <label>6. กลุ่มภารกิจด้านอำนวยการและการบริหาร(ปลัดอำเภอผู้เป้นหัวหน้าประจำตำบล):</label>
                             <input type="text" class="form-control " name="executive" placeholder="กลุ่มภารกิจด้านอำนวยการและการบริหาร" value="{{$resultID->executive}}" />
+                        </div>
+
+                        <div class="col-lg-12  margin_top">
+                            <label>6.1 อื่นๆ:</label>
+                            <input type="text" class="form-control " name="other6" placeholder="อื่นๆ:" value="{{$resultID->other6}}"/>
                         </div>
                 
                         <div class="col-lg-12  margin_top">

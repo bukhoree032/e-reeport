@@ -102,7 +102,7 @@
 
                         <div class="col-lg-12  margin_top">
                             <label>1.4 อื่นๆ:</label>
-                            <input type="text" class="form-control " name="other1" placeholder="การปฏิบัติหน้าที่เวรยาม" />
+                            <input type="text" class="form-control " name="other1" placeholder="อื่นๆ:" />
                         </div>
 
 
@@ -153,7 +153,7 @@
 
                         <div class="col-lg-12  margin_top">
                             <label>3.1 อื่นๆ:</label>
-                            <input type="text" class="form-control " name="other3" placeholder="การปฏิบัติหน้าที่เวรยาม" />
+                            <input type="text" class="form-control " name="other3" placeholder="อื่นๆ:" />
                         </div>
 
 
@@ -175,7 +175,7 @@
 
                         <div class="col-lg-12  margin_top">
                             <label>4.4 อื่นๆ:</label>
-                            <input type="text" class="form-control " name="other4" placeholder="การปฏิบัติหน้าที่เวรยาม" />
+                            <input type="text" class="form-control " name="other4" placeholder="อื่นๆ:" />
                         </div>
                         
 
@@ -189,7 +189,7 @@
 
                         <div class="col-lg-12  margin_top">
                             <label>5.2 อื่นๆ:</label>
-                            <input type="text" class="form-control " name="other5" placeholder="การปฏิบัติหน้าที่เวรยาม" />
+                            <input type="text" class="form-control " name="other5" placeholder="อื่นๆ:" />
                         </div>
                         
                         <div class="col-lg-12  margin_top">
@@ -199,7 +199,7 @@
 
                         <div class="col-lg-12  margin_top">
                             <label>6.1 อื่นๆ:</label>
-                            <input type="text" class="form-control " name="other6" placeholder="การปฏิบัติหน้าที่เวรยาม" />
+                            <input type="text" class="form-control " name="other6" placeholder="อื่นๆ:" />
                         </div>
 
 
