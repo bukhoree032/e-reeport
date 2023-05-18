@@ -34,6 +34,13 @@ class MeetingController extends UploadeFileController
         $page_description = '';
 
         $db = "meeting";
+
+        $activity = $this->ActivityRepository->ShowActivity(auth::user()->id,'activity');
+        if(isset($activity[0])){
+            $data['activity'] = 'y';
+        }else{
+            $data['activity'] = 'n';
+        }
         
         $data['result'] = $this->Repository->index($db,Auth::user()->id);
 

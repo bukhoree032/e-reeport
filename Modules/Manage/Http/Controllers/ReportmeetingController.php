@@ -36,6 +36,13 @@ class ReportmeetingController extends UploadeFileController
 
         $db = "reportmeeting";
         
+        $activity = $this->ActivityRepository->ShowActivity(auth::user()->id,'activity');
+        if(isset($activity[0])){
+            $data['activity'] = 'y';
+        }else{
+            $data['activity'] = 'n';
+        }
+        
         $data['result'] = $this->Repository->index($db,auth::user()->id);
         
         return view('manage::reeportmeeting.manage_report', compact('page_title', 'page_description'),$data);

@@ -8,8 +8,13 @@
 </h4>
 <div class="card-toolbar">
     <!--begin::Button-->
-    <a href="{{ route('manage.create.meeting') }}" class="btn btn-primary font-weight-bolder">
-    <i class="la la-plus"></i>เพิ่ม</a>
+    @if($activity == 'y')
+      <a href="{{ route('manage.create.meeting') }}" class="btn btn-primary font-weight-bolder">
+      <i class="la la-plus"></i>เพิ่ม</a>
+    @else
+      <a href="#" class="btn btn-danger font-weight-bolder" style="cursor: not-allowed;">
+      <i class="la la-plus"></i>กรุณาเพิ่มกิจกรรมก่อน</a>
+    @endif
     <!--end::Button-->
 </div>
 <br>
