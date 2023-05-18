@@ -97,8 +97,6 @@ class CreateMeetingTable extends Migration
             $table->text('unrest')->nullable();
             $table->text('guard')->nullable();
             $table->text('other1')->nullable();
-            $table->text('strength')->nullable();
-            $table->text('picture')->nullable();
             $table->text('other2')->nullable();
             $table->text('government')->nullable();
             $table->text('other3')->nullable();

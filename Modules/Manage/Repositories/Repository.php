@@ -10,6 +10,7 @@ use Modules\Manage\Entities\Flowers;
 use Modules\Manage\Entities\Farmes;
 use Modules\Manage\Entities\Meeting;
 use Modules\Manage\Entities\Activity;
+use Modules\Manage\Entities\Activitymeeting;
 
 use Illuminate\Support\Str;
 use App\Http\Controllers\UploadeFileController;
@@ -23,6 +24,7 @@ class Repository
         $this->classModelFarmes = Farmes::class;
         $this->classModelMeeting = Meeting::class;
         $this->classModelActivity = Activity::class;
+        $this->classModelActivitymeeting = Activitymeeting::class;
     }
 
     /**
@@ -111,9 +113,14 @@ class Repository
      */
     public function insert($request,$db)
     {
-        $request['no_meeting'] = serialize($request['no_meeting']);
-        $request['p_meeting'] = serialize($request['p_meeting']);
-        
+        if(isset($request['no_meeting'])){
+            $request['no_meeting'] = serialize($request['no_meeting']);
+        }
+
+        if(isset($request['p_meeting'])){
+            $request['p_meeting'] = serialize($request['p_meeting']);
+        }
+
         $insert = $this->$db::create($request);
         
         return $insert;

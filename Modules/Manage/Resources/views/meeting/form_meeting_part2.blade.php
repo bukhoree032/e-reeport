@@ -110,16 +110,22 @@
 
                         <div class="col-lg-12  margin_top">
                             <label>2.1 โครงการเสริมสร้างความเข้มแข็งให้กับตำบล (ศอ.บต.):</label>
-                            <input type="text" class="form-control " name="strength" placeholder="โครงการเสริมสร้างความเข้มแข็งให้กับตำบล" />
                         </div>
-                        
-                        <div class="col-lg-12" style="margin-top: 20px">
-                            
-                            <div class="input-group">
-                                <input type="file" class="form-control" name="pictures[]" id="inputGroupFile02" multiple="multiple">
-                                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                        @foreach($result as $key => $value)
+                            <div class="col-lg-12  margin_top">
+                                <label>2.1.{{$key+1}} กิจกรรม{{$value->name}}:</label>
+                                <input type="text" class="form-control " name="strength[{{$key}}][id_ac]" value="{{$value->id}}" hidden/>
+                                <input type="text" class="form-control " name="strength[{{$key}}][strength]" placeholder="โครงการเสริมสร้างความเข้มแข็งให้กับตำบล" />
                             </div>
-                        </div>
+                            
+                            <div class="col-lg-12" style="margin-top: 20px">
+                                
+                                <div class="input-group">
+                                    <input type="file" class="form-control" name="strength[{{$key}}][pictures][]" id="inputGroupFile{{$key}}" multiple="multiple">
+                                    <label class="input-group-text" for="inputGroupFile{{$key}}">Upload</label>
+                                </div>
+                            </div>
+                        @endforeach
                         {{-- <div class="col-lg-12" style="margin-top: 20px">
                             <div class="field" align="left">
                                 <input type="file" style="display:none" id="upload-images" name="pictures[]" multiple="multiple"></input>

@@ -90,8 +90,6 @@ class Meeting extends Model
         'unrest',
         'guard',
         'other1',
-        'strength',
-        'picture',
         'government',
         'other2',
         'coordinate',

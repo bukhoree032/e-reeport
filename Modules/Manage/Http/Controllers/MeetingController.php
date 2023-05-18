@@ -6,7 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Manage\Repositories\Repository as Repository;
-use Modules\Manage\Repositories\FarmesRepository as FarmesRepository;
+use Modules\Manage\Repositories\ActivityRepository as ActivityRepository;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -17,11 +17,11 @@ class MeetingController extends UploadeFileController
 {
     protected $Repository;
 
-    public function __construct(Repository $Repository,FarmesRepository $FarmesRepository)
+    public function __construct(Repository $Repository,ActivityRepository $ActivityRepository)
     {
         $this->middleware('auth');
         $this->Repository = $Repository;
-        $this->FarmesRepository = $FarmesRepository;
+        $this->ActivityRepository = $ActivityRepository;
     }
 
     /**
@@ -122,10 +122,10 @@ class MeetingController extends UploadeFileController
         $page_title = 'บันทึกการประชุม';
         $page_description = '';
         
+        $data['result'] = $this->ActivityRepository->ShowActivity(auth::user()->id,'activity');
         // $data['resultID'] = $this->FarmesRepository->ShowId($id,'farmes');
         $data['ID'] = $id;
 
-        $data['result'] = $this->Repository->show('flowers');
         $data['resultAmphures'] = $this->Repository->show('amphures');
         $data['resultProvinces'] = $this->Repository->show('provinces');
         $data['resultDistricts'] = $this->Repository->districts('provinces');
@@ -133,24 +133,48 @@ class MeetingController extends UploadeFileController
         return view('manage::meeting.form_meeting_part2', compact('page_title', 'page_description'),$data);
     }
 
-    public function insertMeeting2(Request $request,$id)
+    public function insertMeeting2(Request $request, $id)
     {
         $page_title = 'เพิ่มข้อมูลร้านค้า';
         $page_description = '';
 
-        $uploade = new UploadeFileController();
-        if (!empty($request['pictures'])) {
-            foreach ($request['pictures'] as $key => $value) {
-                $picture[$key] = $uploade->uploadImage(
-                    $value,
-                    'meeting',
-                    Str::random(5)
-                );
-            }
-            $request['picture'] = serialize($picture);
-        }
+        $data['result'] = $this->Repository->update($request->all(), $id, 'classModelMeeting');
 
-        $data['result'] = $this->Repository->update($request->all(),$id,'classModelMeeting');
+        $uploade = new UploadeFileController();
+        foreach ($request->strength as $keyarr => $valuearr) {
+
+            $ac_mee[$keyarr]['id_meet'] = $id;
+            $ac_mee[$keyarr]['id_ac'] = $valuearr['id_ac'];
+            $ac_mee[$keyarr]['strength'] = $valuearr['strength'];
+            
+            if (!empty($valuearr['pictures'])) {
+                foreach ($valuearr['pictures'] as $key => $value) {
+                    $picture = $uploade->uploadImage(
+                        $value,
+                        'meeting',
+                        Str::random(5)
+                    );
+                    $ac_mee[$keyarr]['picture_meet'][$key] = $picture;
+                }
+            }
+        }
+        foreach ($ac_mee as $key => $value) {
+
+            if(isset($value['picture_meet'])){
+                $value['picture_meet'] = serialize($value['picture_meet']);
+            }else{
+                $value['picture_meet'] = '';
+            }
+            $value['picture_meet'] = serialize($value['picture_meet']);
+
+            $insertDb = \DB::table('activitymeeting')->insert([
+                'id_meet' => $value['id_meet'],
+                'id_ac' => $value['id_ac'],
+                'strength' => $value['strength'],
+                'picture_meet' => $value['picture_meet'],
+                
+            ]);
+        }
 
         return redirect()->route('index.meeting');
     }
