@@ -141,17 +141,17 @@
 
     <table class="dd">
         <td style="width:50px;"></td> 
-        <td >{{$resultID->district}} </td> 
+        <td >{{$resultID->agenda1}} </td> 
     </table><br>
 
     <table>
         <td style="width:100px;">ระเบียบวาระที่ ๒ </td> 
-        <td>การรับรองรายงานการประชุมครั้งที่ {{$resultID->district}}/{{$resultID->district}} วันที่{{$resultID->district}}เดือน{{$resultID->district}}พ.ศ.{{$resultID->district}} (กรณีการประชุมครั้งที่ 2 เป็นต้นไป)</td> 
+        <td>การรับรองรายงานการประชุมครั้งที่ {{$resultID->r_meet_no}}/{{$resultID->r_meeting_year}} วันที่{{$resultID->r_meeting_date}}เดือน{{$resultID->r_meeting_date}}พ.ศ.{{$resultID->r_meeting_date}} (กรณีการประชุมครั้งที่ 2 เป็นต้นไป)</td> 
     </table><br>
 
     <table>
         <td style="width:100px;">มติที่ประชุม </td> 
-        <td>รับรอง/แก้ไขเรื่อง {{$resultID->district}}(กรณีมีการแก้ไข)</td> 
+        <td>รับรอง/แก้ไขเรื่อง {{$resultID->r_meet_edit}}(กรณีมีการแก้ไข)</td> 
     </table><br>
 
     <table>
@@ -171,7 +171,7 @@
 
     <table>
         <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
+        <td>{{$resultID->narcotics}}</td> 
     </table>
 
     <table>
@@ -181,7 +181,7 @@
 
     <table>
         <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
+        <td>{{$resultID->unrest}}</td> 
     </table>
 
 
@@ -192,7 +192,17 @@
 
     <table>
         <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
+        <td>{{$resultID->guard}}</td> 
+    </table>
+
+    <table>
+        <td style="width:120px;"></td> 
+        <td>๑.๔ อื่น ๆ</td> 
+    </table>
+
+    <table>
+        <td style="width:120px;"></td> 
+        <td>{{$resultID->other1}}</td> 
     </table>
 
     <table>
@@ -209,7 +219,6 @@
         <td>{{$resultID->district}}</td> 
     </table>
 
-
     <table>
         <td style="width:120px;"></td> 
         <td>๒.๒ โครงการของส่วนราชการในตำบล</td> 
@@ -221,13 +230,33 @@
     </table>
 
     <table>
+        <td style="width:120px;"></td> 
+        <td>๒.๓ อื่นๆ </td> 
+    </table>
+
+    <table>
+        <td style="width:120px;"></td> 
+        <td>{{$resultID->other2}}</td> 
+    </table>
+
+    <table>
         <td style="width:100px;"></td> 
         <td>๓.ภารกิจด้านประสานแผนงานพัฒนาพื้นที่และงบประมาณ (ปลัด อปท)</td> 
     </table>
 
     <table>
         <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
+        <td>{{$resultID->government}}</td> 
+    </table>
+
+    <table>
+        <td style="width:120px;"></td> 
+        <td>๓.๑ อื่นๆ </td> 
+    </table>
+
+    <table>
+        <td style="width:120px;"></td> 
+        <td>{{$resultID->other3}}</td> 
     </table>
 
     <table>
@@ -242,7 +271,7 @@
 
     <table>
         <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
+        <td>{{$resultID->covid}}</td> 
     </table>
 
     <table>
@@ -252,7 +281,7 @@
 
     <table>
         <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
+        <td>{{$resultID->home}}</td> 
     </table>
 
     <table>
@@ -262,33 +291,17 @@
 
     <table>
         <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
-    </table>
-
-
-    <table>
-        <td style="width:100px;"></td> 
-        <td>๕.ภารกิจด้านการพัฒนาสังคม สาธารณสุขและสิ่งแวดล้อม (ผอ.รพ.สต.)</td> 
+        <td>{{$resultID->elder}}</td> 
     </table>
 
     <table>
         <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
-    </table>
-
-    <table>
-        <td style="width:100px;"></td> 
-        <td>๕.ภารกิจด้านการพัฒนาสังคม สาธารณสุขและสิ่งแวดล้อม (ผอ.รพ.สต.)</td> 
+        <td>๔.๔ อื่นๆ </td> 
     </table>
 
     <table>
         <td style="width:120px;"></td> 
-        <td>๔.๑ สถานการณ์เด็กหลุดจากระบบการศึกษา </td> 
-    </table>
-
-    <table>
-        <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
+        <td>{{$resultID->other4}}</td> 
     </table>
 
     <table>
@@ -298,8 +311,25 @@
 
     <table>
         <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
+        <td>๕.๑ สถานการณ์เด็กหลุดจากระบบการศึกษา </td> 
     </table>
+
+    <table>
+        <td style="width:120px;"></td> 
+        <td>{{$resultID->education}}</td> 
+    </table>
+
+    <table>
+        <td style="width:120px;"></td> 
+        <td>๕.๒ อื่นๆ </td> 
+    </table>
+
+    <table>
+        <td style="width:120px;"></td> 
+        <td>{{$resultID->other5}}</td> 
+    </table>
+
+   
 
     <table>
         <td style="width:100px;"></td> 
@@ -308,8 +338,18 @@
 
     <table>
         <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
+        <td>{{$resultID->executive}}</td> 
     </table><br>
+
+    <table>
+        <td style="width:120px;"></td> 
+        <td>๖.๑ อื่นๆ </td> 
+    </table>
+
+    <table>
+        <td style="width:120px;"></td> 
+        <td>{{$resultID->other6}}</td> 
+    </table>
 
     <table>
         <td style="width:100px;">มติที่ประชุม </td> 
@@ -323,7 +363,7 @@
 
     <table>
         <td style="width:120px;"></td> 
-        <td>๑ เรื่อง {{$resultID->district}}</td> 
+        <td>๑ เรื่อง {{$resultID->agenda4}}</td> 
     </table>
 
     <table>
@@ -331,25 +371,9 @@
     </table>
 
     <table> 
-        <td>{{$resultID->district}}</td> 
+        <td>{{$resultID->resolution4}}</td> 
     </table><br>
 
-    <table>
-        <td style="width:120px;"></td> 
-        <td>๒ เรื่อง{{$resultID->district}}</td> 
-    </table>
-
-    <table>
-        <td style="width:120px;"><h5>มติที่ประชุม</h5></td>
-    </table>
-
-    <table> 
-        <td>{{$resultID->district}}</td> 
-    </table><br>
-
-
-
-   
     <table>
         <td style="width:120px;"><h5>ระเบียบวาระที่ ๕</h5></td>
         <td>เรื่องอื่น ๆ </td> 
@@ -357,7 +381,7 @@
 
     <table>
         <td style="width:120px;"></td> 
-        <td>{{$resultID->district}}</td> 
+        <td>{{$resultID->agenda5}}</td> 
     </table>
 
     <table>
@@ -365,26 +389,26 @@
     </table>
 
     <table> 
-        <td>{{$resultID->district}}</td> 
+        <td>{{$resultID->resolution5}}</td> 
     </table><br>
 
     <table>
         <td style="width:120px;"><h5>ระเบียบวาระที่ ๖</h5></td>
-        <td>ข้อสั่งการ/ปิดการประชุม{{$resultID->district}}</td> 
+        <td>ข้อสั่งการ/ปิดการประชุม{{$resultID->agenda6}}</td> 
     </table>
 
-    <h5>ปิดการประชุมเวลา{{$resultID->district}} น.</h5><br>
+    <h5>ปิดการประชุมเวลา{{$resultID->end_meet}} น.</h5><br>
 
     <br>
   <br>
   <table class="dd">
     <td style="width: 500px;"></td> 
-    <td>ลงชื่อ.....{{$resultID->district}}{{$resultID->district}}..{{$resultID->district}}............ผู้จดบันทึกการประชุม</td>
+    <td>ลงชื่อ.................ผู้จดบันทึกการประชุม</td>
   </table>
 
   <table class="dd">
     <td style="width: 500px;"></td> 
-    <td>(..................................................................................)</td>
+    <td>({{$resultID->name_record}})</td>
   </table>
   <table class="dd">
     <td style="width: 550px;"></td> 
@@ -393,11 +417,49 @@
 
   <table class="dd">
     <td style="width: 500px;"></td> 
-    <td>.........................../......................../........................</td>
+    <td>{{$resultID->position_record}}</td>
+  </table>
+
+  <br>
+  <table class="dd">
+    <td style="width: 500px;"></td> 
+    <td>ลงชื่อ.................ผู้ตรวจรายงานการประชุม</td>
+  </table>
+
+  <table class="dd">
+    <td style="width: 500px;"></td> 
+    <td>({{$resultID->name_reporter}})</td>
+  </table>
+  <table class="dd">
+    <td style="width: 550px;"></td> 
+    <td></td>
+  </table>
+
+  <table class="dd">
+    <td style="width: 500px;"></td> 
+    <td>{{$resultID->position_reporter}}</td>
+  </table>
+
+  <br>
+  <table class="dd">
+    <td style="width: 500px;"></td> 
+    <td>ลงชื่อ.................ผู้รับรองการประชุม</td>
+  </table>
+
+  <table class="dd">
+    <td style="width: 500px;"></td> 
+    <td>({{$resultID->name_guarantee}})</td>
+  </table>
+  <table class="dd">
+    <td style="width: 550px;"></td> 
+    <td></td>
+  </table>
+
+  <table class="dd">
+    <td style="width: 500px;"></td> 
+    <td>{{$resultID->position_guarantee}}</td>
   </table>
     
-
-
 
 </div>
 <script> 
