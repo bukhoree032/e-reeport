@@ -143,6 +143,18 @@ class Repository
      * @param $id
      * @return mixed
      */
+    public function updateAll($request,$id,$db)
+    {
+        $result = $this->$db::findOrFail($id);
+        $data = $result->update($request);
+
+        return $data;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function update($request,$id,$db)
     {
         if($request['yesno'] == 'n'){

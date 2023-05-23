@@ -358,15 +358,6 @@
                                 </div>
                             </div>
                         @endforeach
-                        <div class="col-lg-12" style="margin-top: 20px">
-                            <div class="field" align="left">
-                                <input type="file" style="display:none" id="upload-images" name="pictures[]" multiple="multiple"></input>
-                                <div id="uploads" class="drop-areas">
-                                    เพิ่มรูปภาพกลุ่มทั้งหมด +
-                                </div>
-                                <div id="thumbnails"></div>
-                            </div>
-                        </div> 
                         <label>2.2 โครงการของส่วนราชการในตำบล:</label>
                         <div class="col-lg-12">
                                 <input class="form-check-input" type="radio" value="y" onclick="javascript:b2();" name="yesnob2" id="yesCheckb2" />

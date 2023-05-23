@@ -99,6 +99,8 @@ class MeetingController extends UploadeFileController
 
         $data['resultID'] = $this->Repository->ShowId($id,'meeting');
 
+        $data['activitymeeting'] = $this->Repository->ShowIdAll('id_meet',$id,'activitymeeting');
+
         $data['resultID']->no_meeting = unserialize($data['resultID']->no_meeting);
         $data['resultID']->p_meeting = unserialize($data['resultID']->p_meeting);
 
@@ -119,8 +121,17 @@ class MeetingController extends UploadeFileController
         $request['no_meeting'] = serialize($request['no_meeting']);
         $request['p_meeting'] = serialize($request['p_meeting']);
 
-        $data['result'] = $this->Repository->update($request->all(),$id,'classModelMeeting');
-        
+        $data['result'] = $this->Repository->updateAll($request->all(),$id,'classModelMeeting');
+
+        foreach ($request->strength as $key => $value) {
+
+            $result = \DB::table('activitymeeting')
+                        ->where('id_ac_meet', $value['id_ac_meet'])
+                        ->update([
+                            'strength' => $value['strength'],
+                    ]);
+        }
+
         return redirect()->route('index.meeting');
     }
     

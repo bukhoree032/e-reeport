@@ -12,6 +12,7 @@ class Activity_meeting extends Model
         'id_ac_meet',
         'id_meet',
         'id_ac',
+        'name_ac',
         'strength',
         'picture_meet',
     ];
