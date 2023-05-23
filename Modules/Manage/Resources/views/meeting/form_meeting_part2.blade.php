@@ -236,7 +236,7 @@
                     <div class="col-lg-4  margin_top">
                         <label>ระเบียบวาระที่ 2 ประชุมครั้งที่:</label>
                             <select id="pro" class="form-control" name="r_meet_no" style="width: 100%;">
-                                <option selected>--ประชุมครั้งที่--</option>
+                                <option value="" selected>--ประชุมครั้งที่--</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -252,7 +252,7 @@
                         <div class="col-lg-4  margin_top">
                             <label>ประชุมปี:</label>
                             <select id="pro" class="form-control" name="r_meeting_year" style="width: 100%;">
-                                <option selected>--ประชุมครั้งที่--</option>
+                                <option value="" selected>--ประชุมครั้งที่--</option>
                                 <option value="2560">2560</option>
                                 <option value="2561">2561</option>
                                 <option value="2562">2562</option>
@@ -285,9 +285,9 @@
                         <label>1.1 สถานการณ์ยาเสพติด:</label>
                         <div class="col-lg-12  margin_top">
                             <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:a();" name="yesno" id="yesCheck" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:a();" name="yesno" id="yesCheck" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:a();" name="yesno" id="noCheck" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:a();" name="yesno" id="noCheck" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             </div>
                             <div id="ifYes" style="visibility:hidden"class="col-lg-12 ">
@@ -298,9 +298,9 @@
                         <label>1.2 สถานการณ์ความไม่สงบ :</label>
                         <div class="col-lg-12  margin_top">
                             <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:a1();" name="yesno1" id="yesCheck1" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:a1();" name="yesno1" id="yesCheck1" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:a1();" name="yesno1" id="noChec1k" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:a1();" name="yesno1" id="noChec1k" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             </div>
                             <div id="ifYes1" style="visibility:hidden"class="col-lg-12 ">
@@ -311,9 +311,9 @@
                         <label>1.3 การปฏิบัติหน้าที่เวรยาม:</label>
                         <div class="col-lg-12  margin_top">
                             <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:a2();" name="yesno2" id="yesCheck2" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:a2();" name="yesno2" id="yesCheck2" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:a2();" name="yesno2" id="noCheck2" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:a2();" name="yesno2" id="noCheck2" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             </div>
                             <div id="ifYes2" style="visibility:hidden"class="col-lg-12 ">
@@ -324,9 +324,9 @@
                         <label>1.4 อื่นๆ:</label>
                         <div class="col-lg-12  margin_top">
                             <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:a3();" name="yesno3" id="yesCheck3" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:a3();" name="yesno3" id="yesCheck3" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:a3();" name="yesno3" id="noCheck3" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:a3();" name="yesno3" id="noCheck3" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             </div>
                             <div id="ifYes3" style="visibility:hidden"class="col-lg-12 ">
@@ -346,6 +346,7 @@
                             <div class="col-lg-12  margin_top">
                                 <label>2.1.{{$key+1}} กิจกรรม{{$value->name}}:</label>
                                 <input type="text" class="form-control " name="strength[{{$key}}][id_ac]" value="{{$value->id}}" hidden/>
+                                <input type="text" class="form-control " name="strength[{{$key}}][name_ac]" value="{{$value->name}}" hidden/>
                                 <input type="text" class="form-control " name="strength[{{$key}}][strength]" placeholder="โครงการเสริมสร้างความเข้มแข็งให้กับตำบล" />
                             </div>
                             
@@ -368,9 +369,9 @@
                         </div> 
                         <label>2.2 โครงการของส่วนราชการในตำบล:</label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:b2();" name="yesnob2" id="yesCheckb2" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:b2();" name="yesnob2" id="yesCheckb2" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:b2();" name="yesnob2" id="noCheckb2" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:b2();" name="yesnob2" id="noCheckb2" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYesb2" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="government" placeholder="โครงการของส่วนราชการในตำบล" />
@@ -379,9 +380,9 @@
 
                         <label>2.3 อื่นๆ:</label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:b3();" name="yesnob3" id="yesCheckb3" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:b3();" name="yesnob3" id="yesCheckb3" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:b3();" name="yesnob3" id="noCheckb3" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:b3();" name="yesnob3" id="noCheckb3" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYesb3" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="other2" placeholder="อื่นๆ" />
@@ -390,9 +391,9 @@
 
                         <label><b>3. ภารกิจด้านประสานแผนงานพัฒนาพื้นที่และงบประมาณ (ปลัด อปท.):</b></label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:c1();" name="yesnoc1" id="yesCheckc1" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:c1();" name="yesnoc1" id="yesCheckc1" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:c1();" name="yesnoc1" id="noCheckc1" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:c1();" name="yesnoc1" id="noCheckc1" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYesc1" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="coordinate" placeholder="ภารกิจด้านประสานแผนงานพัฒนาพื้นที่และงบประมาณ" />
@@ -401,9 +402,9 @@
 
                         <label>3.1 อื่นๆ:</label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:c2();" name="yesnoc2" id="yesCheckc2" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:c2();" name="yesnoc2" id="yesCheckc2" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:c2();" name="yesnoc2" id="noCheckc2" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:c2();" name="yesnoc2" id="noCheckc2" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYesc2" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="other3" placeholder="อื่นๆ" />
@@ -414,9 +415,9 @@
 
                         <label>4.1 สถานการณ์สุขอนามัย(โควิด 19 และอื่นๆ):</label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:d1();" name="yesnod1" id="yesCheckd1" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:d1();" name="yesnod1" id="yesCheckd1" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:d1();" name="yesnod1" id="noCheckd1" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:d1();" name="yesnod1" id="noCheckd1" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYesd1" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="covid" placeholder="สถานการณ์สุขอนามัย" />
@@ -425,9 +426,9 @@
 
                         <label>4.2 บ้าน/ซ่อมบ้าน (ส่งต่อ พอช.):</label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:d2();" name="yesnod2" id="yesCheckd2" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:d2();" name="yesnod2" id="yesCheckd2" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:d2();" name="yesnod2" id="noCheckd2" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:d2();" name="yesnod2" id="noCheckd2" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYesd2" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="home" placeholder="บ้าน/ซ่อมบ้าน (ส่งต่อ พอช.)" />
@@ -436,9 +437,9 @@
 
                         <label>4.3 ผู้สูงอายุ :</label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:d3();" name="yesnod3" id="yesCheckd3" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:d3();" name="yesnod3" id="yesCheckd3" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:d3();" name="yesnod3" id="noCheckd3" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:d3();" name="yesnod3" id="noCheckd3" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYesd3" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="elder" placeholder="ผู้สูงอายุ" />
@@ -447,9 +448,9 @@
 
                         <label>4.4 อื่นๆ:</label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:d4();" name="yesnod4" id="yesCheckd4" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:d4();" name="yesnod4" id="yesCheckd4" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:d4();" name="yesnod4" id="noCheckd4" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:d4();" name="yesnod4" id="noCheckd4" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYesd4" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="other4" placeholder="อื่นๆ:" />
@@ -460,9 +461,9 @@
                         <label class="  margin_top"><b>5. ภารกิจการพัฒนาการศึกษา ศาสนาและวัฒนธรรม (ครู อาสา กศน.):</b></label><br>
                         <label>5.1 สถานการณ์เด็กหลุดจากระบบการศึกษา :</label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:e1();" name="yesnoe1" id="yesChecke1" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:e1();" name="yesnoe1" id="yesChecke1" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:e1();" name="yesnoe1" id="noChecke1" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:e1();" name="yesnoe1" id="noChecke1" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYese1" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="education" placeholder="สถานการณ์เด็กหลุดจากระบบการศึกษา" />
@@ -471,9 +472,9 @@
                         
                         <label>5.2 อื่นๆ:</label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:e2();" name="yesnoe2" id="yesChecke2" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:e2();" name="yesnoe2" id="yesChecke2" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:e2();" name="yesnoe2" id="noChecke2" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:e2();" name="yesnoe2" id="noChecke2" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYese2" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="other5" placeholder="อื่นๆ:" />
@@ -483,9 +484,9 @@
 
                         <label><b>6.กลุ่มภารกิจด้านอำนวยการและการบริหาร(ปลัดอำเภอผู้เป้นหัวหน้าประจำตำบล):</b></label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:f1();" name="yesnof1" id="yesCheckf1" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:f1();" name="yesnof1" id="yesCheckf1" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:f1();" name="yesnof1" id="noCheckf1" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:f1();" name="yesnof1" id="noCheckf1" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYesf1" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="executive" placeholder="กลุ่มภารกิจด้านอำนวยการและการบริหาร" />
@@ -494,9 +495,9 @@
 
                         <label>6.1 อื่นๆ:</label>
                         <div class="col-lg-12">
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:f2();" name="yesnof2" id="yesCheckf2" />
+                                <input class="form-check-input" type="radio" value="y" onclick="javascript:f2();" name="yesnof2" id="yesCheckf2" />
                                 <label class="form-check-label" for="secure"> มี</label>
-                                <input class="form-check-input" type="radio" value="" onclick="javascript:f2();" name="yesnof2" id="noCheckf2" />
+                                <input class="form-check-input" type="radio" value="n" onclick="javascript:f2();" name="yesnof2" id="noCheckf2" />
                                 <label class="form-check-label" for="secure2"> ไม่มี</label>
                             <div id="ifYesf2" style="visibility:hidden"class="col-lg-12 ">
                             <input type="text" class="form-control " name="other6" placeholder="อื่นๆ:" />

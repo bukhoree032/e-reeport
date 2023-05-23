@@ -152,6 +152,7 @@ class MeetingController extends UploadeFileController
 
             $ac_mee[$keyarr]['id_meet'] = $id;
             $ac_mee[$keyarr]['id_ac'] = $valuearr['id_ac'];
+            $ac_mee[$keyarr]['name_ac'] = $valuearr['name_ac'];
             $ac_mee[$keyarr]['strength'] = $valuearr['strength'];
             
             if (!empty($valuearr['pictures'])) {
@@ -166,7 +167,6 @@ class MeetingController extends UploadeFileController
             }
         }
         foreach ($ac_mee as $key => $value) {
-
             if(isset($value['picture_meet'])){
                 $value['picture_meet'] = serialize($value['picture_meet']);
             }else{
@@ -177,6 +177,7 @@ class MeetingController extends UploadeFileController
             $insertDb = \DB::table('activitymeeting')->insert([
                 'id_meet' => $value['id_meet'],
                 'id_ac' => $value['id_ac'],
+                'name_ac' => $value['name_ac'],
                 'strength' => $value['strength'],
                 'picture_meet' => $value['picture_meet'],
                 
@@ -192,6 +193,8 @@ class MeetingController extends UploadeFileController
         $page_description = '';
         
         $data['resultID'] = $this->Repository->ShowId($id,'meeting');
+
+        $data['activitymeeting'] = $this->Repository->ShowIdAll('id_meet',$id,'activitymeeting');
 
         $data['resultID']->no_meeting = unserialize($data['resultID']->no_meeting);
         $data['resultID']->p_meeting = unserialize($data['resultID']->p_meeting);

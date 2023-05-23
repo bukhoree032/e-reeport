@@ -76,6 +76,19 @@ class Repository
      * @param $id
      * @return mixed
      */
+    public function ShowIdAll($colum,$id,$db)
+    {
+        $data = \DB::table($db)
+                        ->where($colum,$id)
+                        ->get();
+        return $data;
+    }
+
+
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function districts()
     {
         $data = \DB::table('districts')
@@ -132,6 +145,66 @@ class Repository
      */
     public function update($request,$id,$db)
     {
+        if($request['yesno'] == 'n'){
+            $request['narcotics'] = null;
+        }
+        if($request['yesno1'] == 'n'){
+            $request['unrest'] = null;
+        }
+        if($request['yesno2'] == 'n'){
+            $request['guard'] = null;
+        }
+        if($request['yesno3'] == 'n'){
+            $request['other1'] = null;
+        }
+
+        
+        if($request['yesnob2'] == 'n'){
+            $request['government'] = null;
+        }
+        if($request['yesnob2'] == 'n'){
+            $request['government'] = null;
+        }
+        if($request['yesnob3'] == 'n'){
+            $request['other2'] = null;
+        }
+
+        
+        if($request['yesnoc1'] == 'n'){
+            $request['coordinate'] = null;
+        }
+        if($request['yesnoc2'] == 'n'){
+            $request['other3'] = null;
+        }
+
+
+        if($request['yesnod1'] == 'n'){
+            $request['covid'] = null;
+        }
+        if($request['yesnod2'] == 'n'){
+            $request['home'] = null;
+        }
+        if($request['yesnod3'] == 'n'){
+            $request['elder'] = null;
+        }
+        if($request['yesnod4'] == 'n'){
+            $request['other4'] = null;
+        }
+
+        if($request['yesnoe1'] == 'n'){
+            $request['education'] = null;
+        }
+        if($request['yesnoe2'] == 'n'){
+            $request['other5'] = null;
+        }
+
+        if($request['yesnof1'] == 'n'){
+            $request['executive'] = null;
+        }
+        if($request['yesnof2'] == 'n'){
+            $request['other6'] = null;
+        }
+        
         $result = $this->$db::findOrFail($id);
         $data = $result->update($request);
 
