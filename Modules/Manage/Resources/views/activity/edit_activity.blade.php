@@ -18,7 +18,7 @@
 </style>
 {{-- Dashboard 1 --}}
 <div class="row">
-    <div class="col-lg-6 col-xxl-12">
+    <div class="col-lg-12 col-xxl-12">
         <!--begin::Card-->
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
