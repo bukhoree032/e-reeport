@@ -31,7 +31,8 @@
       </thead>
       <tbody class="table-border-bottom-0">
         @foreach ($result as $item =>$value)
-          <tr><td>{{ $item+1 }}</td>
+          <tr>
+            <td>{{ $item+1 }}</td>
             <td>{{ $value->name}}</td>
             <td>{{ $value->numberpeople}}</td>
             <td>{{ $value->budget}}</td>
@@ -48,6 +49,21 @@
             </td>
           </tr>    
         @endforeach
+
+        @if(isset($item) && $item < 3)
+          <tr>
+            <td><i class="fa-lg text-primary me-3"></i></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><i class="fa-lg text-primary me-3"></i></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td><i class="fa-lg text-primary me-3"></i></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+        @endif
       </tbody>
     </table>
   </div>
