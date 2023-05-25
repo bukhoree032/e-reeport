@@ -29,8 +29,8 @@
           <form id="formAuthentication" class="mb-3" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-              <label for="name" class="form-label">บัญชีผู้ใช้</label>
-              <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+              <label for="name" class="form-label">ชื่อ - นามสกุล</label>
+              <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required placeholder="ชื่อ - นามสกุล" autocomplete="name" autofocus>
 
               @error('name')
                   <span class="invalid-feedback" role="alert">
@@ -39,9 +39,19 @@
               @enderror
             </div>
             <div class="mb-3">
+              <label for="tel" class="form-label">เบอร์โทรศัพท์</label>
+              <input id="tel" type="text" class="form-control @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel') }}" required placeholder="เบอร์โทรศัพท์" autocomplete="tel" autofocus>
+
+              @error('tel')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+            </div>
+            <div class="mb-3">
               <label for="email" class="form-label">อีเมล์</label>
               
-              <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+              <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required placeholder="อีเมล์" autocomplete="email">
 
               @error('email')
                   <span class="invalid-feedback" role="alert">
@@ -52,7 +62,7 @@
             <div class="mb-3 form-password-toggle">
               <label class="form-label" for="password">รหัสผ่าน</label>
               
-              <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+              <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="รหัสผ่าน" autocomplete="new-password">
 
               @error('password')
                   <span class="invalid-feedback" role="alert">
@@ -64,17 +74,27 @@
               <label class="form-label" for="password">ยืนยันรหัสผ่าน</label>
               
               
-              <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+              <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="ยืนยันรหัสผ่าน" autocomplete="new-password">
             </div>
             
             <div class="mb-3 form-password-toggle">
-              <label class="form-label" for="password">ตำบล/อำเภอ/จังหวัด</label>
+              <label class="form-label" for="password">เลือกตำบลที่ดูแล</label>
               <span class="text-danger">*</span></label>
               <select id="" class="js-example-basic-multiple" name="districts" style="width: 100%;" required>
                   <option value="" selected>-- จังหวัด --</option>
                   @foreach ($resultDistricts as $item => $value)
-                      <option value="{{ $value->id_districts }}">ตำบล{{ $value->name_districts }}  >>  อำเภอ{{ $value->name_amphures }}  >>  จังหวัด{{ $value->name_provinces }}  >> {{ $value->zip_code_districts }}</option>
+                  <option value="{{ $value->id_districts }}">ตำบล{{ $value->name_districts }}</option>
+                  {{-- <option value="{{ $value->id_districts }}">ตำบล{{ $value->name_districts }}  >>  อำเภอ{{ $value->name_amphures }}  >>  จังหวัด{{ $value->name_provinces }}  >> {{ $value->zip_code_districts }}</option> --}}
                   @endforeach
+              </select>
+            </div>
+
+            <div class="mb-3 form-password-toggle">
+              <label for="status">งบประมาณที่ได้รับ:</label>
+              <select name="status" class="form-control" required>
+                <option>-- เลือกงบประมาณ --</option>
+                  <option value="2">1,000,000</option>
+                  <option value="1">300,000</option>
               </select>
             </div>
             {{-- <div class="mb-3">

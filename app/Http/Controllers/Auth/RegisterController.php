@@ -106,6 +106,8 @@ class RegisterController extends Controller
         $affected = \DB::table('users')
                 ->where('id', $result->id)
                 ->update([
+                        'status' => $data['status'],
+                        'tel' => $data['tel'],
                         'districts' => $data['districts'],
                         'amphures' => $data['amphures'],
                         'provinces' => $data['provinces']
