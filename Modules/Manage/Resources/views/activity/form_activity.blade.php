@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Basic Inputs - Forms')
+@section('title', 'Evalocal')
 
 @section('page-script')
 <script src="{{asset('assets/js/form-basic-inputs.js')}}"></script>
@@ -8,7 +8,7 @@
 
 @section('content')
 <h4 class="fw-bold py-3 mb-4">
-    <span class="text-muted fw-light">เพิ่มข้อมูลรายงานการประชุม</span>
+    <span class="text-muted fw-light">เพิ่มข้อมูลรายงานผลการดำเนินงาน</span>
 </h4>
 
 <style>
@@ -18,11 +18,11 @@
 </style>
 {{-- Dashboard 1 --}}
 <div class="row">
-    <div class="col-lg-6 col-xxl-12">
+    <div class="col-lg-12 col-xxl-12">
         <!--begin::Card-->
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
-                <h3 class="card-title">เพิ่มข้อมูลรายงานการประชุม</h3>
+                <h3 class="card-title">เพิ่มข้อมูลรายงานผลการดำเนินงาน</h3>
                 <div class="card-toolbar">
                     <div class="example-tools justify-content-center">
                         <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
@@ -57,9 +57,7 @@
                             <input type="text" class="form-control" name="log" placeholder="ลองติจูด" />
                         </div>
                     </div>
-                    
-
-
+                </div>
                 
                 <div class="card-footer">
                     <div class="row">

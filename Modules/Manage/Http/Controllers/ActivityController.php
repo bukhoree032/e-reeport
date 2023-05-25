@@ -49,7 +49,10 @@ class ActivityController extends UploadeFileController
         $page_title = 'บันทึกการประชุม';
         $page_description = '';
 
-        // $data['result'] = $this->Repository->show('flowers');
+        $db = "activity";
+
+        $data['activity'] = $this->Repository->ShowActivityAll($db);
+
         $data['resultAmphures'] = $this->Repository->show('amphures');
         $data['resultProvinces'] = $this->Repository->show('provinces');
         $data['resultDistricts'] = $this->Repository->districts('provinces');

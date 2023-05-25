@@ -87,6 +87,17 @@ class ActivityRepository
      * @param $id
      * @return mixed
      */
+    public function ShowActivityAll($db)
+    {
+        $data = \DB::table($db)
+                        ->get();
+        return $data;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function districts()
     {
         $data = \DB::table('districts')
