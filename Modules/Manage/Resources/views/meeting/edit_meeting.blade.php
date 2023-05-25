@@ -216,7 +216,6 @@
                             <input type="text" class="form-control" name="lastname_group_director" placeholder="นามสกุล"  value="{{$resultID->lastname_group_director}}"/>
                         </div>
                         <input type="text" class="form-control" name="position_group_director" value="กลุ่มภารกิจด้านอำนวยการ ฯ" hidden />
-                        
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
                             <span class="text-danger">*</span></label>
@@ -233,7 +232,7 @@
                         </div>
                         <div class="col-lg-5  margin_top">
                             <label>นามสกุล:</label>
-                            <input type="text" class="form-control" name="lastname_group_stabilit" placeholder="นามสกุล" value="{{$resultID->lastname_group_stability}}" />
+                            <input type="text" class="form-control" name="lastname_group_stability" placeholder="นามสกุล" value="{{$resultID->lastname_group_stability}}" />
                         </div>
                         <input type="text" class="form-control" name="position_group_stability" value="กลุ่มภารกิจด้านอำนวยการ ฯ" hidden />
                         
@@ -313,7 +312,7 @@
                         </div>
                         <div class="col-lg-5  margin_top">
                             <label>นามสกุล:</label>
-                            <input type="text" class="form-control" name="lastname_bailiff " placeholder="นามสกุล"  value="{{$resultID->lastname_bailiff}}" />
+                            <input type="text" class="form-control" name="lastname_bailiff" placeholder="นามสกุล"  value="{{$resultID->lastname_bailiff}}" />
                         </div>
                         <input type="text" class="form-control" name="position_bailiff" value="เลขานุการ คนที่ 1 ปลัดอำเภอผู้เป็นหัวหน้าประจำตำบล" hidden />
                         
@@ -566,23 +565,42 @@
                         <div class="col-lg-12  margin_top">
                             <label>2.1 โครงการเสริมสร้างความเข้มแข็งให้กับตำบล (ศอ.บต.):</label>
                         </div>
-                        @foreach($activitymeeting as $key => $value)
-                            <div class="col-lg-12  margin_top">
-                                <label>2.1.{{$key+1}} กิจกรรม{{$value->name_ac}}:</label>
-                                <input type="text" class="form-control " name="strength[{{$key}}][id_ac_meet]" value="{{$value->id_ac_meet}}" hidden/>
-                                <input type="text" class="form-control " name="strength[{{$key}}][id_ac]" value="{{$value->id_ac}}" hidden/>
-                                <input type="text" class="form-control " name="strength[{{$key}}][name_ac]" value="{{$value->name_ac}}" hidden/>
-                                <input type="text" class="form-control " name="strength[{{$key}}][strength]" placeholder="โครงการเสริมสร้างความเข้มแข็งให้กับตำบล" value="{{$value->strength}}"/>
-                            </div>
-                            
-                            <div class="col-lg-12" style="margin-top: 20px">
-                                
-                                <div class="input-group">
-                                    <input type="file" class="form-control" name="strength[{{$key}}][pictures][]" id="inputGroupFile{{$key}}" multiple="multiple">
-                                    <label class="input-group-text" for="inputGroupFile{{$key}}">Upload</label>
+                        @if(isset($activitymeeting[0]))
+                            @foreach($activitymeeting as $key => $value)
+                                <div class="col-lg-12  margin_top">
+                                    <label>2.1.{{$key+1}} กิจกรรม{{$value->name_ac}}:</label>
+                                    <input type="text" class="form-control " name="strength[{{$key}}][id_ac_meet]" value="{{$value->id_ac_meet}}" hidden/>
+                                    <input type="text" class="form-control " name="strength[{{$key}}][id_ac]" value="{{$value->id_ac}}" hidden/>
+                                    <input type="text" class="form-control " name="strength[{{$key}}][name_ac]" value="{{$value->name_ac}}" hidden/>
+                                    <input type="text" class="form-control " name="strength[{{$key}}][strength]" placeholder="โครงการเสริมสร้างความเข้มแข็งให้กับตำบล" value="{{$value->strength}}"/>
                                 </div>
-                            </div>
-                        @endforeach
+                                
+                                <div class="col-lg-12" style="margin-top: 20px">
+                                    
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" name="strength[{{$key}}][pictures][]" id="inputGroupFile{{$key}}" multiple="multiple">
+                                        <label class="input-group-text" for="inputGroupFile{{$key}}">Upload</label>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            @foreach($result as $key => $value)
+                                <div class="col-lg-12  margin_top">
+                                    <label>2.1.{{$key+1}} กิจกรรม{{$value->name}}:</label>
+                                    <input type="text" class="form-control " name="strength[{{$key}}][id_ac]" value="{{$value->id}}" hidden/>
+                                    <input type="text" class="form-control " name="strength[{{$key}}][name_ac]" value="{{$value->name}}" hidden/>
+                                    <input type="text" class="form-control " name="strength[{{$key}}][strength]" placeholder="โครงการเสริมสร้างความเข้มแข็งให้กับตำบล" />
+                                </div>
+                                
+                                <div class="col-lg-12" style="margin-top: 20px">
+                                    
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" name="strength[{{$key}}][pictures][]" id="inputGroupFile{{$key}}" multiple="multiple">
+                                        <label class="input-group-text" for="inputGroupFile{{$key}}">Upload</label>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                         <div class="col-lg-12  margin_top">
                             <label>2.2 โครงการของส่วนราชการในตำบล:</label>
                             <input type="text" class="form-control " name="government" placeholder="โครงการของส่วนราชการในตำบล"  value="{{$resultID->government}}"/>

@@ -260,7 +260,7 @@
                     </div>
                     <div class="col-lg-5  margin_top">
                         <label>นามสกุล:</label>
-                        <input type="text" class="form-control" name="lastname_group_stabilit" placeholder="นามสกุล" value="@if(isset($resultID->lastname_group_stabilit)) {{$resultID->lastname_group_stabilit}} @endif"/>
+                        <input type="text" class="form-control" name="lastname_group_stability" placeholder="นามสกุล" value="@if(isset($resultID->lastname_group_stability)) {{$resultID->lastname_group_stability}} @endif"/>
                     </div>
                     <input type="text" class="form-control" name="position_group_stability" value="กลุ่มภารกิจด้านอำนวยการ ฯ" hidden />
                     
@@ -356,7 +356,7 @@
                     </div>
                     <div class="col-lg-5  margin_top">
                         <label>นามสกุล:</label>
-                        <input type="text" class="form-control" name="lastname_bailiff " placeholder="นามสกุล" value="@if(isset($resultID->lastname_bailiff)) {{$resultID->lastname_bailiff}} @endif"/>
+                        <input type="text" class="form-control" name="lastname_bailiff" placeholder="นามสกุล" value="@if(isset($resultID->lastname_bailiff)) {{$resultID->lastname_bailiff}} @endif"/>
                     </div>
                     <input type="text" class="form-control" name="position_bailiff" value="เลขานุการ คนที่ 1 ปลัดอำเภอผู้เป็นหัวหน้าประจำตำบล" hidden />
                     
