@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Basic Inputs - Forms')
+@section('title', 'Evalocal')
 
 @section('page-script')
 <script src="{{asset('assets/js/form-basic-inputs.js')}}"></script>
@@ -37,7 +37,7 @@
                 <div class="card-body">
                     <div class="form-group row">
                         <div class="col-lg-4">
-                            <label>รายงานการประชุมสภาสันติสุขตำบล:</label>
+                            <label>รายงานผลการดำเนินงานสภาสันติสุขตำบล:</label>
                             <input type="text" class="form-control" name="district" placeholder="ตำบล" value="{{$resultID->district}}" />
                         </div>
                         <div class="col-lg-4">
@@ -708,7 +708,7 @@
                         
                         <div class="form-group row">
                             <div class="col-lg-3">
-                                <label>ชื่อผู้ตรวจรายงานการประชุม:</label>
+                                <label>ชื่อผู้ตรวจรายงานผลการดำเนินงาน:</label>
                                 <input class="form-control" type="" name="name_reporter" value="{{$resultID->name_reporter}}">
                             </div>
                             <div class="col-lg-3">

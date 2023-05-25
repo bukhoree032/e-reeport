@@ -41,7 +41,7 @@
     <p style="float: right;">มชต.02/2566</p>
     <br>
     <br>
-    <h4><center>รายงานการประชุมสภาสันติสุขตำบล{{$resultID->district}}</center></h4>
+    <h4><center>รายงานผลการดำเนินงานสภาสันติสุขตำบล{{$resultID->district}}</center></h4>
     <h5><center>ครั้งที่{{$resultID->round}}</center></h5>
     <h5><center>วันที่ <?php
                         $date=date_create($resultID->meeting_date);
@@ -172,7 +172,7 @@
 
     <table>
         <td style="width:100px;">ระเบียบวาระที่ ๒ </td> 
-        <td>การรับรองรายงานการประชุมครั้งที่ {{$resultID->r_meet_no}}/{{$resultID->r_meeting_year}} 
+        <td>การรับรองรายงานผลการดำเนินงานครั้งที่ {{$resultID->r_meet_no}}/{{$resultID->r_meeting_year}} 
         วันที่<?php
                 $date=date_create($resultID->r_meeting_date);
                 echo date_format($date,"d");
@@ -484,7 +484,7 @@
   <br>
   <table class="dd">
     <td style="width: 350px;"></td> 
-    <td>ลงชื่อ..........................................ผู้ตรวจรายงานการประชุม</td>
+    <td>ลงชื่อ..........................................ผู้ตรวจรายงานผลการดำเนินงาน</td>
   </table>
 
   <table class="dd">

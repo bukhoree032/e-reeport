@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Basic Inputs - Forms')
+@section('title', 'Evalocal')
 
 @section('page-script')
 <script src="{{asset('assets/js/form-basic-inputs.js')}}"></script>
@@ -28,7 +28,7 @@
                 <input type="" hidden  class="form-control" name="id_user" value="{{Auth::user()->id}}"/>
                 <div class="form-group row">
                     <div class="col-lg-4">
-                        <label>รายงานการประชุมสภาสันติสุขตำบล:</label>
+                        <label>รายงานผลการดำเนินงานสภาสันติสุขตำบล:</label>
                         <input type="text" class="form-control" name="district" placeholder="ตำบล" value="{{auth::user()->districts}}" readonly/>
                     </div>
                     <div class="col-lg-4">

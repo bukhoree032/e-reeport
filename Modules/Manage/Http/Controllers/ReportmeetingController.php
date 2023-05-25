@@ -31,7 +31,7 @@ class ReportmeetingController extends UploadeFileController
     {
         // dd('asd');
         // dd(auth::user());
-        $page_title = 'รายงานการประชุม';
+        $page_title = 'รายงานผลการดำเนินงาน';
         $page_description = '';
 
         $db = "reportmeeting";
@@ -54,7 +54,7 @@ class ReportmeetingController extends UploadeFileController
      */
     public function create()
     {
-        $page_title = 'บันทึกรายงานการประชุม';
+        $page_title = 'บันทึกรายงานผลการดำเนินงาน';
         $page_description = '';
 
         $data['result'] = $this->ActivityRepository->ShowActivity(auth::user()->id,'activity');

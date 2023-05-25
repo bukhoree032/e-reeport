@@ -25,7 +25,7 @@
             "url": "/meeting"
         },
         {
-            "name": "รายงานการประชุม",
+            "name": "รายงานผลการดำเนินงาน",
             "url": "report",
             "icon": "menu-icon tf-icons bx bx-detail",
             "slug": "icons-boxicons"
