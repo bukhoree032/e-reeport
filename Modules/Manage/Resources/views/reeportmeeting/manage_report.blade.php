@@ -63,15 +63,15 @@
         @if(isset($item) && $item < 3)
           <tr>
             <td><i class="fa-lg text-primary me-3"></i></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td></td>
           </tr>
           <tr>
             <td><i class="fa-lg text-primary me-3"></i></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td></td>
           </tr>
           <tr>
             <td><i class="fa-lg text-primary me-3"></i></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td></td>
           </tr>
         @endif
       </tbody>
