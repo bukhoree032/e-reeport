@@ -40,16 +40,5 @@
 
 
 
-        ,
-        {
-            "menuHeader": "Misc"
-        },
-        {
-            "url": "https://themeselection.com/support/",
-            "icon": "menu-icon tf-icons bx bx-support",
-            "name": "Support",
-            "slug": "support",
-            "target": "_blank"
-        }
     ]
 }
