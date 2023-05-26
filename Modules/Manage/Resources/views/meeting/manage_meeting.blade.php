@@ -54,7 +54,7 @@
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="{{ route('manage.page.detail_meeting',$value->id) }}"><i class="bx bx-eye me-2"></i> รายละเอียด</a>
                       <a class="dropdown-item" href="{{ route('manage.edit.meeting',$value->id) }}"><i class="bx bx-edit-alt me-2"></i> แก้ไข</a>
-                      <a class="dropdown-item" href="{{ route('manage.delet.meeting',$value->id) }}"><i class="bx bx-trash me-2"></i> ลบ</a>
+                      <a onclick="return confirm('ท่านต้องการลบข้อมูลใช่หรือไม่ ?')" class="dropdown-item" href="{{ route('manage.delet.meeting',$value->id) }}"><i class="bx bx-trash me-2"></i> ลบ</a>
                     </div>
                   </div>
               </td>
