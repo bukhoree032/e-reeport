@@ -38,7 +38,6 @@ class CreateReportmeetingTable extends Migration
             $table->string('environment')->nullable();
             $table->string('education')->nullable();
             $table->string('director')->nullable();
-            $table->text('activity')->nullable();
             $table->string('name_head')->nullable();
             $table->string('position_head')->nullable();
 

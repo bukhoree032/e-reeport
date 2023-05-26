@@ -31,7 +31,6 @@ class Reportmeeting extends Model
         'environment',
         'education',
         'director',
-        'activity',
         'name_head',
         'position_head'
     ];
