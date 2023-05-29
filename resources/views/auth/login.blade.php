@@ -28,8 +28,8 @@
           <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
             @csrf
             <div class="mb-3">
-              <label for="email" class="form-label">บัญชีผู้ใช้ หรือ อีเมล์</label>
-              <input type="text" class="form-control" id="email" name="email" placeholder="ป้อนบัญชีผู้ใช้ หรือ อีเมล์" autofocus>
+              <label for="email" class="form-label">อีเมล์</label>
+              <input type="text" class="form-control" id="email" name="email" placeholder="อีเมล์" autofocus>
             </div>
             <div class="mb-3 form-password-toggle">
               <div class="d-flex justify-content-between">
