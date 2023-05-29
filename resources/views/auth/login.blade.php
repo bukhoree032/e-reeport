@@ -63,6 +63,13 @@
               <span>สร้างบัญชี</span>
             </a>
           </p>
+          
+          <h3><p class="text-center">
+            {{-- <a href="{{url('auth/register-basic')}}"> --}}
+              <a target="_blank" href="https://drive.google.com/file/d/1w9wrCfp1WHta-CklD_4HvPUWhg-eKRCC/view?usp=sharing">
+              <span>คู่มือการใช้งาน</span>
+            </a>
+          </p></h2>
         </div>
       </div>
     </div>
