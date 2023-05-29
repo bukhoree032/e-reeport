@@ -78,6 +78,7 @@ class ReportmeetingController extends UploadeFileController
 
         foreach ($request->activity as $key => $value) {
             $insertDb = \DB::table('reportactivity')->insert([
+                'id_user_reac' => auth::user()->id,
                 'id_report' => $data['resulta']->id,
                 'id_ac' => $value['id_ac'],
                 're_ac_name' => $value['activity'],

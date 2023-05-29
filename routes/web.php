@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 $controller_path = 'App\Http\Controllers';
 
 // Main Page Route
-Route::get('/', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
-Route::get('home/', $controller_path . '\dashboard\Analytics@index')->name('home');
+Route::get('/dashboard-analytics', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
+Route::get('/home', $controller_path . '\dashboard\Analytics@index')->name('home');
+// Route::get('home/', $controller_path . '\dashboard\Analytics@index')->name('home');
 
 Auth::routes();
 

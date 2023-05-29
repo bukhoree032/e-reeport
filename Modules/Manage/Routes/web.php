@@ -13,6 +13,8 @@
 
 
 
+Route::get('/', 'DashboardController@index')->name('Dashboard');
+
 Route::get('meeting', 'MeetingController@index')->name('index.meeting');
 
 Route::prefix('manage')->name('manage.')->group(function() {
