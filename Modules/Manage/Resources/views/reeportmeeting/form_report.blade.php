@@ -263,6 +263,8 @@
                         @foreach($result as $key => $value)
                         <h3 style="margin-top: 30px">กิจกรรม{{$value->name}}</h3>
                         <div class="form-group row">
+                            <input type="text" class="form-control" name="activity[{{$key}}][id_ac]" placeholder="" value="{{$value->id}}" hidden/>
+                            
                             <div class="col-lg-6 margin_top">
                                 <label>ชื่อโครงการ/กิจกรรม:</label>
                                 <input type="text" class="form-control" name="activity[{{$key}}][activity]" placeholder="ชื่อโครงการ/กิจกรรม" value="{{$value->name}}" readonly/>

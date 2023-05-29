@@ -260,41 +260,42 @@
                         
                         <div class="col-lg-12 margin_top"><b>แบบรายงานผลการดำเนินงานประจำเดือน : ส่วนที่ 2</b></div>
                         <br>
-                        @foreach($resultID->activity as $key => $value)
-                        <h3 style="margin-top: 30px">กิจกรรม{{$value['activity']}}</h3>
+                        @foreach($activitymeeting as $key => $value)
+                        <h3 style="margin-top: 30px">กิจกรรม{{$value->re_ac_name}}</h3>
                         <div class="form-group row">
+                            <input type="text" class="form-control " name="activity[{{$key}}][id_ac_report]" value="{{$value->id_ac_report}}" hidden/>
                             <div class="col-lg-6 margin_top">
                                 <label>ชื่อโครงการ/กิจกรรม:</label>
-                                <input type="text" class="form-control" name="activity[{{$key}}][activity]" placeholder="ชื่อโครงการ/กิจกรรม" value="{{$value['activity']}}" readonly/>
+                                <input type="text" class="form-control" name="activity[{{$key}}][activity]" placeholder="ชื่อโครงการ/กิจกรรม" value="{{$value->re_ac_name}}" readonly/>
                             </div>
                             <div class="col-lg-3 margin_top">
                                 <label>การเบิกจ่ายงบประมาณ (ได้รับอนุมัติ):</label>
-                                <input type="text" class="form-control" name="activity[{{$key}}][approve]" placeholder="การเบิกจ่ายงบประมาณ (ได้รับอนุมัติ)" value="{{$value['approve']}}"  />
+                                <input type="text" class="form-control" name="activity[{{$key}}][approve]" placeholder="การเบิกจ่ายงบประมาณ (ได้รับอนุมัติ)" value="{{$value->re_ac_approve}}"  />
                             </div>
                             <div class="col-lg-3 margin_top">
                                 <label>การเบิกจ่ายงบประมาณ (เบิก-จ่าย):</label>
-                                <input type="text" class="form-control" name="activity[{{$key}}][withdraw]" placeholder="การเบิกจ่ายงบประมาณ (เบิก-จ่าย)" value="{{$value['withdraw']}}" />
+                                <input type="text" class="form-control" name="activity[{{$key}}][withdraw]" placeholder="การเบิกจ่ายงบประมาณ (เบิก-จ่าย)" value="{{$value->re_ac_withdraw}}" />
                             </div>
                             <div class="col-lg-3 margin_top">
                                 <label>ผลการดำเนินงาน (กลุ่มเป้าหมาย (ประเภท/คน)):</label>
-                                <input type="text" class="form-control" name="activity[{{$key}}][target]" placeholder="ผลการดำเนินงาน (กลุ่มเป้าหมาย (ประเภท/คน))" value="{{$value['target']}}"  />
+                                <input type="text" class="form-control" name="activity[{{$key}}][target]" placeholder="ผลการดำเนินงาน (กลุ่มเป้าหมาย (ประเภท/คน))" value="{{$value->re_ac_target}}"  />
                             </div>
                             <div class="col-lg-3 margin_top">
                                 <label>ผลการดำเนินงาน (รายได้ที่ได้รับจากกิจกรรม (บาท)):</label>
-                                <input type="text" class="form-control" name="activity[{{$key}}][income]" placeholder="ผลการดำเนินงาน (รายได้ที่ได้รับจากกิจกรรม (บาท))" value="{{$value['income']}}"  />
+                                <input type="text" class="form-control" name="activity[{{$key}}][income]" placeholder="ผลการดำเนินงาน (รายได้ที่ได้รับจากกิจกรรม (บาท))" value="{{$value->re_ac_income}}"  />
                             </div>
                             <div class="col-lg-3 margin_top">
                                 <label>ผลการดำเนินงาน (คุณภาพชีวิตกลุ่มเป้าหมาย):</label>
-                                <input type="text" class="form-control" name="activity[{{$key}}][quality]" placeholder="ผลการดำเนินงาน (คุณภาพชีวิตกลุ่มเป้าหมาย)" value="{{$value['quality']}}"  />
+                                <input type="text" class="form-control" name="activity[{{$key}}][quality]" placeholder="ผลการดำเนินงาน (คุณภาพชีวิตกลุ่มเป้าหมาย)" value="{{$value->re_ac_quality}}"  />
                             </div>
                             <div class="col-lg-3 margin_top">
                                 <label>ผลการดำเนินงาน (ปัญหา/อุปสรรค/ข้อเสนอแนะ):</label>
-                                <input type="text" class="form-control" name="activity[{{$key}}][problem]" placeholder="ผลการดำเนินงาน (ปัญหา/อุปสรรค/ข้อเสนอแนะ)" value="{{$value['problem']}}"  />
+                                <input type="text" class="form-control" name="activity[{{$key}}][problem]" placeholder="ผลการดำเนินงาน (ปัญหา/อุปสรรค/ข้อเสนอแนะ)" value="{{$value->re_ac_problem}}"  />
                             </div>
                             
                             <div class="col-lg-12 margin_top">
                                 <label>หมายเหตุ</label>
-                                <input type="text" class="form-control" name="activity[{{$key}}][note]" placeholder="หมายเหตุ" value="{{$value['note']}}"  />
+                                <input type="text" class="form-control" name="activity[{{$key}}][note]" placeholder="หมายเหตุ" value="{{$value->re_ac_note}}"  />
                             </div>
                         @endforeach
                         
