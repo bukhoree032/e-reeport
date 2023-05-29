@@ -20,12 +20,6 @@ class Analytics extends Controller
   
   public function index()
   {
-    
-    return view('content.dashboard.dashboards-analytics');
-    // if(!isset(Auth::user()->password)){
-    //   return view('auth.login');
-    // }else{
-    //   return view('content.dashboard.dashboards-analytics');
-    // }
+    return redirect()->route('Dashboard');
   }
 }
