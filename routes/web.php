@@ -20,6 +20,8 @@ Route::get('/dashboard-analytics', $controller_path . '\dashboard\Analytics@inde
 Route::get('/home', $controller_path . '\dashboard\Analytics@index')->name('home');
 // Route::get('home/', $controller_path . '\dashboard\Analytics@index')->name('home');
 
+Route::get('/qrline', $controller_path . '\qrcodeline\QrlineController@index')->name('qrline');
+
 Auth::routes();
 
 Route::post('login/insert', $controller_path . '\authentications\RegisterBasic@insert')->name('insert.login');

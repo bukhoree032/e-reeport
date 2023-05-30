@@ -5,6 +5,7 @@
 @section('page-style')
 <!-- Page -->
 <link rel="stylesheet" href="{{asset('assets/vendor/css/pages/page-auth.css')}}">
+
 @endsection
 
 @section('content')
@@ -66,10 +67,15 @@
           
           <h3><p class="text-center">
             {{-- <a href="{{url('auth/register-basic')}}"> --}}
-              <a target="_blank" href="https://drive.google.com/file/d/1w9wrCfp1WHta-CklD_4HvPUWhg-eKRCC/view?usp=sharing">
+              <a target="_blank" href="https://drive.google.com/drive/folders/1wCzajZT-UBCdpSqdoTqjaYg1dzMy83Bj?usp=sharing">
               <span>คู่มือการใช้งาน</span>
             </a>
           </p></h2>
+          <p class="text-center">
+              <a target="_blank" href="{{ route('qrline') }}">
+                <img src="{{ asset('storage/qrline/3429.jpg') }}" style="width: 100%;"/>
+            </a>
+          </p>
         </div>
       </div>
     </div>
