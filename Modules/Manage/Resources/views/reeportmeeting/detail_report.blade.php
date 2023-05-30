@@ -162,7 +162,7 @@
   <br>
   <br>
   <table class="dd">
-    <td style="width: 500px;"></td> 
+    <td style="width: 510px;"></td> 
     <td>ลงชื่อ    {{$resultID->name_head}}</td>
   </table>
 
@@ -171,7 +171,7 @@
     <td>(.................................................................................................................)</td>
   </table>
   <table class="dd">
-    <td style="width: 500px;"></td> 
+    <td style="width: 520px;"></td> 
     <td>{{$resultID->position_head}}</td>
   </table>
 
