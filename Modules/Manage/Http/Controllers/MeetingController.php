@@ -99,6 +99,7 @@ class MeetingController extends UploadeFileController
 
         $data['resultID'] = $this->Repository->ShowId($id,'meeting');
         
+        $data['result'] = $this->ActivityRepository->ShowActivity(auth::user()->id,'activity');
 
         $data['activitymeeting'] = $this->Repository->ShowIdAll('id_meet',$id,'activitymeeting');
 
