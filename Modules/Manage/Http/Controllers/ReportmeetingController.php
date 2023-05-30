@@ -147,7 +147,11 @@ class ReportmeetingController extends UploadeFileController
 
         $data['resultID'] = $this->ReportRepository->ShowId($id,'reportmeeting');
 
-        $data['resultID']->activity = unserialize($data['resultID']->activity);
+        $data['activitymeeting'] = $this->Repository->ShowIdAll('id_report',$id,'reportactivity');
+
+        // $data['resultID'] = $this->ReportRepository->ShowId($id,'reportmeeting');
+        // dd($data['resultID']);
+        // $data['resultID']->activity = unserialize($data['resultID']->activity);
 
         return view('manage::reeportmeeting.detail_report',compact('page_title', 'page_description'),$data);
     }

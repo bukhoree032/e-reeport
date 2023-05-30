@@ -143,17 +143,17 @@
           <th>หมายเหตุ (ภาพและอื่นๆ)</th>
       </tr>
       </thead>
-        @foreach($resultID->activity as $key => $value)
+        @foreach($activitymeeting as $key => $value)
           <tbody>
             <td>{{$key+1}}</td>
-            <td>{{$value['activity']}}</td>
-            <td>{{$value['approve']}}</td>
-            <td>{{$value['withdraw']}}</td>
-            <td>{{$value['target']}}</td>
-            <td>{{$value['income']}}</td>
-            <td>{{$value['quality']}}</td>
-            <td>{{$value['problem']}}</td>
-            <td>{{$value['note']}}</td>
+            <td>{{$value->re_ac_name}}</td>
+            <td>{{$value->re_ac_approve}}</td>
+            <td>{{$value->re_ac_withdraw}}</td>
+            <td>{{$value->re_ac_target}}</td>
+            <td>{{$value->re_ac_income}}</td>
+            <td>{{$value->re_ac_quality}}</td>
+            <td>{{$value->re_ac_problem}}</td>
+            <td>{{$value->re_ac_note}}</td>
           </tbody>
         @endforeach
   </table>
@@ -171,7 +171,7 @@
     <td>(.................................................................................................................)</td>
   </table>
   <table class="dd">
-    <td style="width: 550px;"></td> 
+    <td style="width: 500px;"></td> 
     <td>{{$resultID->position_head}}</td>
   </table>
 
