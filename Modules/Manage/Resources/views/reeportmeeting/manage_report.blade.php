@@ -52,7 +52,7 @@
                 <div class="dropdown">
                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ route('manage.page.detail_report',$value->id) }}"><i class="bx bx-eye me-2"></i> รายละเอียด</a>
+                    <a target="_blank" class="dropdown-item" href="{{ route('manage.page.detail_report',$value->id) }}"><i class="bx bx-eye me-2"></i> รายละเอียด</a>
                     <a class="dropdown-item" href="{{ route('manage.edit.report',$value->id) }}"><i class="bx bx-edit-alt me-2"></i> แก้ไข</a>
                     <a onclick="return confirm('ท่านต้องการลบข้อมูลใช่หรือไม่ ?')" class="dropdown-item" href="{{ route('manage.delet.report',$value->id) }}"><i class="bx bx-trash me-2"></i> ลบ</a>
                 </div>
