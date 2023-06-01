@@ -271,7 +271,7 @@
                             </div>
                             <div class="col-lg-3 margin_top">
                                 <label>การเบิกจ่ายงบประมาณ (ได้รับอนุมัติ):</label>
-                                <input type="number" class="form-control" name="activity[{{$key}}][approve]" placeholder="การเบิกจ่ายงบประมาณ (ได้รับอนุมัติ)" />
+                                <input type="number" class="form-control" name="activity[{{$key}}][approve]" placeholder="การเบิกจ่ายงบประมาณ (ได้รับอนุมัติ)" value="{{$value->budget}}"/>
                             </div>
                             <div class="col-lg-3 margin_top">
                                 <label>การเบิกจ่ายงบประมาณ (เบิก-จ่าย):</label>
