@@ -94,8 +94,12 @@ class Repository
         $data = \DB::table('districts')
                         ->join('amphures', 'districts.amphure_id', '=', 'amphures.id')
                         ->join('provinces', 'amphures.province_id', '=', 'provinces.id')
-                        ->where('provinces.id','>=', 74)
-                        ->where('provinces.id','<=', 76)
+                        // ->where('provinces.id','>=', 74)
+                        // ->where('provinces.id','<=', 76)
+                        ->where('provinces.id', 74)
+                        ->orwhere('provinces.id', 75)
+                        ->orwhere('provinces.id', 76)
+                        ->orwhere('provinces.id', 70)
                         ->select('districts.id as id_districts','districts.name_th as name_districts','amphures.id as id_amphures','amphures.name_th as name_amphures','provinces.id as id_provinces','provinces.name_th as name_provinces','districts.zip_code as zip_code_districts')
                         
                         ->get();

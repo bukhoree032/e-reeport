@@ -80,11 +80,11 @@
             <div class="mb-3 form-password-toggle">
               <label class="form-label" for="password">เลือกตำบลที่ดูแล</label>
               <span class="text-danger">*</span></label>
-              <select id="" class="js-example-basic-multiple" name="districts" style="width: 100%;" required>
-                  <option value="" selected>-- จังหวัด --</option>
+              <select id="districts" class="js-example-basic-multiple" name="districts" style="width: 100%;" required>
+                  <option value="" selected>-- ตำบล --</option>
                   @foreach ($resultDistricts as $item => $value)
-                  <option value="{{ $value->id_districts }}">ตำบล{{ $value->name_districts }}</option>
-                  {{-- <option value="{{ $value->id_districts }}">ตำบล{{ $value->name_districts }}  >>  อำเภอ{{ $value->name_amphures }}  >>  จังหวัด{{ $value->name_provinces }}  >> {{ $value->zip_code_districts }}</option> --}}
+                  <option value="{{ $value->id_districts }}">ต.{{ $value->name_districts }}  >>  อ.{{ $value->name_amphures }}  >>  จ.{{ $value->name_provinces }}</option>
+                  {{-- <option value="{{ $value->id_districts }}">ต.{{ $value->name_districts }}  >>  อ.{{ $value->name_amphures }}  >>  จ.{{ $value->name_provinces }}  >> {{ $value->zip_code_districts }}</option> --}}
                   @endforeach
               </select>
             </div>
@@ -92,7 +92,7 @@
             <div class="mb-3 form-password-toggle">
               <label for="status">งบประมาณที่ได้รับ:</label>
               <select name="status" class="form-control" required>
-                <option>-- เลือกงบประมาณ --</option>
+                <option value="">-- เลือกงบประมาณ --</option>
                   <option value="2">1,000,000</option>
                   <option value="1">300,000</option>
               </select>
