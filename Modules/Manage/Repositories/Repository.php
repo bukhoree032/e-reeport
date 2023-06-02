@@ -53,6 +53,19 @@ class Repository
      * @param $id
      * @return mixed
      */
+    public function count($db,$id)
+    {
+        $data = \DB::table($db)
+                        ->where('meeting.id_user',$id)
+                        ->count();
+
+        return $data;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function show($db)
     {
         $data = \DB::table($db)

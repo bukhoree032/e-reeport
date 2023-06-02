@@ -8,19 +8,21 @@
 </h4>
 <div class="card-toolbar">
     <!--begin::Button-->
-    @if($activity == 'y')
-      <a href="{{ route('manage.create.report') }}" class="btn btn-primary font-weight-bolder">
-      <i class="la la-plus"></i>เพิ่ม</a>
-    @else
-      <a href="#" class="btn btn-danger font-weight-bolder" style="cursor: not-allowed;">
-      <i class="la la-plus"></i>กรุณาเพิ่มกิจกรรมก่อน</a>
-    @endif
+    @isset($activity)
+      @if($activity == 'y')
+        <a href="{{ route('manage.create.report') }}" class="btn btn-primary font-weight-bolder">
+        <i class="la la-plus"></i>เพิ่ม</a>
+      @else
+        <a href="#" class="btn btn-danger font-weight-bolder" style="cursor: not-allowed;">
+        <i class="la la-plus"></i>กรุณาเพิ่มกิจกรรมก่อน</a>
+      @endif
+    @endisset
     <!--end::Button-->
 </div>
 <br>
 <!-- Basic Bootstrap Table -->
 <div class="card">
-  <h5 class="card-header">ข้อมูลรายงานผลการดำเนินงาน</h5>
+  <h5 class="card-header">ข้อมูลรายงานผลการดำเนินงาน  ({{$count}} รายงาน)</h5>
   <div class="table-responsive text-nowrap">
     <table class="table">
       <thead>

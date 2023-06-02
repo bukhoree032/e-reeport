@@ -4,7 +4,7 @@
 
 @section('content')
 <h4 class="fw-bold py-3 mb-4">
-  <span class="text-muted fw-light">ข้อมูลกิจกรรมที่ดูแล</span>
+  <span class="text-muted fw-light">ข้อมูลกิจกรรม</span>
 </h4>
 <div class="card-toolbar">
     <!--begin::Button-->
@@ -15,7 +15,7 @@
 <br>
 <!-- Basic Bootstrap Table -->
 <div class="card">
-  <h5 class="card-header">กิจกรรมที่ดูแล</h5>
+  <h5 class="card-header">กิจกรรมทั้งหมด ({{$count}} กิจกรรม)</h5>
   <div class="table-responsive text-nowrap">
     <table class="table">
       <thead>

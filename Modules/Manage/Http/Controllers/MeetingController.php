@@ -44,6 +44,8 @@ class MeetingController extends UploadeFileController
         
         $data['result'] = $this->Repository->index($db,Auth::user()->id);
 
+        $data['count'] = $this->Repository->count($db,Auth::user()->id);
+
         return view('manage::meeting.manage_meeting', compact('page_title', 'page_description'),$data);
     }
 

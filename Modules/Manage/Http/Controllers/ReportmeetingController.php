@@ -46,6 +46,8 @@ class ReportmeetingController extends UploadeFileController
         }
         
         $data['result'] = $this->ReportRepository->index($db,auth::user()->id);
+
+        $data['count'] = $this->ReportRepository->count($db,Auth::user()->id);
         
         return view('manage::reeportmeeting.manage_report', compact('page_title', 'page_description'),$data);
     }
