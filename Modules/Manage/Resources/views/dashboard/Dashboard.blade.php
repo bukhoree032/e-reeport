@@ -15,6 +15,13 @@
 @endsection
 
 @section('content')
+
+<style type="text/css">
+  .button-color-cursor:hover {
+    background-color: #f33876b3;
+    color: white;
+  }
+</style>
 <div class="row">
   <div class="col-lg-12 col-md-12 order-0">
     <div class="row">
@@ -73,6 +80,44 @@
           </div>
         </div>
       </div>
+      @if(isset($k300))
+      <div class="col-lg-6 col-md-12 col-6 mb-6">
+        <div class="card">
+          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.k300') }}'">
+            <div class="card-title d-flex align-items-start justify-content-between">
+              <div class="dropdown">
+              </div>
+            </div>
+            <span class="fw-semibold d-block mb-1">ตำลล 300,000</span>
+            <h3 class="card-title mb-2">
+              @if($k300 == '')
+                0 ตำบล.
+              @else
+                {{$k300}} ตำบล.
+              @endif
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-6 mb-6">
+        <div class="card">
+          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.m1') }}'">
+            <div class="card-title d-flex align-items-start justify-content-between">
+              <div class="dropdown">
+              </div>
+            </div>
+            <span class="fw-semibold d-block mb-1">ตำลล 1,000,000</span>
+            <h3 class="card-title mb-2">
+              @if($m1 == '')
+                0 ตำบล.
+              @else
+                {{$m1}} ตำบล.
+              @endif
+            </h3>
+          </div>
+        </div>
+      </div>
+      @endisset
     </div>
   </div>
 

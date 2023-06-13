@@ -23,8 +23,12 @@
 
 Route::get('/admin', 'AdminController@index')->name('Dashboard');
 
+
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('activity', 'ActivityController@index')->name('index.activity');
+
+    Route::get('/k300', 'AdminController@k300')->name('k300');
+    Route::get('/m1', 'AdminController@m1')->name('m1');
 
     Route::get('/pages/Detailactivity/{id}/', 'ActivityController@Detail_activity')->name('page.detail_activity');
 

@@ -43,10 +43,58 @@ class AdminController extends UploadeFileController
 
         $data['mee'] = $this->DashboardRepository->index('meeting');
 
+        $data['k300'] = \DB::table('users')
+        ->where('status' ,'1')
+        ->count();
+
+        $data['m1'] = \DB::table('users')
+        ->where('status' ,'2')
+        ->count();
+        
         $data['sumwithdraw'] = \DB::table('reportactivity')
                         ->select(\DB::raw("SUM(re_ac_withdraw) as sumwithdraw"))
                         ->get()[0];
     
         return view('manage::dashboard.dashboard', compact('page_title', 'page_description'),$data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @return Renderable
+     */
+    public function k300()
+    {
+        $page_title = 'บันทึกการประชุม';
+        $page_description = '';
+
+        $data['k300'] = \DB::table('users')
+        ->where('status' ,'1')
+        ->get();
+
+        $data['countk300'] = \DB::table('users')
+        ->where('status' ,'1')
+        ->count();
+    
+        return view('admin::dashboard.k300', compact('page_title', 'page_description'),$data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @return Renderable
+     */
+    public function m1()
+    {
+        $page_title = 'บันทึกการประชุม';
+        $page_description = '';
+
+        $data['m1'] = \DB::table('users')
+        ->where('status' ,'2')
+        ->get();
+
+        $data['countm1'] = \DB::table('users')
+        ->where('status' ,'2')
+        ->count();
+    
+        return view('admin::dashboard.m1', compact('page_title', 'page_description'),$data);
     }
 }
