@@ -23,14 +23,20 @@
         <thead>
           <tr>
             <th>ลำดับ</th>
+            <th>ชิ้อ-นามสกุล</th>
+            <th>เบอร์โทรศัพท์</th>
             <th>ตำบล</th>
+            <th>จังหวัด</th>
           </tr> 
         </thead>
         <tbody class="table-border-bottom-0">
           @foreach ($k300 as $item =>$value)
             <tr>
                 <td style="width: 10%">{{ $item+1 }}</td>
+                <td>{{ $value->name }}</td>
+                <td>{{ $value->tel }}</td>
                 <td>{{ $value->districts }}</td>
+                <td>{{ $value->provinces }}</td>
             </tr>    
           @endforeach
           @if(isset($item) && $item < 3)
