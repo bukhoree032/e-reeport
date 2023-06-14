@@ -21,7 +21,7 @@
 
 
 
-Route::get('/admin', 'AdminController@index')->name('dashboard');
+Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
 
 Route::prefix('admin')->name('admin.')->group(function() {

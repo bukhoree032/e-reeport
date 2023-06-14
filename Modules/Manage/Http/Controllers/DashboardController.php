@@ -33,7 +33,7 @@ class DashboardController extends UploadeFileController
     public function index()
     {
         if(Auth::user()->status == 5){
-            return redirect()->route('dashboard');
+            return redirect()->route('admin.dashboard');
         }
         
         $page_title = 'บันทึกการประชุม';
