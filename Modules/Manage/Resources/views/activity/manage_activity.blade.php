@@ -8,8 +8,10 @@
 </h4>
 <div class="card-toolbar">
     <!--begin::Button-->
-    <a href="{{ route('manage.create.activity') }}" class="btn btn-primary font-weight-bolder">
-    <i class="la la-plus"></i>เพิ่มกิจกรรม</a>
+    @if(Auth::user()->status != 5)
+      <a href="{{ route('manage.create.activity') }}" class="btn btn-primary font-weight-bolder">
+      <i class="la la-plus"></i>เพิ่มกิจกรรม</a>
+    @endif
     <!--end::Button-->
 </div>
 <br>
