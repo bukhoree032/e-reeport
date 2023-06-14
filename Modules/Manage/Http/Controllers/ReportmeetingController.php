@@ -31,8 +31,10 @@ class ReportmeetingController extends UploadeFileController
      */
     public function index()
     {
-        // dd('asd');
-        // dd(auth::user());
+        if(Auth::user()->status == 5){
+            return redirect()->route('admin.index.report');
+        }
+
         $page_title = 'รายงานผลการดำเนินงาน';
         $page_description = '';
 

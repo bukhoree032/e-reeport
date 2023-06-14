@@ -21,7 +21,7 @@
 
 
 
-Route::get('/admin', 'AdminController@index')->name('Dashboard');
+Route::get('/admin', 'AdminController@index')->name('dashboard');
 
 
 Route::prefix('admin')->name('admin.')->group(function() {
@@ -47,7 +47,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
 
 
 Route::prefix('admin')->name('admin.')->group(function() {
-    Route::get('meeting', 'MeetingController@index')->name('index.activity');
+    Route::get('meeting', 'MeetingController@index')->name('index.meeting');
 
     Route::get('/pages/DetailMeeting/{id}/', 'MeetingController@Detail_meeting')->name('page.detail_meeting');
 
@@ -72,7 +72,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
 
 
 Route::prefix('admin')->name('admin.')->group(function() {
-    Route::get('report', 'ReportmeetingController@index')->name('index.activity');
+    Route::get('report', 'ReportmeetingController@index')->name('index.report');
 
     Route::get('/pages/DetailReport/{id}/', 'ReportmeetingController@PageDetailReport')->name('page.detail_report');
 

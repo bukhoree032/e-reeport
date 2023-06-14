@@ -30,6 +30,10 @@ class ActivityController extends UploadeFileController
      */
     public function index()
     {
+        if(Auth::user()->status == 5){
+            return redirect()->route('admin.index.activity');
+        }
+        
         $page_title = 'บันทึกการประชุม';
         $page_description = '';
 
