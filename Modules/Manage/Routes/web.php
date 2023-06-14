@@ -13,7 +13,7 @@
 
 
 
-Route::get('/', 'DashboardController@index')->name('Dashboard');
+Route::get('/', 'DashboardController@index')->name('dashboard');
 
 Route::get('meeting', 'MeetingController@index')->name('index.meeting');
 
