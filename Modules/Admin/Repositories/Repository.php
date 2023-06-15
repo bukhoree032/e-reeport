@@ -41,7 +41,7 @@ class Repository
     public function show($db)
     {
         $data = \DB::table($db)
-                        ->get();
+                ->paginate(10);
         return $data;
     }
 

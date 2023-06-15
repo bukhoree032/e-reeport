@@ -79,6 +79,10 @@
       </tbody>
     </table>
   </div>
+  <div class="col-lg-12 margin_top" style="width: 10%;">{{ $result->links() }}</div>
+  {{-- {{ $result->onEachSide(5)->links() }} --}}
+  {{-- {!! $result->links() !!} --}}
+  
 </div>
 <!--/ Basic Bootstrap Table -->
 
