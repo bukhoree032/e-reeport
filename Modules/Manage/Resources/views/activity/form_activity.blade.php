@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-lg-2">
                             <label>งบประมาณ:</label>
-                            <input type="text" class="form-control" name="budget" placeholder="งบประมาณ" />
+                            <input type="number" class="form-control" name="budget" placeholder="งบประมาณ" />
                         </div>
                         <div class="col-lg-2">
                             <label>ละติจูด:</label>

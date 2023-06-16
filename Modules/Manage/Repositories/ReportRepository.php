@@ -35,7 +35,7 @@ class ReportRepository
     {
         $data = \DB::table($db)
                         ->where('reportmeeting.id_user',$id)
-                        ->get();
+                        ->paginate(10);
 
         return $data;
     }

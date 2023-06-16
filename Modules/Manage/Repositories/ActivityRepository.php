@@ -34,7 +34,7 @@ class ActivityRepository
         $data = \DB::table($db)
                         ->select('*')
                         ->where('activity.id_districts',$id)
-                        ->get();
+                        ->paginate(10);
 
         return $data;
     }

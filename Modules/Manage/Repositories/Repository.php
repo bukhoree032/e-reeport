@@ -44,7 +44,7 @@ class Repository
                         // ->join('amphures','districts.amphure_id','=','amphures.id')
                         // ->join('provinces','amphures.province_id','=','provinces.id')
                         ->where('meeting.id_user',$id)
-                        ->get();
+                        ->paginate(10);
 
         return $data;
     }
