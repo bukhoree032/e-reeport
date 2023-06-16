@@ -283,7 +283,7 @@
                             </div>
                             <div class="col-lg-3 margin_top">
                                 <label>ผลการดำเนินงาน (รายได้ที่ได้รับจากกิจกรรม (บาท)):</label>
-                                <input type="text" class="form-control" name="activity[{{$key}}][income]" placeholder="ผลการดำเนินงาน (รายได้ที่ได้รับจากกิจกรรม (บาท))" />
+                                <input type="number" class="form-control" name="activity[{{$key}}][income]" placeholder="ผลการดำเนินงาน (รายได้ที่ได้รับจากกิจกรรม (บาท))" />
                             </div>
                             <div class="col-lg-3 margin_top">
                                 <label>ผลการดำเนินงาน (คุณภาพชีวิตกลุ่มเป้าหมาย):</label>
