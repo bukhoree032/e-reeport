@@ -40,13 +40,6 @@ class ReportmeetingController extends UploadeFileController
 
         $db = "reportmeeting";
         
-        // $activity = $this->ActivityRepository->ShowActivity(auth::user()->id,'activity');
-        // if(isset($activity[0])){
-        //     $data['activity'] = 'y';
-        // }else{
-        //     $data['activity'] = 'n';
-        // }
-        
         $data['result'] = $this->Repository->show($db);
 
         $data['count'] = $this->Repository->count($db);
