@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-lg-2">
                             <label>จำนวนครัวเรือน:</label>
-                            <input type="text" class="form-control" name="numberpeople" placeholder="จำนวนครัวเรือน" />
+                            <input type="number" class="form-control" name="numberpeople" placeholder="จำนวนครัวเรือน" />
                         </div>
                         <div class="col-lg-2">
                             <label>งบประมาณ:</label>
