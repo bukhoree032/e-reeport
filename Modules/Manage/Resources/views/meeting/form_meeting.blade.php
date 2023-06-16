@@ -32,8 +32,19 @@
                         <input type="text" class="form-control" name="district" placeholder="ตำบล" value="{{auth::user()->districts}}" readonly/>
                     </div>
                     <div class="col-lg-4">
-                        <label>ครั้งที่:</label>
-                        <input type="text" class="form-control" name="round" placeholder="ประชุมครั้งที่" required/>
+                        <label>รายงานครั้งที่</label><select class="form-control" name="round" style="width: 100%;" required>
+                            <option value="" selected>-- เลือกครั้งที่ --</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
                     </div>
                     <div class="col-lg-4">
                         <label>วัน/เดือน/ปี:</label>
@@ -50,7 +61,6 @@
                 <div class="form-group row">
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_president" style="width: 100%;">
                             @if(isset($resultID->title_president))
                                 <option value="{{$resultID->title_president}}" selected>{{$resultID->title_president}}</option>
@@ -74,7 +84,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_vice_president1" style="width: 100%;">
                             @if(isset($resultID->title_vice_president1))
                                 <option value="{{$resultID->title_vice_president1}}" selected>{{$resultID->title_vice_president1}}</option>
@@ -98,7 +107,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_vice_president2" style="width: 100%;">
                             @if(isset($resultID->title_vice_president2))
                                 <option value="{{$resultID->title_vice_president2}}" selected>{{$resultID->title_vice_president2}}</option>
@@ -122,7 +130,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_group_plan" style="width: 100%;">
                             @if(isset($resultID->title_group_plan))
                                 <option value="{{$resultID->title_group_plan}}" selected>{{$resultID->title_group_plan}}</option>
@@ -146,7 +153,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_group_budget" style="width: 100%;">
                             @if(isset($resultID->title_group_budget))
                                 <option value="{{$resultID->title_group_budget}}" selected>{{$resultID->title_group_budget}}</option>
@@ -170,7 +176,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_group_environment" style="width: 100%;">
                             @if(isset($resultID->title_group_environment))
                                 <option value="{{$resultID->title_group_environment}}" selected>{{$resultID->title_group_environment}}</option>
@@ -194,7 +199,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_group_edu" style="width: 100%;">
                             @if(isset($resultID->title_group_edu))
                                 <option value="{{$resultID->title_group_edu}}" selected>{{$resultID->title_group_edu}}</option>
@@ -218,7 +222,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_group_director" style="width: 100%;">
                             @if(isset($resultID->title_group_director))
                                 <option value="{{$resultID->title_group_director}}" selected>{{$resultID->title_group_director}}</option>
@@ -242,7 +245,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_group_stability" style="width: 100%;">
                             @if(isset($resultID->title_group_stability))
                                 <option value="{{$resultID->title_group_stability}}" selected>{{$resultID->title_group_stability}}</option>
@@ -266,7 +268,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_director1" style="width: 100%;">
                             @if(isset($resultID->title_director1))
                                 <option value="{{$resultID->title_director1}}" selected>{{$resultID->title_director1}}</option>
@@ -290,7 +291,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_director2" style="width: 100%;">
                             @if(isset($resultID->title_director2))
                                 <option value="{{$resultID->title_director2}}" selected>{{$resultID->title_director2}}</option>
@@ -314,7 +314,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_director3" style="width: 100%;">
                             @if(isset($resultID->title_director3))
                                 <option value="{{$resultID->title_director3}}" selected>{{$resultID->title_director3}}</option>
@@ -338,7 +337,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_bailiff" style="width: 100%;">
                             @if(isset($resultID->title_bailiff))
                                 <option value="{{$resultID->title_bailiff}}" selected>{{$resultID->title_bailiff}}</option>
@@ -362,7 +360,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_soldier" style="width: 100%;">
                             @if(isset($resultID->title_soldier))
                                 <option value="{{$resultID->title_soldier}}" selected>{{$resultID->title_soldier}}</option>
@@ -386,7 +383,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_rule" style="width: 100%;">
                             @if(isset($resultID->title_rule))
                                 <option value="{{$resultID->title_rule}}" selected>{{$resultID->title_rule}}</option>
@@ -410,7 +406,6 @@
                     
                     <div class="col-lg-2  margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="title_volunteer" style="width: 100%;">
                             @if(isset($resultID->title_volunteer))
                                 <option value="{{$resultID->title_volunteer}}" selected>{{$resultID->title_volunteer}}</option>
@@ -461,7 +456,6 @@
                     @for($r = 1; $r <= 3; $r++)
                     <div class="col-lg-2 margin_top">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="no_meeting[{{ $r }}][title]" style="width: 100%;">
                             <option value="" selected>-- คำนำหน้า --</option>
                             <option value="นาย">นาย</option>
@@ -511,7 +505,6 @@
                     @for($r = 1; $r <= 4; $r++)
                     <div class="col-lg-2">
                         <label>คำนำหน้า:</label>
-                        <span class="text-danger">*</span></label>
                         <select id="pro" class="form-control" name="p_meeting[{{ $r }}][title]" style="width: 100%;">
                             <option value="" selected>-- คำนำหน้า --</option>
                             <option value="นาย">นาย</option>

@@ -40,9 +40,21 @@
                             <label>รายงานผลการดำเนินงานสภาสันติสุขตำบล:</label>
                             <input type="text" class="form-control" name="district" placeholder="ตำบล" value="{{$resultID->district}}" />
                         </div>
+                        
                         <div class="col-lg-4">
-                            <label>ครั้งที่:</label>
-                            <input type="text" class="form-control" name="round" placeholder="ประชุมครั้งที่" value="{{$resultID->round}}"/>
+                            <label>รายงานครั้งที่</label><select class="form-control" name="round" style="width: 100%;" required>
+                                <option value="{{$resultID->round}}" selected>{{$resultID->round}}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
                         </div>
                         <div class="col-lg-4">
                             <label>วัน/เดือน/ปี:</label>
@@ -59,7 +71,6 @@
                     <div class="form-group row">
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_president" style="width: 100%;">
                                 <option value="{{$resultID->title_president}}" selected>{{$resultID->title_president}}</option>
                                 <option value="นาย">นาย</option>
@@ -79,7 +90,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_vice_president1" style="width: 100%;">
                                 <option value="{{$resultID->title_vice_president1}}" selected>{{$resultID->title_vice_president1}}</option>
                                 <option value="นาย">นาย</option>
@@ -99,7 +109,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_vice_president2" style="width: 100%;">
                                 <option value="{{$resultID->title_vice_president2}}" selected>{{$resultID->title_vice_president2}}</option>
                                 <option value="นาย">นาย</option>
@@ -119,7 +128,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_group_plan" style="width: 100%;">
                                 <option value="{{$resultID->title_group_plan}}" selected>{{$resultID->title_group_plan}}</option>
                                 <option value="นาย">นาย</option>
@@ -139,7 +147,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_group_budget" style="width: 100%;">
                                 <option value="{{$resultID->title_group_budget}}" selected>{{$resultID->title_group_budget}}</option>
                                 <option value="นาย">นาย</option>
@@ -159,7 +166,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_group_environment" style="width: 100%;">
                                 <option value="{{$resultID->title_group_environment}}" selected>{{$resultID->title_group_environment}}</option>
                                 <option value="นาย">นาย</option>
@@ -179,7 +185,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_group_edu" style="width: 100%;">
                                 <option value="{{$resultID->title_group_edu}}" selected>{{$resultID->title_group_edu}}</option>
                                 <option value="นาย">นาย</option>
@@ -199,7 +204,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_group_director" style="width: 100%;">
                                 <option value="{{$resultID->title_group_director}}" selected>{{$resultID->title_group_director}}</option>
                                 <option value="นาย">นาย</option>
@@ -218,7 +222,6 @@
                         <input type="text" class="form-control" name="position_group_director" value="กลุ่มภารกิจด้านอำนวยการ ฯ" hidden />
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_group_stability" style="width: 100%;">
                                 <option value="{{$resultID->title_group_stability}}" selected>{{$resultID->title_group_stability}}</option>
                                 <option value="นาย">นาย</option>
@@ -238,7 +241,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_director1" style="width: 100%;">
                                 <option value="{{$resultID->title_director1}}" selected>{{$resultID->title_director1}}</option>
                                 <option value="นาย">นาย</option>
@@ -258,7 +260,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_director2" style="width: 100%;">
                                 <option value="{{$resultID->title_director2}}" selected>{{$resultID->title_director2}}</option>
                                 <option value="นาย">นาย</option>
@@ -278,7 +279,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_director3" style="width: 100%;">
                                 <option value="{{$resultID->title_director3}}" selected>{{$resultID->title_director3}}</option>
                                 <option value="นาย">นาย</option>
@@ -298,7 +298,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_bailiff" style="width: 100%;">
                                 <option value="{{$resultID->title_bailiff}}" selected>{{$resultID->title_bailiff}}</option>
                                 <option value="นาย">นาย</option>
@@ -318,7 +317,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_soldier" style="width: 100%;">
                                 <option value="{{$resultID->title_soldier}}" selected>{{$resultID->title_soldier}}</option>
                                 <option value="นาย">นาย</option>
@@ -338,7 +336,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_rule" style="width: 100%;">
                                 <option value="{{$resultID->title_rule}}" selected>{{$resultID->title_rule}}</option>
                                 <option value="นาย">นาย</option>
@@ -358,7 +355,6 @@
                         
                         <div class="col-lg-2  margin_top">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="title_volunteer" style="width: 100%;">
                                 <option value="{{$resultID->title_volunteer}}" selected>{{$resultID->title_volunteer}}</option>
                                 <option value="นาย">นาย</option>
@@ -402,7 +398,6 @@
                         @foreach($resultID->no_meeting as $key => $value)
                             <div class="col-lg-2 margin_top">
                                 <label>คำนำหน้า:</label>
-                                <span class="text-danger">*</span></label>
                                 <select id="pro" class="form-control" name="no_meeting[{{ $key }}][title]" style="width: 100%;">
                                     <option value="{{$value['title']}}" selected>{{$value['title']}}</option>
                                     <option value="นาย">นาย</option>
@@ -453,7 +448,6 @@
                         @foreach($resultID->p_meeting as $key => $value)
                         <div class="col-lg-2">
                             <label>คำนำหน้า:</label>
-                            <span class="text-danger">*</span></label>
                             <select id="pro" class="form-control" name="p_meeting[{{ $key }}][title]" style="width: 100%;">
                                 <option value="{{$value['title']}}" selected>{{$value['title']}}</option>
                                 <option value="นาย">นาย</option>
