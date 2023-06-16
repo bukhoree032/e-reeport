@@ -32,7 +32,7 @@
         <tbody class="table-border-bottom-0">
           @foreach ($k300 as $item =>$value)
             <tr>
-                <td style="width: 10%">{{ $item+1 }}</td>
+                <td style="width: 10%">{{ $result->firstItem() + $item }}</td>
                 <td>{{ $value->name }}</td>
                 <td>{{ $value->tel }}</td>
                 <td>{{ $value->districts }}</td>
