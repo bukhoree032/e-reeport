@@ -40,7 +40,7 @@
       <tbody class="table-border-bottom-0">
         @foreach ($result as $item =>$value)
           <tr>
-              <td>{{ $item+1 }}</td>
+              <td>{{ $result->firstItem() + $item }}</td>
               <td>{{ $value->district }}</td>
               <td>{{ $value->round }}</td>
               <td>{{ $value->meeting_date }}</td>
@@ -79,6 +79,38 @@
       </tbody>
     </table>
   </div>
+
+
+  {{-- แบ่งหน้า --}}
+  @if($result->currentPage() < 3)
+    @php $start = 1; @endphp
+    @php $end = 5; @endphp
+  @else
+    @php $start = $result->currentPage()-2; @endphp
+    @php $end = $start+4 @endphp
+    @if($result->lastPage()-2 < $result->currentPage())
+      @php $start = $result->currentPage()-2; @endphp
+      @php $end = $result->lastPage(); @endphp
+    @endif
+  @endif
+
+
+  <div class="card">
+    <ul class="pagination" style="margin-left: 25px;margin-top: 15px;">
+      <li class="page-item">
+        <a class="page-link" href="{{$result->previousPageUrl()}}"><b><</b></a>
+      </li>
+      @foreach($result->getUrlRange($start, $end) as $key => $value)
+        <li class="page-item @if($result->currentPage() == $key) active @endif"><a class="page-link" href="{{$value}}">{{$key}}</a></li>
+      @endforeach
+      <li class="page-item">
+        <a class="page-link" href="{{$result->nextPageUrl()}}"><b>></b></a>
+      </li>
+    </ul>
+  </div>
+  {{-- แบ่งหน้า --}}
+
+  
 </div>
 <!--/ Basic Bootstrap Table -->
 

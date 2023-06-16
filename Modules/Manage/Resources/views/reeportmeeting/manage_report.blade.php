@@ -39,7 +39,8 @@
       </thead>
       <tbody class="table-border-bottom-0">
         @foreach ($result as $item =>$value)
-          <tr><td>{{ $item+1 }}</td>
+          <tr>
+            <td>{{ $result->firstItem() + $item }}</td>
             <td>{{ $value->month }}/{{ $value->year }}</td>
             <td>{{ $value->round }}/{{ $value->year_round }}</td>
             <td>{{ $value->district }}</td>
@@ -65,23 +66,51 @@
         @if(isset($item) && $item < 3)
           <tr>
             <td><i class="fa-lg text-primary me-3"></i></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
           </tr>
           <tr>
             <td><i class="fa-lg text-primary me-3"></i></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
           </tr>
           <tr>
             <td><i class="fa-lg text-primary me-3"></i></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
           </tr>
         @endif
       </tbody>
     </table>
   </div>
-  <div class="col-lg-12 margin_top" style="width: 10%;">{{ $result->links() }}</div>
-  {{-- {{ $result->onEachSide(5)->links() }} --}}
-  {{-- {!! $result->links() !!} --}}
+
+
+  {{-- แบ่งหน้า --}}
+  @if($result->currentPage() < 3)
+    @php $start = 1; @endphp
+    @php $end = 5; @endphp
+  @else
+    @php $start = $result->currentPage()-2; @endphp
+    @php $end = $start+4 @endphp
+    @if($result->lastPage()-2 < $result->currentPage())
+      @php $start = $result->currentPage()-2; @endphp
+      @php $end = $result->lastPage(); @endphp
+    @endif
+  @endif
+
+
+  <div class="card">
+    <ul class="pagination" style="margin-left: 25px;margin-top: 15px;">
+      <li class="page-item">
+        <a class="page-link" href="{{$result->previousPageUrl()}}"><b><</b></a>
+      </li>
+      @foreach($result->getUrlRange($start, $end) as $key => $value)
+        <li class="page-item @if($result->currentPage() == $key) active @endif"><a class="page-link" href="{{$value}}">{{$key}}</a></li>
+      @endforeach
+      <li class="page-item">
+        <a class="page-link" href="{{$result->nextPageUrl()}}"><b>></b></a>
+      </li>
+    </ul>
+  </div>
+  {{-- แบ่งหน้า --}}
+
   
 </div>
 <!--/ Basic Bootstrap Table -->
