@@ -82,10 +82,16 @@
 
 
   {{-- แบ่งหน้า --}}
+  {{-- $paginator->lastPage() หน้าสุดท้าย --}}
+  {{-- $paginator->currentPage() หน้าปัจจุบัน --}}
   @if($result->currentPage() < 3)
     @php $start = 1; @endphp
-    @php $end = 5; @endphp
+    @php $end = 5 @endphp
+    @if($result->lastPage() < 5)
+      @php $end = $result->lastPage(); @endphp
+    @endif
   @else
+  {{-- @dd($result->lastPage()) --}}
     @php $start = $result->currentPage()-2; @endphp
     @php $end = $start+4 @endphp
     @if($result->lastPage()-2 < $result->currentPage())

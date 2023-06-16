@@ -42,5 +42,40 @@
         </tbody>
       </table>
     </div>
+
+
+    {{-- แบ่งหน้า --}}
+    @if($k300->currentPage() < 3)
+      @php $start = 1; @endphp
+      @php $end = 5 @endphp
+      @if($k300->lastPage() < 5)
+        @php $end = $k300->lastPage(); @endphp
+      @endif
+    @else
+      @php $start = $k300->currentPage()-2; @endphp
+      @php $end = $start+4 @endphp
+      @if($k300->lastPage()-2 < $k300->currentPage())
+        @php $start = $k300->currentPage()-2; @endphp
+        @php $end = $k300->lastPage(); @endphp
+      @endif
+    @endif
+  
+  
+    <div class="card">
+      <ul class="pagination" style="margin-left: 25px;margin-top: 15px;">
+        <li class="page-item">
+          <a class="page-link" href="{{$k300->previousPageUrl()}}"><b><</b></a>
+        </li>
+        @foreach($k300->getUrlRange($start, $end) as $key => $value)
+          <li class="page-item @if($k300->currentPage() == $key) active @endif"><a class="page-link" href="{{$value}}">{{$key}}</a></li>
+        @endforeach
+        <li class="page-item">
+          <a class="page-link" href="{{$k300->nextPageUrl()}}"><b>></b></a>
+        </li>
+      </ul>
+    </div>
+    {{-- แบ่งหน้า --}}
+  
+    
   </div>
 @endsection

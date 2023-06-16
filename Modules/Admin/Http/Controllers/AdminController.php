@@ -73,7 +73,7 @@ class AdminController extends UploadeFileController
 
         $data['k300'] = \DB::table('users')
         ->where('status' ,'1')
-        ->get();
+        ->paginate(10);
 
         $data['countk300'] = \DB::table('users')
         ->where('status' ,'1')
@@ -93,7 +93,7 @@ class AdminController extends UploadeFileController
 
         $data['m1'] = \DB::table('users')
         ->where('status' ,'2')
-        ->get();
+        ->paginate(10);
 
         $data['countm1'] = \DB::table('users')
         ->where('status' ,'2')

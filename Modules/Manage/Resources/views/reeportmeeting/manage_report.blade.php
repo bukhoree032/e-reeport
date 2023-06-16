@@ -85,7 +85,10 @@
   {{-- แบ่งหน้า --}}
   @if($result->currentPage() < 3)
     @php $start = 1; @endphp
-    @php $end = 5; @endphp
+    @php $end = 5 @endphp
+    @if($result->lastPage() < 5)
+      @php $end = $result->lastPage(); @endphp
+    @endif
   @else
     @php $start = $result->currentPage()-2; @endphp
     @php $end = $start+4 @endphp
