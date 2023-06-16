@@ -18,7 +18,7 @@
 
 <style type="text/css">
   .button-color-cursor:hover {
-    background-color: #f33876b3;
+    background-color: #a8a9f9;
     color: white;
   }
 </style>
@@ -27,7 +27,7 @@
     <div class="row">
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.activity') }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
@@ -39,7 +39,7 @@
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting') }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
@@ -51,7 +51,7 @@
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report') }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
