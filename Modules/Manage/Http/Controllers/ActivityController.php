@@ -6,7 +6,6 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Manage\Repositories\ActivityRepository as Repository;
-use Modules\Manage\Repositories\FarmesRepository as FarmesRepository;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -17,11 +16,10 @@ class ActivityController extends UploadeFileController
 {
     protected $Repository;
 
-    public function __construct(Repository $Repository,FarmesRepository $FarmesRepository)
+    public function __construct(Repository $Repository)
     {
         $this->middleware('auth');
         $this->Repository = $Repository;
-        $this->FarmesRepository = $FarmesRepository;
     }
 
     /**
