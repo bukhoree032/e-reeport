@@ -20,6 +20,6 @@ class Analytics extends Controller
   
   public function index()
   {
-    return redirect()->route('Dashboard');
+    return redirect()->route('dashboard');
   }
 }
