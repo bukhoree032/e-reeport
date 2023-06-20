@@ -62,16 +62,22 @@
   
   
     <div class="card">
-      <ul class="pagination" style="margin-left: 25px;margin-top: 15px;">
-        <li class="page-item">
-          <a class="page-link" href="{{$m1->previousPageUrl()}}"><b><</b></a>
-        </li>
+      <ul class="pagination justify-content-end" style="padding-top: 11px; padding-right: 17px;">
+      <li class="page-item prev">
+        <a class="page-link" href="{{$m1->url(1)}}"><i class="tf-icon bx bx-chevrons-left"></i></a>
+      </li>
+      <li class="page-item prev">
+        <a class="page-link" href="{{$m1->previousPageUrl()}}"><i class="tf-icon bx bx-chevron-left"></i></a>
+      </li>
         @foreach($m1->getUrlRange($start, $end) as $key => $value)
           <li class="page-item @if($m1->currentPage() == $key) active @endif"><a class="page-link" href="{{$value}}">{{$key}}</a></li>
         @endforeach
-        <li class="page-item">
-          <a class="page-link" href="{{$m1->nextPageUrl()}}"><b>></b></a>
-        </li>
+      <li class="page-item next">
+        <a class="page-link" href="{{$m1->nextPageUrl()}}"><i class="tf-icon bx bx-chevron-right"></i></a>
+      </li>
+      <li class="page-item next">
+        <a class="page-link" href="{{$m1->url($m1->lastPage())}}"><i class="tf-icon bx bx-chevrons-right"></i></a>
+      </li>
       </ul>
     </div>
     {{-- แบ่งหน้า --}}
