@@ -11,6 +11,7 @@ use Modules\Manage\Entities\Farmes;
 use Modules\Manage\Entities\Meeting;
 use Modules\Manage\Entities\Activity;
 use Modules\Manage\Entities\Activitymeeting;
+use App\Models\User;
 
 use Illuminate\Support\Str;
 use App\Http\Controllers\UploadeFileController;
@@ -25,6 +26,7 @@ class Repository
         $this->classModelMeeting = Meeting::class;
         $this->classModelActivity = Activity::class;
         $this->classModelActivitymeeting = Activitymeeting::class;
+        $this->classModelUser = User::class;
     }
 
     /**
