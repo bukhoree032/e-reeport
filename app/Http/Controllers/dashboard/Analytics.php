@@ -20,6 +20,18 @@ class Analytics extends Controller
   
   public function index()
   {
+    // dd(Auth::user()->districts);
+    $data['user'] = \DB::table('users')
+                  ->where('districts', Auth::user()->districts)
+                  ->get();
+    if(isset($data['user'][1])){
+      $delet = \DB::table('users')
+                    ->where('id', Auth::user()->id)
+                    ->delete();
+
+      return view('auth.passwords.doubly',$data);
+    }
+
     return redirect()->route('dashboard');
   }
 }
