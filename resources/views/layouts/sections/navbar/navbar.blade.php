@@ -90,7 +90,7 @@ $navbarDetached = ($navbarDetached ?? '');
                 </a>
               </li> --}}
               <li>
-                <a class="dropdown-item" href="{{ route('auth.reset.password') }}">
+                <a class="dropdown-item" href="{{ route('auth.reset.password',Auth::user()->id) }}">
                   <span class="d-flex align-items-center align-middle">
                     <i class="flex-shrink-0 bx bx-credit-card me-2 pe-1"></i>
                     <span class="flex-grow-1 align-middle">เปลียนรหัสผ่าน</span>

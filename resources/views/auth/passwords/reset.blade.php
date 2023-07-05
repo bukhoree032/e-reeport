@@ -29,11 +29,16 @@
             @csrf
 
             <input type="hidden" name="token" value="494847">
-            <input type="hidden" name="iduser" value="{{$iduser}}">
+            <input type="hidden" name="iduser" value="{{$user->id}}">
 
             <div class="mb-3">
+              <label for="email" class="form-label">ชื่อ - นามสกุล</label>
+              <input type="text" class="form-control" value="{{ $user->name }}" readonly autofocus>
+            </div>
+            
+            <div class="mb-3">
               <label for="email" class="form-label">อีเมล</label>
-              <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" value="{{ $email ?? old('email') }}" readonly autofocus>
+              <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" value="{{ $user->email ?? old('email') }}" readonly autofocus>
             </div>
 
             <div class="mb-3">

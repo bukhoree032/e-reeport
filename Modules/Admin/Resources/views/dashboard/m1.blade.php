@@ -27,6 +27,7 @@
             <th>เบอร์โทรศัพท์</th>
             <th>ตำบล</th>
             <th>จังหวัด</th>
+            <th>จัดการ</th>
           </tr> 
         </thead>
         <tbody class="table-border-bottom-0">
@@ -37,6 +38,17 @@
                 <td>{{ $value->tel }}</td>
                 <td>{{ $value->districts }}</td>
                 <td>{{ $value->provinces }}</td>
+                <td>
+                  <div class="dropdown">
+                  <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+                  <div class="dropdown-menu">
+                      {{-- <a class="dropdown-item" href="{{ route('manage.edit.activity',$value->id) }}"><i class="bx bx-edit-alt me-2"></i> แก้ไข</a> --}}
+                      <a class="dropdown-item" href="{{ route('auth.reset.password',$value->id) }}"><i class="bx bx-edit-alt me-2"></i> แก้ไขรหัสผ่าน</a>
+                      {{-- <a onclick="return confirm('ท่านต้องการลบข้อมูลใช่หรือไม่ ?')" class="dropdown-item" href="{{ route('manage.delet.activity',$value->id) }}"><i class="bx bx-trash me-2"></i> ลบ</a> --}}
+                                  
+                  </div>
+                  </div>
+              </td>
             </tr>    
           @endforeach
         </tbody>

@@ -19,7 +19,7 @@ Route::prefix('manage')->name('auth.')->group(function() {
     Route::get('/profile', 'AuthController@index')->name('profile');
     Route::post('/profile.update', 'AuthController@profileupdate')->name('profile.update');
 
-    Route::get('/resetpassword', 'AuthController@reset')->name('reset.password');
+    Route::get('/resetpassword/{id}', 'AuthController@reset')->name('reset.password');
     Route::post('/reset.update', 'AuthController@resetupdate')->name('reset.update');
 });
 

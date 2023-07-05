@@ -56,10 +56,11 @@ class AuthController extends UploadeFileController
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function reset()
+    public function reset($id)
     {
-        $data['email'] = Auth::user()->email;
-        $data['iduser'] = Auth::user()->id;
+        $data['user'] = \DB::table('users')
+        ->where('id' ,$id)
+        ->get()[0];
 
         return view('auth.passwords.reset',$data);
     }
@@ -67,17 +68,21 @@ class AuthController extends UploadeFileController
     public function resetupdate(Request $request)
     {
         if($request->password != $request->password_confirmation){
-            $data['email'] = Auth::user()->email;
-            $data['iduser'] = Auth::user()->id;
+            
+            $data['user'] = \DB::table('users')
+                            ->where('id' ,$request->iduser)
+                            ->get()[0];
             
             return view('auth.passwords.reset',$data);
         }
-        
-        $password = Hash::make($request->password);
-        $aa = $request->all();
-        $affected = \DB::table('users')
+
+        if($request->iduser == Auth::user()->id || Auth::user()->status == '5'){
+            $password = Hash::make($request->password);
+            $aa = $request->all();
+            $affected = \DB::table('users')
                         ->where('id', $request->iduser)
                         ->update(['password' => $password]);
+        }
 
         return redirect()->route('dashboard');
     }
