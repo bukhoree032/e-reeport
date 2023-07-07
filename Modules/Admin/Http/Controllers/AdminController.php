@@ -78,7 +78,31 @@ class AdminController extends UploadeFileController
         $data['countk300'] = \DB::table('users')
         ->where('status' ,'1')
         ->count();
-    
+
+        $data['pro'] = \DB::table('users')
+                                        ->select('provinces')
+                                        ->where('status' ,'1')
+                                        ->groupBy('provinces')
+                                    ->get();
+                                    
+        foreach ($data['pro'] as $key => $value) {
+            $data['dis300'] = \DB::table('users')
+                ->select('districts', \DB::raw('count(districts) as total'))
+                ->where('status' ,'1')
+                ->where('provinces',$value->provinces)
+                ->groupBy('districts')
+            ->get();
+            $data['pro'][$key]->dis = count($data['dis300']);
+
+            $data['aum300'] = \DB::table('users')
+                ->select('amphures')
+                ->where('status','1')
+                ->where('provinces',$value->provinces)
+                ->groupBy('amphures')
+            ->get();
+            $data['pro'][$key]->aum = count($data['aum300']);
+        }
+
         return view('admin::dashboard.k300', compact('page_title', 'page_description'),$data);
     }
 
@@ -98,7 +122,31 @@ class AdminController extends UploadeFileController
         $data['countm1'] = \DB::table('users')
         ->where('status' ,'2')
         ->count();
-    
+        
+        $data['pro'] = \DB::table('users')
+                                        ->select('provinces')
+                                        ->where('status' ,'2')
+                                        ->groupBy('provinces')
+                                    ->get();
+                                    
+        foreach ($data['pro'] as $key => $value) {
+            $data['dis1m'] = \DB::table('users')
+                ->select('districts', \DB::raw('count(districts) as total'))
+                ->where('status' ,'2')
+                ->where('provinces',$value->provinces)
+                ->groupBy('districts')
+            ->get();
+            $data['pro'][$key]->dis = count($data['dis1m']);
+
+            $data['aum1m'] = \DB::table('users')
+                ->select('amphures')
+                ->where('status','2')
+                ->where('provinces',$value->provinces)
+                ->groupBy('amphures')
+            ->get();
+            $data['pro'][$key]->aum = count($data['aum1m']);
+        }
+
         return view('admin::dashboard.m1', compact('page_title', 'page_description'),$data);
     }
 }

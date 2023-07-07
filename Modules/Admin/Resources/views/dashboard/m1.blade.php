@@ -16,6 +16,31 @@
 
 @section('content')
 
+
+<div class="col-lg-12 col-md-12 order-0">
+  <div class="row">
+    @foreach($pro as $key => $value)
+      <div class="col-lg-3 col-md-12 col-6 mb-3">
+        <div class="card">
+          <div class="card-body button-color-cursor">
+            <div class="card-title d-flex align-items-start justify-content-between">
+              <div class="dropdown">
+              </div>
+            </div>
+            <span class="fw-semibold d-block mb-1"><h4>จังหวัด {{$value->provinces}}</h4></span>
+            <b class="card-title mb-2">{{$value->aum}} อำเภอ</b>
+            <b class="card-title mb-2">{{$value->dis}} ตำบล</b>
+            
+            {{-- <b class="card-title mb-2" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report') }}'">{{$value->aum}} อำเภอ</b>
+            <b class="card-title mb-2" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report') }}'">{{$value->dis}} ตำบล</b> --}}
+          </div>
+        </div>
+      </div>
+    @endforeach
+  </div>
+</div>
+
+
 <div class="card">
     <h5 class="card-header">ตำบล 1,000,000  ({{$countm1}} ตำบล)</h5>
     <div class="table-responsive text-nowrap">
