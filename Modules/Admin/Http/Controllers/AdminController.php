@@ -87,12 +87,10 @@ class AdminController extends UploadeFileController
                                     
         foreach ($data['pro'] as $key => $value) {
             $data['dis300'] = \DB::table('users')
-                ->select('districts', \DB::raw('count(districts) as total'))
                 ->where('status' ,'1')
                 ->where('provinces',$value->provinces)
-                ->groupBy('districts')
-            ->get();
-            $data['pro'][$key]->dis = count($data['dis300']);
+            ->count();
+            $data['pro'][$key]->dis = $data['dis300'];
 
             $data['aum300'] = \DB::table('users')
                 ->select('amphures')
