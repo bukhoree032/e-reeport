@@ -88,7 +88,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">ตำลล 300,000</span>
+            <span class="fw-semibold d-block mb-1">ตำบล 300,000</span>
             <h3 class="card-title mb-2">
               @if($k300 == '')
                 0 ตำบล.
@@ -106,7 +106,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">ตำลล 1,000,000</span>
+            <span class="fw-semibold d-block mb-1">ตำบล 1,000,000</span>
             <h3 class="card-title mb-2">
               @if($m1 == '')
                 0 ตำบล.
