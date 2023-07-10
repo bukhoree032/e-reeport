@@ -126,6 +126,10 @@ class MeetingController extends UploadeFileController
     
     public function UpdateMeeting(Request $request,$id)
     {
+        if(!isset($request->strength[0])){
+            return redirect()->route('admin.index.activity');
+        }
+
         $request['no_meeting'] = serialize($request['no_meeting']);
         $request['p_meeting'] = serialize($request['p_meeting']);
 
@@ -161,6 +165,10 @@ class MeetingController extends UploadeFileController
 
     public function insertMeeting2(Request $request, $id)
     {
+        if(!isset($request->strength[0])){
+            return redirect()->route('admin.index.activity');
+        }
+        
         $page_title = 'เพิ่มข้อมูลร้านค้า';
         $page_description = '';
 

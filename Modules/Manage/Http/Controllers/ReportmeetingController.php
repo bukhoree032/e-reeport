@@ -78,6 +78,10 @@ class ReportmeetingController extends UploadeFileController
      */
     public function insert(Request $request)
     {
+        if(!isset($request->activity[0])){
+            return redirect()->route('admin.index.activity');
+        }
+
         $data['resulta'] = $this->ReportRepository->insert($request->all(),'classModelReportmeeting');
 
         foreach ($request->activity as $key => $value) {

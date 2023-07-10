@@ -55,7 +55,13 @@
                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                     <div class="dropdown-menu">
                       <a target="_blank" class="dropdown-item" href="{{ route('manage.page.detail_meeting',$value->id) }}"><i class="bx bx-eye me-2"></i> รายละเอียด</a>
-                      <a class="dropdown-item" href="{{ route('manage.edit.meeting',$value->id) }}"><i class="bx bx-edit-alt me-2"></i> แก้ไข</a>
+                      @isset($activity)
+                        @if($activity == 'y')
+                          <a class="dropdown-item" href="{{ route('manage.edit.meeting',$value->id) }}"><i class="bx bx-edit-alt me-2"></i> แก้ไข</a>
+                        @else
+                          <a class="dropdown-item" style="cursor: not-allowed;" href="#"><i class="bx bx-edit-alt me-2"></i> กรุณาเพิ่มกิจกรรม</a>
+                        @endif
+                      @endisset
                       <a onclick="return confirm('ท่านต้องการลบข้อมูลใช่หรือไม่ ?')" class="dropdown-item" href="{{ route('manage.delet.meeting',$value->id) }}"><i class="bx bx-trash me-2"></i> ลบ</a>
                     </div>
                   </div>
