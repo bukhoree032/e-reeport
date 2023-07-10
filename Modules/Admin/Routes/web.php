@@ -23,6 +23,11 @@
 
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
+Route::post('/pro', 'AdminController@pro')->name('pro');
+// Route::post('/aum', 'AdminController@aum')->name('aum');
+
+Route::post('/search3k', 'AdminController@search_3k')->name('search_3k');
+Route::post('/search1m', 'AdminController@search_1m')->name('search_1m');
 
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('activity', 'ActivityController@index')->name('index.activity');

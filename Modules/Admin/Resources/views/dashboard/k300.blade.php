@@ -29,7 +29,7 @@
             <span class="fw-semibold d-block mb-1"><h4>จังหวัด {{$value->provinces}}</h4></span>
             <b class="card-title mb-2">{{$value->aum}} อำเภอ</b>
             <b class="card-title mb-2">{{$value->dis}} ตำบล</b>
-            
+
             {{-- <b class="card-title mb-2" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report') }}'">{{$value->aum}} อำเภอ</b>
             <b class="card-title mb-2" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report') }}'">{{$value->dis}} ตำบล</b> --}}
           </div>
@@ -39,6 +39,34 @@
   </div>
 </div>
 
+  <form action="{{ route('search_3k') }}" method="POST" enctype="multipart/form-data">  
+      @csrf
+      <div class="row">
+          <div class="col-md-2">
+              <label>จังหวัด</label>
+              <select class="form-control" id="pro" name="pro">
+                  <option value="" selected>-- เลือก --</option>
+                  @foreach ($pro as $key => $value)
+                      <option value="{{ $value->provinces }}">{{ $value->provinces }}</option>
+                  @endforeach
+              </select>
+          </div>
+          <div class="col-md-2">
+            <label for="exampleInputEmail1">อำเภอ</label>
+            <select class="form-control" id="aum" name="aum">
+              <option value="" selected>-- เลือก --</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label></label>ค้นหาชื่อ-นามสกุล</label>
+            <input type="text" class="form-control" name="search" placeholder="ค้นหาจากชื่อ-นามสกุล" />
+          </div>
+          <div class="col-md-1">
+            <button style="margin-top: 28%;" class="btn btn-primary">ค้นหา</button>
+          </div>
+      </div>
+  </form>
+  <br>
 <div class="card">
     <h5 class="card-header">ตำบล 300,000  ({{$countk300}} ตำบล)</h5>
     <div class="table-responsive text-nowrap">
@@ -49,6 +77,7 @@
             <th>ชิ้อ-นามสกุล</th>
             <th>เบอร์โทรศัพท์</th>
             <th>ตำบล</th>
+            <th>อำเภอ</th>
             <th>จังหวัด</th>
             <th>จัดการ</th>
           </tr> 
@@ -60,6 +89,7 @@
                 <td>{{ $value->name }}</td>
                 <td>{{ $value->tel }}</td>
                 <td>{{ $value->districts }}</td>
+                <td>{{ $value->amphures }}</td>
                 <td>{{ $value->provinces }}</td>
                 <td>
                   <div class="dropdown">
@@ -133,4 +163,30 @@
   
     
   </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+  $('#pro').change(function(){
+    var id = this.value;
+    if(id != ''){
+      $.ajax({
+        url: "{{ route('pro') }}",
+        method: "post",
+        data: {
+          id: id,
+          "_token": "{{ csrf_token() }}",
+        },
+        success:function(data)
+        {
+          var layout = '<option value="" selected>-- เลือก --</option>';
+          $.each(data,function(key,value){
+            layout += '<option value='+value.name_th+'>'+value.name_th+'</option>';
+          });
+        $('#aum').html(layout);
+      }
+    })
+    }
+  });
+</script>
 @endsection

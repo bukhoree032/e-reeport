@@ -30,6 +30,36 @@ class AdminController extends UploadeFileController
      * Display a listing of the resource.
      * @return Renderable
      */
+    public function pro(Request $request)
+    {
+        $data = \DB::table('provinces')
+                        ->where('name_th' ,$request->id)
+                        ->get()[0]->id;
+
+        $data = \DB::table('amphures')
+                    ->where('province_id' ,$data)
+                    ->get();
+
+        return $data;
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @return Renderable
+     */
+    public function aum(Request $request)
+    {
+        $data = \DB::table('districts')
+                    ->where('amphure_id' ,$request->id)
+                    ->get();
+
+        return $data;
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @return Renderable
+     */
     public function index()
     {
         if(Auth::user()->status != 5){
@@ -108,6 +138,65 @@ class AdminController extends UploadeFileController
      * Display a listing of the resource.
      * @return Renderable
      */
+    public function search_3k(Request $request)
+    {
+        $not_pro = '=';
+        $not_aum = '=';
+        $not_search = '=';
+        
+        if($request->pro == ''){
+            $not_pro = '!=';
+        }
+        if($request->aum == ''){
+            $not_aum = '!=';
+        }
+        if($request->search == ''){
+            $not_search = '!=';
+        }
+
+        $data['k300'] = \DB::table('users')
+                    ->where('status' ,'1')
+                    ->where('provinces' ,$not_pro ,$request->pro)
+                    ->where('amphures' ,$not_aum ,$request->aum)
+                    ->Where('name', 'LIKE', '%'.$request->search.'%')
+                    ->paginate(10);
+        
+        $data['countk300'] = \DB::table('users')
+                    ->where('status' ,'1')
+                    ->where('provinces' ,$not_pro ,$request->pro)
+                    ->where('amphures' ,$not_aum ,$request->aum)
+                    ->Where('name', 'LIKE', '%'.$request->search.'%')
+                    ->count();
+
+        $data['pro'] = \DB::table('users')
+                            ->select('provinces')
+                            ->where('status' ,'1')
+                            ->groupBy('provinces')
+                        ->get();
+                                    
+        foreach ($data['pro'] as $key => $value) {
+            $data['dis300'] = \DB::table('users')
+                ->where('status' ,'1')
+                ->where('provinces',$value->provinces)
+            ->count();
+            $data['pro'][$key]->dis = $data['dis300'];
+
+            $data['aum300'] = \DB::table('users')
+                ->select('amphures')
+                ->where('status','1')
+                ->where('provinces',$value->provinces)
+                ->groupBy('amphures')
+            ->get();
+            $data['pro'][$key]->aum = count($data['aum300']);
+        }
+
+        return view('admin::dashboard.k300', $data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @return Renderable
+     */
     public function m1()
     {
         $page_title = 'บันทึกการประชุม';
@@ -146,5 +235,66 @@ class AdminController extends UploadeFileController
         }
 
         return view('admin::dashboard.m1', compact('page_title', 'page_description'),$data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @return Renderable
+     */
+    public function search_1m(Request $request)
+    {
+        $not_pro = '=';
+        $not_aum = '=';
+        $not_search = '=';
+        
+        if($request->pro == ''){
+            $not_pro = '!=';
+        }
+        if($request->aum == ''){
+            $not_aum = '!=';
+        }
+        if($request->search == ''){
+            $not_search = '!=';
+        }
+
+        $data['m1'] = \DB::table('users')
+                    ->where('status' ,'2')
+                    ->where('provinces' ,$not_pro ,$request->pro)
+                    ->where('amphures' ,$not_aum ,$request->aum)
+                    ->Where('name', 'LIKE', '%'.$request->search.'%')
+                    ->paginate(10);
+        
+        $data['countm1'] = \DB::table('users')
+                    ->where('status' ,'2')
+                    ->where('provinces' ,$not_pro ,$request->pro)
+                    ->where('amphures' ,$not_aum ,$request->aum)
+                    ->Where('name', 'LIKE', '%'.$request->search.'%')
+                    ->count();
+
+        $data['pro'] = \DB::table('users')
+                    ->select('provinces')
+                    ->where('status' ,'2')
+                    ->groupBy('provinces')
+                    ->get();
+                
+        foreach ($data['pro'] as $key => $value) {
+            $data['dis1m'] = \DB::table('users')
+                                ->select('districts', \DB::raw('count(districts) as total'))
+                                ->where('status' ,'2')
+                                ->where('provinces',$value->provinces)
+                                ->groupBy('districts')
+                                ->get();
+            $data['pro'][$key]->dis = count($data['dis1m']);
+
+            $data['aum1m'] = \DB::table('users')
+                                ->select('amphures')
+                                ->where('status','2')
+                                ->where('provinces',$value->provinces)
+                                ->groupBy('amphures')
+                                ->get();
+            $data['pro'][$key]->aum = count($data['aum1m']);
+}
+
+        return view('admin::dashboard.m1', $data);
     }
 }
