@@ -19,7 +19,7 @@ class AuthController extends UploadeFileController
 
     public function __construct(Repository $Repository)
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
         $this->Repository = $Repository;
     }
 
@@ -73,16 +73,25 @@ class AuthController extends UploadeFileController
                             ->where('id' ,$request->iduser)
                             ->get()[0];
             
-            return view('auth.passwords.reset',$data);
+            return redirect()->back()->with('success', 'รหัสผ่านกับยืนยันรหัสผ่านไม่ตรงกัน');
         }
 
-        if($request->iduser == Auth::user()->id || Auth::user()->status == '5'){
+        if(isset(Auth::user()->id)){
+            if($request->iduser == Auth::user()->id || Auth::user()->status == '5'){
+                $password = Hash::make($request->password);
+                $aa = $request->all();
+                $affected = \DB::table('users')
+                            ->where('id', $request->iduser)
+                            ->update(['password' => $password]);
+            }
+        }else{
             $password = Hash::make($request->password);
-            $aa = $request->all();
-            $affected = \DB::table('users')
-                        ->where('id', $request->iduser)
-                        ->update(['password' => $password]);
+                $aa = $request->all();
+                $affected = \DB::table('users')
+                            ->where('id', $request->iduser)
+                            ->update(['password' => $password]);
         }
+        
 
         return redirect()->route('dashboard');
     }

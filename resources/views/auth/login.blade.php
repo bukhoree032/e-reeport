@@ -35,23 +35,23 @@
             <div class="mb-3 form-password-toggle">
               <div class="d-flex justify-content-between">
                 <label class="form-label" for="password">รหัสผ่าน</label>
-                {{-- <a href="{{url('auth/forgot-password-basic')}}">
-                  <small>Forgot Password?</small>
-                </a> --}}
+                <a href="{{ route('password.request') }}">
+                  <small>ลืมรหัสผ่านใช่หรือไม่?</small>
+                </a>
               </div>
               <div class="input-group input-group-merge">
                 <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
               </div>
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="remember-me">
                 <label class="form-check-label" for="remember-me">
                   Remember Me
                 </label>
               </div>
-            </div>
+            </div> --}}
             <div class="mb-3">
               <button class="btn btn-primary d-grid w-100" type="submit">เข้าสู่ระบบ</button>
             </div>

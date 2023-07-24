@@ -28,6 +28,9 @@ Route::post('login/insert', $controller_path . '\authentications\RegisterBasic@i
 
 Route::get('page/register', $controller_path . '\Auth\RegisterController@pageregister')->name('register.create');
 
+Route::post('/forgot', $controller_path . '\authentications\ForgotPasswordBasic@index')->name('forgot');
+
+
 // Route::get('login', $controller_path . '\HomeController@index')->name('loginaaa');
 
 

@@ -28,6 +28,14 @@
           <form id="formAuthentication" class="mb-3" action="{{ route('auth.reset.update') }}" method="POST">
             @csrf
 
+            @if (\Session::has('success'))
+                <div class="alert alert-danger">
+                    <ul>
+                        <li>{!! \Session::get('success') !!}</li>
+                    </ul>
+                </div>
+            @endif
+            
             <input type="hidden" name="token" value="494847">
             <input type="hidden" name="iduser" value="{{$user->id}}">
 
