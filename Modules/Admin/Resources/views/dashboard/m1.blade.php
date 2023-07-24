@@ -88,7 +88,7 @@
         <tbody class="table-border-bottom-0">
           @foreach ($m1 as $item =>$value)
             <tr>
-              <td style="width: 10%">{{ $m1->firstItem() + $item }}</td>
+              <td style="width: 10%">{{ $item +1 }}</td>
                 <td>{{ $value->name }}</td>
                 <td>{{ $value->tel }}</td>
                 <td>{{ $value->districts }}</td>
@@ -113,7 +113,7 @@
 
 
     {{-- แบ่งหน้า --}}
-    @if($m1->currentPage() < 3)
+    {{-- @if($m1->currentPage() < 3)
       @php $start = 1; @endphp
       @php $end = 5 @endphp
       @if($m1->lastPage() < 5)
@@ -147,7 +147,7 @@
         <a class="page-link" href="{{$m1->url($m1->lastPage())}}"><i class="tf-icon bx bx-chevrons-right"></i></a>
       </li>
       </ul>
-    </div>
+    </div> --}}
     {{-- แบ่งหน้า --}}
   
     

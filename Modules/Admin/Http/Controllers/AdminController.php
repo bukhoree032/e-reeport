@@ -159,7 +159,7 @@ class AdminController extends UploadeFileController
                     ->where('provinces' ,$not_pro ,$request->pro)
                     ->where('amphures' ,$not_aum ,$request->aum)
                     ->Where('name', 'LIKE', '%'.$request->search.'%')
-                    ->paginate(10);
+                    ->get();
         
         $data['countk300'] = \DB::table('users')
                     ->where('status' ,'1')
@@ -262,7 +262,7 @@ class AdminController extends UploadeFileController
                     ->where('provinces' ,$not_pro ,$request->pro)
                     ->where('amphures' ,$not_aum ,$request->aum)
                     ->Where('name', 'LIKE', '%'.$request->search.'%')
-                    ->paginate(10);
+                    ->get();
         
         $data['countm1'] = \DB::table('users')
                     ->where('status' ,'2')

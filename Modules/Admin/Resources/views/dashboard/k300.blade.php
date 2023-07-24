@@ -85,7 +85,7 @@
         <tbody class="table-border-bottom-0">
           @foreach ($k300 as $item =>$value)
             <tr>
-                <td style="width: 10%">{{ $k300->firstItem() + $item }}</td>
+                <td style="width: 10%">{{ $item +1 }}</td>
                 <td>{{ $value->name }}</td>
                 <td>{{ $value->tel }}</td>
                 <td>{{ $value->districts }}</td>
@@ -124,7 +124,7 @@
 
 
     {{-- แบ่งหน้า --}}
-    @if($k300->currentPage() < 3)
+    {{-- @if($k300->currentPage() < 3)
       @php $start = 1; @endphp
       @php $end = 5 @endphp
       @if($k300->lastPage() < 5)
@@ -158,7 +158,7 @@
         <a class="page-link" href="{{$k300->url($k300->lastPage())}}"><i class="tf-icon bx bx-chevrons-right"></i></a>
       </li>
       </ul>
-    </div>
+    </div> --}}
     {{-- แบ่งหน้า --}}
   
     
