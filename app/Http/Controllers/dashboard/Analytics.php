@@ -20,9 +20,9 @@ class Analytics extends Controller
   
   public function index()
   {
-    // dd(Auth::user()->districts);
     $data['user'] = \DB::table('users')
                   ->where('districts', Auth::user()->districts)
+                  ->where('amphures', Auth::user()->amphures)
                   ->get();
     if(isset($data['user'][1])){
       $delet = \DB::table('users')
