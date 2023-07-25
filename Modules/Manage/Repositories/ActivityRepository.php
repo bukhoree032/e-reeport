@@ -34,8 +34,31 @@ class ActivityRepository
         $data = \DB::table($db)
                         ->select('*')
                         ->where('activity.id_districts',$id)
-                        ->paginate(10);
+                        ->get();
+        foreach ($data as $key => $value) {
+            $ac = \DB::table('activitymeeting')
+                ->where('id_ac',$value->id)
+                ->get();
+            
+            $value->ac = '';
+            if(isset($ac[0])){ 
+                $value->ac = 'y';
+            }else{
+                $value->ac = 'n';
+            }
 
+            $ac = \DB::table('reportactivity')
+                ->where('id_ac',$value->id)
+                ->get();
+            
+            if($value->ac != 'y'){
+                if(isset($ac[0])){ 
+                    $value->ac = 'y';
+                }else{
+                    $value->ac = 'n';
+                }
+            }
+        }
         return $data;
     }
 

@@ -34,7 +34,7 @@
       <tbody class="table-border-bottom-0">
         @foreach ($result as $item =>$value)
           <tr>
-            <td>{{ $result->firstItem() + $item }}</td>
+            <td>{{ $item + 1 }}</td>
             <td>{{ $value->name}}</td>
             <td>{{ $value->numberpeople}}</td>
             <td>{{ $value->budget}}</td>
@@ -45,8 +45,13 @@
                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{ route('manage.edit.activity',$value->id) }}"><i class="bx bx-edit-alt me-2"></i> แก้ไข</a>
-                    <a onclick="return confirm('ท่านต้องการลบข้อมูลใช่หรือไม่ ?')" class="dropdown-item" href="{{ route('manage.delet.activity',$value->id) }}"><i class="bx bx-trash me-2"></i> ลบ</a>
-                                
+                    @isset($value->ac)
+                      @if($value->ac == 'y')
+                      <a class="dropdown-item" style="cursor: not-allowed;" href="#"><i class="bx bx-trash me-2"></i> ลบ</a>
+                      @else
+                      <a onclick="return confirm('ท่านต้องการลบข้อมูลใช่หรือไม่ ?')" class="dropdown-item" href="{{ route('manage.delet.activity',$value->id) }}"><i class="bx bx-trash me-2"></i> ลบ</a>
+                      @endif
+                    @endisset      
                 </div>
                 </div>
             </td>
@@ -73,7 +78,7 @@
 
 
   {{-- แบ่งหน้า --}}
-  @if($result->currentPage() < 3)
+  {{-- @if($result->currentPage() < 3)
     @php $start = 1; @endphp
     @php $end = 5 @endphp
     @if($result->lastPage() < 5)
@@ -107,7 +112,7 @@
         <a class="page-link" href="{{$result->url($result->lastPage())}}"><i class="tf-icon bx bx-chevrons-right"></i></a>
       </li>
     </ul>
-  </div>
+  </div> --}}
   {{-- แบ่งหน้า --}}
 
   
