@@ -232,6 +232,11 @@ class MeetingController extends UploadeFileController
     public function delet($id)
     {
         $this->Repository->destroy($id,'classModelMeeting');
+
+        $data = \DB::table('activitymeeting')
+                        ->where('id_meet', $id)
+                        ->delete();
+       
         
         return redirect()->route('index.meeting');
     }

@@ -167,7 +167,11 @@ class ReportmeetingController extends UploadeFileController
     public function delet($id)
     {
         $this->ReportRepository->destroy($id,'classModelReportmeeting');
-        
+
+        $data = \DB::table('reportactivity')
+                        ->where('id_report', $id)
+                        ->delete();
+
         return redirect()->route('index.report');
     }
 }
