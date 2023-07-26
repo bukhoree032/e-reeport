@@ -57,7 +57,7 @@
               </div>
               <div class="mb-3 col-md-6">
                 <label class="form-label">E-mail</label>
-                <input class="form-control" type="text" value="{{$user[0]->email}}" readonly />
+                <input class="form-control" type="text" name="email" value="{{$user[0]->email}}" required />
               </div>
               <div class="mb-3 col-md-6">
                 <label class="form-label">งบประมาณที่ได้รับ</label>
