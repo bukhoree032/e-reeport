@@ -135,13 +135,43 @@ class MeetingController extends UploadeFileController
 
         $data['result'] = $this->Repository->updateAll($request->all(),$id,'classModelMeeting');
 
+        $uploade = new UploadeFileController();
         foreach ($request->strength as $key => $value) {
+            if (!empty($value['pictures'])) {
+                foreach ($value['pictures'] as $keypik => $valuepik) {
+                    $picture = $uploade->uploadImage(
+                        $valuepik,
+                        'meeting',
+                        Str::random(5)
+                    );
+                    $value['picture_meet'][$keypik] = $picture;
+                }
+            }
 
-            $result = \DB::table('activitymeeting')
+            if(isset($value['picture_meet'])){
+                $value['picture_meet'] = serialize($value['picture_meet']);
+            }else{
+                $value['picture_meet'] = '';
+            }
+
+            if(isset($value['id_ac_meet'])){
+
+                $result = \DB::table('activitymeeting')
                         ->where('id_ac_meet', $value['id_ac_meet'])
                         ->update([
                             'strength' => $value['strength'],
+                            'picture_meet' => $value['picture_meet'],
                     ]);
+            }else{
+                $insertDb = \DB::table('activitymeeting')->insert([
+                    'id_meet' => $id,
+                    'id_ac' => $value['id_ac'],
+                    'name_ac' => $value['name_ac'],
+                    'strength' => $value['strength'],
+                    'picture_meet' => $value['picture_meet'],
+                    
+                ]);
+            }
         }
 
         return redirect()->route('index.meeting');
