@@ -47,6 +47,145 @@ class MeetingController extends UploadeFileController
     }
 
     /**
+     * Display a listing of the resource.
+     * @return Renderable
+     */
+    public function index_now($id,$time)
+    {
+        if(Auth::user()->status != 5){
+            return redirect()->route('index.meeting');
+        }
+        
+        $data['pro'] = \DB::table('users')
+                            ->select('provinces')
+                            ->groupBy('provinces')
+                        ->get();
+
+        $data['user'] = \DB::table('users')
+                            ->select('id','districts','amphures')
+                            ->where('status' ,$id)
+                            ->get();
+
+        if($time == 1){
+            $time = date('Y-m');
+        }
+        
+        $data['id'] = $id;
+        $data['time'] = $time;
+        
+        $data['result'] = \DB::table('meeting')
+                        ->select('users.id','users.districts','users.amphures')
+                        ->join('users', 'users.id', '=', 'meeting.id_user')
+                        ->where('meeting.created_at', 'like', $time.'%')
+                        ->where('users.status' ,$id)
+                        ->groupBy('users.id','users.districts','users.amphures')
+                        ->get();
+
+        $key_user_no = 0;
+        foreach ($data['user'] as $key => $value) {
+            $row = 0;
+            foreach ($data['result'] as $key_result => $value_result) {
+                if($value->id == $value_result->id){
+                    $row = 1;
+                    break;
+                }
+            }
+            if($row == 0){
+                $data['result_no'][$key_user_no] =  $value;
+                $key_user_no++;
+            }
+        }   
+        return view('admin::now.meeting_now',$data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @return Renderable
+     */
+    // public function now_search(Request $request)
+    public function now_search(Request $request)
+    {
+        if(Auth::user()->status != 5){
+            return redirect()->route('index.meeting');
+        }
+        $data['id'] = $request->budget;
+        $data['time'] = $request->mont;
+        
+        $not_pro = '=';
+        $not_aum = '=';
+
+        if($request->pro == ''){
+            $not_pro = '!=';
+        }
+        if($request->aum == ''){
+            $not_aum = '!=';
+        }
+
+        $data['pro'] = \DB::table('users')
+                            ->select('provinces')
+                            ->groupBy('provinces')
+                        ->get();
+
+        $data['user'] = \DB::table('users')
+                            ->select('id','districts','amphures')
+                            ->where('status' ,$request->budget)
+                            ->where('provinces' ,$not_pro ,$request->pro)
+                            ->where('amphures' ,$not_aum ,$request->aum)
+                            ->get();
+
+        // $data['id'] = $id;
+
+        $data['result'] = \DB::table('meeting')
+                        ->select('users.id','users.districts','users.amphures')
+                        ->join('users', 'users.id', '=', 'meeting.id_user')
+                        ->where('meeting.created_at', 'like', $request->mont.'%')
+                        ->where('users.status' ,$request->budget)
+                        ->where('users.provinces' ,$not_pro ,$request->pro)
+                        ->where('users.amphures' ,$not_aum ,$request->aum)
+                        ->groupBy('users.id','users.districts','users.amphures')
+                        ->get();
+
+        $key_user_no = 0;
+        foreach ($data['user'] as $key => $value) {
+            $row = 0;
+            foreach ($data['result'] as $key_result => $value_result) {
+                if($value->id == $value_result->id){
+                    $row = 1;
+                    break;
+                }
+            }
+            if($row == 0){
+                $data['result_no'][$key_user_no] =  $value;
+                $key_user_no++;
+            }
+        }   
+        return view('admin::now.meeting_now',$data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     * @return Renderable
+     */
+    public function meetinguser($id)
+    {
+        if(Auth::user()->status != 5){
+            return redirect()->route('index.meeting');
+        }
+
+        $page_title = 'บันทึกการประชุม';
+        $page_description = '';
+
+        $db = "meeting";
+        
+        $data['result'] = $this->Repository->ShowIdAll('id_user',$id,$db);
+
+        $data['count'] = count($data['result']);
+
+        return view('manage::meeting.manage_meeting', compact('page_title', 'page_description'),$data);
+    }
+
+
+    /**
      * Show the form for creating a new resource.
      * @return Renderable
      */

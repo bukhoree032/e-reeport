@@ -40,11 +40,7 @@
       <tbody class="table-border-bottom-0">
         @foreach ($result as $item =>$value)
           <tr>
-            @isset($result->onEachSide)
               <td>{{ $result->firstItem() + $item }}</td>
-            @else
-              <td>{{ $item+1 }}</td>
-            @endisset
               <td>{{ $value->district }}</td>
               <td>{{ $value->round }}</td>
               <td>{{ $value->meeting_date }}</td>
@@ -90,8 +86,8 @@
     </table>
   </div>
 
+
   {{-- แบ่งหน้า --}}
-@isset($result->onEachSide)
   {{-- $paginator->lastPage() หน้าสุดท้าย --}}
   {{-- $paginator->currentPage() หน้าปัจจุบัน --}}
   @if($result->currentPage() < 3)
@@ -128,9 +124,8 @@
       </li>
     </ul>
   </div>
+  {{-- แบ่งหน้า --}}
 
-@endisset
-{{-- แบ่งหน้า --}}
   
 </div>
 <!--/ Basic Bootstrap Table -->
