@@ -88,7 +88,69 @@ class AdminController extends UploadeFileController
         $data['sumwithdraw'] = \DB::table('reportactivity')
                         ->select(\DB::raw("SUM(re_ac_withdraw) as sumwithdraw"))
                         ->get()[0];
-    
+        
+        // รวม
+        $data['mee_k300'] = \DB::table('users')
+                        ->join('meeting', 'users.id', '=', 'meeting.id_user')
+                        ->where('status' ,'1')
+                        ->count();
+        
+        $data['re_k300'] = \DB::table('users')
+                        ->join('reportmeeting', 'users.id', '=', 'reportmeeting.id_user')
+                        ->where('status' ,'1')
+                        ->count();
+
+        $data['mee_m1'] = \DB::table('users')
+                        ->join('meeting', 'users.id', '=', 'meeting.id_user')
+                        ->where('status' ,'2')
+                        ->count();
+        
+        $data['re_m1'] = \DB::table('users')
+                        ->join('reportmeeting', 'users.id', '=', 'reportmeeting.id_user')
+                        ->where('status' ,'2')
+                        ->count();
+        // รวม
+
+        
+        // เดือนนี้
+        $time = date('Y-m');
+        
+        $data['mee_k300_now'] = \DB::table('meeting')
+                        ->select('users.districts','users.amphures')
+                        ->join('users', 'users.id', '=', 'meeting.id_user')
+                        ->where('meeting.created_at', 'like', $time.'%')
+                        ->where('users.status' ,'1')
+                        ->groupBy('users.districts','users.amphures')
+                        ->get()->count();
+
+        $data['re_k300_now'] = \DB::table('users')
+                        ->select('users.districts','users.amphures')
+                        ->join('reportmeeting', 'users.id', '=', 'reportmeeting.id_user')
+                        ->where('reportmeeting.created_at', 'like', $time.'%')
+                        ->where('status' ,'1')
+                        ->groupBy('users.districts','users.amphures')
+                        ->get()
+                        ->count();
+
+        $data['mee_m1_now'] = \DB::table('users')
+                        ->select('users.districts','users.amphures')
+                        ->join('meeting', 'users.id', '=', 'meeting.id_user')
+                        ->where('meeting.created_at', 'like', $time.'%')
+                        ->where('status' ,'2')
+                        ->groupBy('users.districts','users.amphures')
+                        ->get()
+                        ->count();
+        
+        $data['re_m1_now'] = \DB::table('users')
+                        ->select('users.districts','users.amphures')
+                        ->join('reportmeeting', 'users.id', '=', 'reportmeeting.id_user')
+                        ->where('reportmeeting.created_at', 'like', $time.'%')
+                        ->where('status' ,'2')
+                        ->groupBy('users.districts','users.amphures')
+                        ->get()
+                        ->count();
+        // เดือนนี้
+        
         return view('manage::dashboard.dashboard', compact('page_title', 'page_description'),$data);
     }
 
