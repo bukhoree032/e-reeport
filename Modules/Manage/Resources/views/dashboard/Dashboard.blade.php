@@ -21,6 +21,15 @@
     background-color: #a8a9f9;
     color: white;
   }
+  
+  .hover3k {
+          background-color: #F5DEB3;
+        }
+  
+  .hover1m {
+          background-color: #FFE4E1;
+        }
+
 </style>
 <div class="row">
   <div class="col-lg-12 col-md-12 order-0">
@@ -56,7 +65,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">รายงานผลการดำเนินงาน</span>
+            <span class="fw-semibold d-block mb-1">รายงานการประชุม</span>
             <h3 class="card-title mb-2">{{$re}} ครั้ง
             </h3>
           </div>
@@ -83,7 +92,7 @@
       @if(isset($k300))
       <div class="col-lg-6 col-md-12 col-6 mb-6" style="margin-bottom: 15px;">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.k300') }}'">
+          <div class="card-body button-color-cursor hover3k" style="cursor: pointer;" onclick="document.location='{{ route('admin.k300') }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
@@ -101,7 +110,7 @@
       </div>
       <div class="col-lg-6 col-md-12 col-6 mb-6">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.m1') }}'">
+          <div class="card-body button-color-cursor hover1m" style="cursor: pointer;" onclick="document.location='{{ route('admin.m1') }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
@@ -120,12 +129,10 @@
       @endif
 
 
-
-
     @if(Auth::user()->status == '5')
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="background-color: #ffe7e7; cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting') }}'">
+          <div class="card-body button-color-cursor hover3k" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting') }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
@@ -137,12 +144,12 @@
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report') }}'">
+          <div class="card-body button-color-cursor hover3k" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report') }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">รายงานผลการดำเนินงานรวม</span>
+            <span class="fw-semibold d-block mb-1">รายงานการประชุมรวม</span>
             <h3 class="card-title mb-2">{{$re_k300}} ครั้ง
             </h3>
           </div>
@@ -150,7 +157,7 @@
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting') }}'">
+          <div class="card-body button-color-cursor hover1m" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting') }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
@@ -162,12 +169,12 @@
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report') }}'">
+          <div class="card-body button-color-cursor hover1m" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report') }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">รายงานผลการดำเนินงานรวม</span>
+            <span class="fw-semibold d-block mb-1">รายงานการประชุมรวม</span>
             <h3 class="card-title mb-2">{{$re_m1}} ครั้ง
             </h3>
           </div>
@@ -175,7 +182,7 @@
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting_now',['1','1']) }}'">
+          <div class="card-body button-color-cursor hover3k" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting_now',['1','1']) }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
@@ -187,19 +194,19 @@
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report_now',['1','1']) }}'">
+          <div class="card-body button-color-cursor hover3k" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report_now',['1','1']) }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">รายงานผลการดำเนินงานเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">รายงานการประชุมเดือนนี้</span>
             <h3 class="card-title mb-2">{{$re_k300_now}} ตำบล</h3>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting_now',['2','1']) }}'">
+          <div class="card-body button-color-cursor hover1m" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting_now',['2','1']) }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
@@ -211,19 +218,19 @@
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report_now',['2','1']) }}'">
+          <div class="card-body button-color-cursor hover1m" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report_now',['2','1']) }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">รายงานผลการดำเนินงานเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">รายงานการประชุมเดือนนี้</span>
             <h3 class="card-title mb-2">{{$re_m1_now}} ตำบล</h3>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting_now',['1','1']) }}'">
+          <div class="card-body button-color-cursor hover3k" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting_now',['1','1']) }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
@@ -235,19 +242,19 @@
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report_now',['1','1']) }}'">
+          <div class="card-body button-color-cursor hover3k" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report_now',['1','1']) }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">ยังไม่รายงานผลการดำเนินงานเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">ยังไม่รายงานการประชุมเดือนนี้</span>
             <h3 class="card-title mb-2">{{$k300-$re_k300_now}} ตำบล</h3>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting_now',['2','1']) }}'">
+          <div class="card-body button-color-cursor hover1m" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.meeting_now',['2','1']) }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
@@ -259,12 +266,12 @@
       </div>
       <div class="col-lg-3 col-md-12 col-6 mb-3">
         <div class="card">
-          <div class="card-body button-color-cursor" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report_now',['2','1']) }}'">
+          <div class="card-body button-color-cursor hover1m" style="cursor: pointer;" onclick="document.location='{{ route('admin.index.report_now',['2','1']) }}'">
             <div class="card-title d-flex align-items-start justify-content-between">
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">ยังไม่รายงานผลการดำเนินงานเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">ยังไม่รายงานการประชุมเดือนนี้</span>
             <h3 class="card-title mb-2">{{$m1-$re_m1_now}} ตำบล</h3>
           </div>
         </div>
