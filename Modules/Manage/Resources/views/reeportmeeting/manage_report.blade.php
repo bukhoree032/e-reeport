@@ -40,7 +40,11 @@
       <tbody class="table-border-bottom-0">
         @foreach ($result as $item =>$value)
           <tr>
+          @isset($result->onEachSide)
             <td>{{ $result->firstItem() + $item }}</td>
+          @else
+            <td>{{ $item+1 }}</td>
+          @endisset
             <td>{{ $value->month }}/{{ $value->year }}</td>
             <td>{{ $value->round }}/{{ $value->year_round }}</td>
             <td>{{ $value->district }}</td>
@@ -83,6 +87,8 @@
 
 
   {{-- แบ่งหน้า --}}
+  
+@isset($result->onEachSide)
   @if($result->currentPage() < 3)
     @php $start = 1; @endphp
     @php $end = 5 @endphp
@@ -118,6 +124,7 @@
       </li>
     </ul>
   </div>
+@endisset
   {{-- แบ่งหน้า --}}
 
   

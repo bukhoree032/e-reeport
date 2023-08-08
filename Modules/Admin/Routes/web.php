@@ -54,6 +54,12 @@ Route::prefix('admin')->name('admin.')->group(function() {
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('meeting', 'MeetingController@index')->name('index.meeting');
 
+    Route::get('meetinguser/{id}', 'MeetingController@meetinguser')->name('index.meetinguser');
+
+    Route::get('meeting_now/{id}/{Y}', 'MeetingController@index_now')->name('index.meeting_now');
+
+    Route::post('meeting_now/search', 'MeetingController@now_search')->name('index.mee_now_search');
+
     Route::get('/pages/DetailMeeting/{id}/', 'MeetingController@Detail_meeting')->name('page.detail_meeting');
 
     Route::get('/pages/create-meeting', 'MeetingController@create')->name('create.meeting'); //1111111111111111111111111
@@ -78,6 +84,12 @@ Route::prefix('admin')->name('admin.')->group(function() {
 
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('report', 'ReportmeetingController@index')->name('index.report');
+
+    Route::get('reportuser/{id}', 'ReportmeetingController@reportuser')->name('index.reportuser');
+
+    Route::get('report_now/{id}/{Y}', 'ReportmeetingController@index_now')->name('index.report_now');
+
+    Route::post('report_now/search', 'ReportmeetingController@now_search')->name('index.now_search');
 
     Route::get('/pages/DetailReport/{id}/', 'ReportmeetingController@PageDetailReport')->name('page.detail_report');
 
