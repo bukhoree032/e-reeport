@@ -81,7 +81,7 @@
 
 
   {{-- แบ่งหน้า --}}
-  {{-- @if($result->currentPage() < 3)
+  @if($result->currentPage() < 3)
     @php $start = 1; @endphp
     @php $end = 5 @endphp
     @if($result->lastPage() < 5)
@@ -115,7 +115,7 @@
         <a class="page-link" href="{{$result->url($result->lastPage())}}"><i class="tf-icon bx bx-chevrons-right"></i></a>
       </li>
     </ul>
-  </div> --}}
+  </div>
   {{-- แบ่งหน้า --}}
 
   
