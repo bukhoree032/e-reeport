@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Dashboard - Analytics')
+@section('title', 'Dashboard - Evalocal')
 
 @section('vendor-style')
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/apex-charts/apex-charts.css')}}">
@@ -31,6 +31,26 @@
         }
 
 </style>
+
+<?php
+    $month = array(
+        '00'=>"", 
+        '01'=>"มกราคม", 
+        '02'=>"กุมภาพันธ์", 
+        '03'=>"มีนาคม",
+        '04'=>"เมษายน",
+        '05'=>"พฤษภาคม",
+        '06'=>"มิถุนายน",
+        '07'=>"กรกฎาคม",
+        '08'=>"สิงหาคม",
+        '09'=>"กันยายน",
+        '10'=>"ตุลาคม",
+        '11'=>"พฤศจิกายน",
+        '12'=>"ธันวาคม"
+    );
+    $date=date('m');
+?>
+
 <div class="row">
   <div class="col-lg-12 col-md-12 order-0">
     <div class="row">
@@ -65,7 +85,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">รายงานการประชุม</span>
+            <span class="fw-semibold d-block mb-1">รายงานผลการดำเนินงาน</span>
             <h3 class="card-title mb-2">{{$re}} ครั้ง
             </h3>
           </div>
@@ -149,7 +169,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">รายงานการประชุมรวม</span>
+            <span class="fw-semibold d-block mb-1">รายงานผลการดำเนินงานรวม</span>
             <h3 class="card-title mb-2">{{$re_k300}} ครั้ง
             </h3>
           </div>
@@ -174,7 +194,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">รายงานการประชุมรวม</span>
+            <span class="fw-semibold d-block mb-1">รายงานผลการดำเนินงานรวม</span>
             <h3 class="card-title mb-2">{{$re_m1}} ครั้ง
             </h3>
           </div>
@@ -187,7 +207,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">บันทึกการประชุมเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">บันทึกการประชุมเดือน{{$month[$date];}}</span>
             <h3 class="card-title mb-2">{{$mee_k300_now}} ตำบล</h3>
           </div>
         </div>
@@ -199,7 +219,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">รายงานการประชุมเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">รายงานผลการดำเนินงานเดือน{{$month[$date];}}</span>
             <h3 class="card-title mb-2">{{$re_k300_now}} ตำบล</h3>
           </div>
         </div>
@@ -211,7 +231,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">บันทึกการประชุมเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">บันทึกการประชุมเดือน{{$month[$date];}}</span>
             <h3 class="card-title mb-2">{{$mee_m1_now}} ตำบล</h3>
           </div>
         </div>
@@ -223,7 +243,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">รายงานการประชุมเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">รายงานผลการดำเนินงานเดือน{{$month[$date];}}</span>
             <h3 class="card-title mb-2">{{$re_m1_now}} ตำบล</h3>
           </div>
         </div>
@@ -235,7 +255,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">ยังไม่บันทึกการประชุมเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">ยังไม่บันทึกการประชุมเดือน{{$month[$date];}}</span>
             <h3 class="card-title mb-2">{{$k300-$mee_k300_now}} ตำบล</h3>
           </div>
         </div>
@@ -247,7 +267,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">ยังไม่รายงานการประชุมเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">ยังไม่รายงานผลการดำเนินงานเดือน{{$month[$date];}}</span>
             <h3 class="card-title mb-2">{{$k300-$re_k300_now}} ตำบล</h3>
           </div>
         </div>
@@ -259,7 +279,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">ยังไม่บันทึกการประชุมเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">ยังไม่บันทึกการประชุมเดือน{{$month[$date];}}</span>
             <h3 class="card-title mb-2">{{$m1-$mee_m1_now}} ตำบล</h3>
           </div>
         </div>
@@ -271,7 +291,7 @@
               <div class="dropdown">
               </div>
             </div>
-            <span class="fw-semibold d-block mb-1">ยังไม่รายงานการประชุมเดือนนี้</span>
+            <span class="fw-semibold d-block mb-1">ยังไม่รายงานผลการดำเนินงานเดือน{{$month[$date];}}</span>
             <h3 class="card-title mb-2">{{$m1-$re_m1_now}} ตำบล</h3>
           </div>
         </div>
