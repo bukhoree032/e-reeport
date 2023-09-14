@@ -31,6 +31,7 @@ Route::post('/search1m', 'AdminController@search_1m')->name('search_1m');
 
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('activity', 'ActivityController@index')->name('index.activity');
+    Route::get('excellactivity/', 'ActivityController@excell_activity')->name('page.excell_activity');
 
     Route::get('/k300', 'AdminController@k300')->name('k300');
     Route::get('/m1', 'AdminController@m1')->name('m1');

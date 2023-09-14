@@ -44,4 +44,39 @@ class ActivityController extends UploadeFileController
 
         return view('manage::activity.manage_activity', compact('page_title', 'page_description'),$data);
     }
+
+    public function excell_activity()
+    {
+        if(Auth::user()->status != 5){
+            return redirect()->route('index.activity');
+        }
+
+        $page_title = 'บันทึกการประชุม';
+        $page_description = '';
+
+        $db = "activity";
+    
+        $data['pro'] = \DB::table('users')
+            ->select('provinces')
+            ->groupBy('provinces')
+            ->get();
+
+        foreach ($data['pro'] as $key => $value) {
+            $data['pro3k'][$value->provinces] = \DB::table('users')
+                                                ->join('activity', 'activity.id_districts', '=', 'users.id')
+                                                ->where('users.provinces', $value->provinces)
+                                                ->where('users.status', '1')
+                                                ->orderBy('amphures', 'desc')
+                                                ->get();
+
+            $data['pro1m'][$value->provinces] = \DB::table('users')
+                                                ->join('activity', 'activity.id_districts', '=', 'users.id')
+                                                ->where('users.provinces', $value->provinces)
+                                                ->where('users.status', '2')
+                                                ->orderBy('amphures', 'desc')
+                                                ->get();
+        }
+        
+        return view('manage::activity.excell_activity', compact('page_title', 'page_description'),$data);
+    }
 }
