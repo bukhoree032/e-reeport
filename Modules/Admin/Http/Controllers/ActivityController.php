@@ -62,19 +62,31 @@ class ActivityController extends UploadeFileController
             ->get();
 
         foreach ($data['pro'] as $key => $value) {
-            $data['pro3k'][$value->provinces] = \DB::table('users')
-                                                ->join('activity', 'activity.id_districts', '=', 'users.id')
+            $pro3k = \DB::table('users')
                                                 ->where('users.provinces', $value->provinces)
                                                 ->where('users.status', '1')
                                                 ->orderBy('amphures', 'desc')
                                                 ->get();
 
-            $data['pro1m'][$value->provinces] = \DB::table('users')
-                                                ->join('activity', 'activity.id_districts', '=', 'users.id')
+            $pro1m = \DB::table('users')
                                                 ->where('users.provinces', $value->provinces)
                                                 ->where('users.status', '2')
                                                 ->orderBy('amphures', 'desc')
                                                 ->get();
+
+            foreach ($pro3k as $key => $value) {
+                $data['pro3k'][$value->provinces][$key] = $value;
+                $data['pro3k'][$value->provinces][$key]->activity = \DB::table('activity')
+                        ->where('activity.id_districts', $value->id)
+                        ->get();
+            }
+            
+            foreach ($pro1m as $key => $value) {
+                $data['pro1m'][$value->provinces][$key] = $value;
+                $data['pro1m'][$value->provinces][$key]->activity = \DB::table('activity')
+                        ->where('activity.id_districts', $value->id)
+                        ->get();
+            }
         }
         
         return view('manage::activity.excell_activity', compact('page_title', 'page_description'),$data);

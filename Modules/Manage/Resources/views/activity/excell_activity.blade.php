@@ -34,9 +34,24 @@ if(isset($_GET['act'])){
 								<th>จังหวัด</th>
 								<th>อำเภอ</th>
 								<th>ตำบล</th>
-								<th>กิจกรรม</th>
-								<th>งบประมาณ/กิจกรรม</th>
-								<th>งบประมาณที่ได้รับทั้งหมด</th>
+								<th>งบประมาณ</th>
+								<th>กิจกรรม1</th>
+								<th>ละติจูด/ลองจิจูด</th>
+								<th>กิจกรรม2</th>
+								<th>ละติจูด/ลองจิจูด</th>
+								<th>กิจกรรม3</th>
+								<th>ละติจูด/ลองจิจูด</th>
+								<th>กิจกรรม4</th>
+								<th>ละติจูด/ลองจิจูด</th>
+								<th>กิจกรรม5</th>
+								<th>ละติจูด/ลองจิจูด</th>
+								<th>กิจกรรม6</th>
+								<th>ละติจูด/ลองจิจูด</th>
+								<th>กิจกรรม7</th>
+								<th>ละติจูด/ลองจิจูด</th>
+								<th>กิจกรรม8</th>
+								<th>ละติจูด/ลองจิจูด</th>
+								<th>กิจกรรม9</th>
 								<th>ละติจูด/ลองจิจูด</th>
 							</tr>
 						</thead>
@@ -48,10 +63,11 @@ if(isset($_GET['act'])){
 										<td>{{ $value->provinces }}</td>
 										<td>{{ $value->amphures }}</td>
 										<td>{{ $value->districts }}</td>
-										<td>{{ $value->name }}</td>
-										<td>{{ $value->budget }}</td>
 										<td>1,000,000</td>
-										<td>{{ $value->lat }},{{ $value->log }}</td>
+										@foreach($value->activity as $ac_key => $ac_value)
+											<td>{{ $ac_value->name }}</td>
+											<td>{{ $ac_value->lat }},{{ $ac_value->log }}</td>
+										@endforeach
 									</tr>
 								@endforeach
 							@endforeach
@@ -61,10 +77,11 @@ if(isset($_GET['act'])){
 										<td>{{ $value->provinces }}</td>
 										<td>{{ $value->amphures }}</td>
 										<td>{{ $value->districts }}</td>
-										<td>{{ $value->name }}</td>
-										<td>{{ $value->budget }}</td>
 										<td>300,000</td>
-										<td>{{ $value->lat }},{{ $value->log }}</td>
+										@foreach($value->activity as $ac_key => $ac_value)
+											<td>{{ $ac_value->name }}</td>
+											<td>{{ $ac_value->lat }},{{ $ac_value->log }}</td>
+										@endforeach
 									</tr>
 								@endforeach
 							@endforeach
