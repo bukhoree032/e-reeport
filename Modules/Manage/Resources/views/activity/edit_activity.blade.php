@@ -36,23 +36,33 @@
                 <div class="card-body">
                         
                     <div class="form-group row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <label>ชื่อกิจกรรม:</label>
                             <input type="text" class="form-control" name="name" value="{{$resultID->name}}" placeholder="ชื่อกิจกรรม" />
                         </div>
-                        <div class="col-lg-2">
+
+                        <div class="col-lg-6">
+                            <label>ประเภทกิจกรรม:</label>
+                            <select name="category" id="cars" class="form-control">
+                                <option>-- เลือกประเภท --</option>
+                                <option value="สัตว์น้ำ" @if($resultID->category == 'สัตว์น้ำ')selected  @endif>สัตว์น้ำ</option>
+                                <option value="สัตว์ปีก" @if($resultID->category == 'สัตว์ปีก')selected  @endif>สัตว์ปีก</option>
+                                <option value="พืชผัก" @if($resultID->category == 'พืชผัก')selected  @endif>พืชผัก</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
                             <label>จำนวนครัวเรือน:</label>
                             <input type="number" class="form-control" name="numberpeople" value="{{$resultID->numberpeople}}" placeholder="จำนวนครัวเรือน" />
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <label>งบประมาณ:</label>
                             <input type="number" class="form-control" name="budget" value="{{$resultID->budget}}" placeholder="งบประมาณ" />
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <label>ละติจูด:</label>
                             <input type="text" class="form-control" name="lat" value="{{$resultID->lat}}" placeholder="ละติจูด" />
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <label>ลองติจูด:</label>
                             <input type="text" class="form-control" name="log" value="{{$resultID->log}}" placeholder="ลองติจูด" />
                         </div>

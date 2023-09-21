@@ -8,7 +8,10 @@
   <span class="text-muted fw-light">ข้อมูลกิจกรรม</span>
 </h4>
 
-<a target="_blank" href="{{ route('admin.page.excell_activity') }}" class="btn btn-success"> Excel </a>
+@if(Auth::user()->status == 5)
+  <a target="_blank" href="{{ route('admin.page.excell_activity') }}" class="btn btn-success"> Excel </a>
+@endif
+
 <div class="card-toolbar">
     <!--begin::Button-->
     @if(Auth::user()->status != 5)
@@ -81,42 +84,43 @@
 
 
   {{-- แบ่งหน้า --}}
-  @if($result->currentPage() < 3)
-    @php $start = 1; @endphp
-    @php $end = 5 @endphp
-    @if($result->lastPage() < 5)
-      @php $end = $result->lastPage(); @endphp
-    @endif
-  @else
-    @php $start = $result->currentPage()-2; @endphp
-    @php $end = $start+4 @endphp
-    @if($result->lastPage()-2 < $result->currentPage())
+    @if($result->currentPage() < 3)
+      @php $start = 1; @endphp
+      @php $end = 5 @endphp
+      @if($result->lastPage() < 5)
+        @php $end = $result->lastPage(); @endphp
+      @endif
+    @else
       @php $start = $result->currentPage()-2; @endphp
-      @php $end = $result->lastPage(); @endphp
+      @php $end = $start+4 @endphp
+      @if($result->lastPage()-2 < $result->currentPage())
+        @php $start = $result->currentPage()-2; @endphp
+        @php $end = $result->lastPage(); @endphp
+      @endif
     @endif
-  @endif
 
 
-  <div class="card">
-    <ul class="pagination justify-content-end" style="padding-top: 11px; padding-right: 17px;">
-      <li class="page-item prev">
-        <a class="page-link" href="{{$result->url(1)}}"><i class="tf-icon bx bx-chevrons-left"></i></a>
-      </li>
-      <li class="page-item prev">
-        <a class="page-link" href="{{$result->previousPageUrl()}}"><i class="tf-icon bx bx-chevron-left"></i></a>
-      </li>
-      @foreach($result->getUrlRange($start, $end) as $key => $value)
-        <li class="page-item @if($result->currentPage() == $key) active @endif"><a class="page-link" href="{{$value}}">{{$key}}</a></li>
-      @endforeach
-      <li class="page-item next">
-        <a class="page-link" href="{{$result->nextPageUrl()}}"><i class="tf-icon bx bx-chevron-right"></i></a>
-      </li>
-      <li class="page-item next">
-        <a class="page-link" href="{{$result->url($result->lastPage())}}"><i class="tf-icon bx bx-chevrons-right"></i></a>
-      </li>
-    </ul>
-  </div>
+    <div class="card">
+      <ul class="pagination justify-content-end" style="padding-top: 11px; padding-right: 17px;">
+        <li class="page-item prev">
+          <a class="page-link" href="{{$result->url(1)}}"><i class="tf-icon bx bx-chevrons-left"></i></a>
+        </li>
+        <li class="page-item prev">
+          <a class="page-link" href="{{$result->previousPageUrl()}}"><i class="tf-icon bx bx-chevron-left"></i></a>
+        </li>
+        @foreach($result->getUrlRange($start, $end) as $key => $value)
+          <li class="page-item @if($result->currentPage() == $key) active @endif"><a class="page-link" href="{{$value}}">{{$key}}</a></li>
+        @endforeach
+        <li class="page-item next">
+          <a class="page-link" href="{{$result->nextPageUrl()}}"><i class="tf-icon bx bx-chevron-right"></i></a>
+        </li>
+        <li class="page-item next">
+          <a class="page-link" href="{{$result->url($result->lastPage())}}"><i class="tf-icon bx bx-chevrons-right"></i></a>
+        </li>
+      </ul>
+    </div>
   {{-- แบ่งหน้า --}}
+
 
   
 </div>

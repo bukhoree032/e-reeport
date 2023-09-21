@@ -11,6 +11,7 @@ class Activity extends Model
     protected $fillable = [
         'id_districts',
         'name',
+        'category',
         'numberpeople',
         'budget',
         'lat',
