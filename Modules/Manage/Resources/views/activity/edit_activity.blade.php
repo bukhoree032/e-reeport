@@ -48,6 +48,7 @@
                                 <option value="สัตว์น้ำ" @if($resultID->category == 'สัตว์น้ำ')selected  @endif>สัตว์น้ำ</option>
                                 <option value="สัตว์ปีก" @if($resultID->category == 'สัตว์ปีก')selected  @endif>สัตว์ปีก</option>
                                 <option value="พืชผัก" @if($resultID->category == 'พืชผัก')selected  @endif>พืชผัก</option>
+                                <option value="อื่นๆ" @if($resultID->category == 'อื่นๆ')selected  @endif>อื่นๆ</option>
                             </select>
                         </div>
                         <div class="col-lg-3">

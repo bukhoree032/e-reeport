@@ -48,6 +48,7 @@
                                 <option value="สัตว์น้ำ">สัตว์น้ำ</option>
                                 <option value="สัตว์ปีก">สัตว์ปีก</option>
                                 <option value="พืชผัก">พืชผัก</option>
+                                <option value="อื่นๆ">อื่นๆ</option>
                             </select>
                         </div>
 
