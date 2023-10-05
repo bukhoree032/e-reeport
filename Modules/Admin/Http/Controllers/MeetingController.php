@@ -73,10 +73,14 @@ class MeetingController extends UploadeFileController
         $data['id'] = $id;
         $data['time'] = $time;
         
+        $timeth=date_create($data['time']);
+        $timeth = date_format($timeth,"Y")+'543'."-".date_format($timeth,"m");
+
         $data['result'] = \DB::table('meeting')
                         ->select('users.id','users.districts','users.amphures')
                         ->join('users', 'users.id', '=', 'meeting.id_user')
-                        ->where('meeting.created_at', 'like', $time.'%')
+                        ->where('meeting.meeting_date', 'like', $time.'%')
+                        ->orwhere('meeting.meeting_date', 'like', $timeth.'%')
                         ->where('users.status' ,$id)
                         ->groupBy('users.id','users.districts','users.amphures')
                         ->get();
@@ -110,6 +114,9 @@ class MeetingController extends UploadeFileController
         }
         $data['id'] = $request->budget;
         $data['time'] = $request->mont;
+
+        $timeth=date_create($data['time']);
+        $timeth = date_format($timeth,"Y")+'543'."-".date_format($timeth,"m");
         
         $not_pro = '=';
         $not_aum = '=';
@@ -133,12 +140,12 @@ class MeetingController extends UploadeFileController
                             ->where('amphures' ,$not_aum ,$request->aum)
                             ->get();
 
-        // $data['id'] = $id;
 
         $data['result'] = \DB::table('meeting')
                         ->select('users.id','users.districts','users.amphures')
                         ->join('users', 'users.id', '=', 'meeting.id_user')
-                        ->where('meeting.created_at', 'like', $request->mont.'%')
+                        ->where('meeting.meeting_date', 'like', $request->mont.'%')
+                        ->orwhere('meeting.meeting_date', 'like', $timeth.'%')
                         ->where('users.status' ,$request->budget)
                         ->where('users.provinces' ,$not_pro ,$request->pro)
                         ->where('users.amphures' ,$not_aum ,$request->aum)

@@ -113,12 +113,36 @@ class AdminController extends UploadeFileController
 
         
         // เดือนนี้
+        // บันทึกการประชุม
         $time = date('Y-m');
+        $timeth=date_create($time);
+        $timeth = date_format($timeth,"Y")+'543'."-".date_format($timeth,"m");
+        // บันทึกการประชุม
+
+        // รายงานการดำเนินงาน
+        $time_y = date('Y')+543;
+        $time_m = date('m');
+        $mont = [
+            '01'=>'มกราคม',
+            '02'=>'กุมภาพันธ์',
+            '03'=>'มีนาคม',
+            '04'=>'เมษายน',
+            '05'=>'พฤษภาคม',
+            '06'=>'มิถุนายน',
+            '07'=>'กรกฎาคม',
+            '08'=>'สิงหาคม',
+            '09'=>'กันยายน',
+            '10'=>'ตุลาคม',
+            '11'=>'พฤศจิกายน',
+            '12'=>'ธันวาคม',
+        ];
+        // รายงานการดำเนินงาน
         
         $data['mee_k300_now'] = \DB::table('meeting')
                         ->select('users.districts','users.amphures')
                         ->join('users', 'users.id', '=', 'meeting.id_user')
-                        ->where('meeting.created_at', 'like', $time.'%')
+                        ->where('meeting.meeting_date', 'like', $time.'%')
+                        ->orwhere('meeting.meeting_date', 'like', $timeth.'%')
                         ->where('users.status' ,'1')
                         ->groupBy('users.districts','users.amphures')
                         ->get()->count();
@@ -126,7 +150,8 @@ class AdminController extends UploadeFileController
         $data['re_k300_now'] = \DB::table('users')
                         ->select('users.districts','users.amphures')
                         ->join('reportmeeting', 'users.id', '=', 'reportmeeting.id_user')
-                        ->where('reportmeeting.created_at', 'like', $time.'%')
+                        ->where('reportmeeting.month', $mont[$time_m])
+                        ->where('reportmeeting.year', $time_y)
                         ->where('status' ,'1')
                         ->groupBy('users.districts','users.amphures')
                         ->get()
@@ -135,7 +160,8 @@ class AdminController extends UploadeFileController
         $data['mee_m1_now'] = \DB::table('users')
                         ->select('users.districts','users.amphures')
                         ->join('meeting', 'users.id', '=', 'meeting.id_user')
-                        ->where('meeting.created_at', 'like', $time.'%')
+                        ->where('meeting.meeting_date', 'like', $time.'%')
+                        ->orwhere('meeting.meeting_date', 'like', $timeth.'%')
                         ->where('status' ,'2')
                         ->groupBy('users.districts','users.amphures')
                         ->get()
@@ -144,7 +170,8 @@ class AdminController extends UploadeFileController
         $data['re_m1_now'] = \DB::table('users')
                         ->select('users.districts','users.amphures')
                         ->join('reportmeeting', 'users.id', '=', 'reportmeeting.id_user')
-                        ->where('reportmeeting.created_at', 'like', $time.'%')
+                        ->where('reportmeeting.month', $mont[$time_m])
+                        ->where('reportmeeting.year', $time_y)
                         ->where('status' ,'2')
                         ->groupBy('users.districts','users.amphures')
                         ->get()

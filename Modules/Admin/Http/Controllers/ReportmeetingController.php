@@ -74,11 +74,30 @@ class ReportmeetingController extends UploadeFileController
 
         $data['id'] = $id;
         $data['time'] = $time;
+        
+        $timeth=date_create($data['time']);
+        $time_y = date_format($timeth,"Y")+'543';
+        $time_m = date_format($timeth,"m");
+        $mont = [
+            '01'=>'มกราคม',
+            '02'=>'กุมภาพันธ์',
+            '03'=>'มีนาคม',
+            '04'=>'เมษายน',
+            '05'=>'พฤษภาคม',
+            '06'=>'มิถุนายน',
+            '07'=>'กรกฎาคม',
+            '08'=>'สิงหาคม',
+            '09'=>'กันยายน',
+            '10'=>'ตุลาคม',
+            '11'=>'พฤศจิกายน',
+            '12'=>'ธันวาคม',
+        ];
 
         $data['result'] = \DB::table('reportmeeting')
                         ->select('users.id','users.districts','users.amphures')
                         ->join('users', 'users.id', '=', 'reportmeeting.id_user')
-                        ->where('reportmeeting.created_at', 'like', $time.'%')
+                        ->where('reportmeeting.month', $mont[$time_m])
+                        ->where('reportmeeting.year', $time_y)
                         ->where('users.status' ,$id)
                         ->groupBy('users.id','users.districts','users.amphures')
                         ->get();
@@ -113,6 +132,24 @@ class ReportmeetingController extends UploadeFileController
         $data['id'] = $request->budget;
         $data['time'] = $request->mont;
         
+        $timeth=date_create($data['time']);
+        $time_y = date_format($timeth,"Y")+'543';
+        $time_m = date_format($timeth,"m");
+        $mont = [
+            '01'=>'มกราคม',
+            '02'=>'กุมภาพันธ์',
+            '03'=>'มีนาคม',
+            '04'=>'เมษายน',
+            '05'=>'พฤษภาคม',
+            '06'=>'มิถุนายน',
+            '07'=>'กรกฎาคม',
+            '08'=>'สิงหาคม',
+            '09'=>'กันยายน',
+            '10'=>'ตุลาคม',
+            '11'=>'พฤศจิกายน',
+            '12'=>'ธันวาคม',
+        ];
+        
         $not_pro = '=';
         $not_aum = '=';
 
@@ -140,7 +177,8 @@ class ReportmeetingController extends UploadeFileController
         $data['result'] = \DB::table('reportmeeting')
                         ->select('users.id','users.districts','users.amphures')
                         ->join('users', 'users.id', '=', 'reportmeeting.id_user')
-                        ->where('reportmeeting.created_at', 'like', $request->mont.'%')
+                        ->where('reportmeeting.month', $mont[$time_m])
+                        ->where('reportmeeting.year', $time_y)
                         ->where('users.status' ,$request->budget)
                         ->where('users.provinces' ,$not_pro ,$request->pro)
                         ->where('users.amphures' ,$not_aum ,$request->aum)
