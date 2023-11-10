@@ -55,7 +55,7 @@ class SecureController extends UploadeFileController
             $data['meet'][$value_pro->provinces]['unrest'] = 0;
             $data['meet'][$value_pro->provinces]['guard'] = 0;
             $data['meet'][$value_pro->provinces]['covid'] = 0;
-            $data['meet'][$value_pro->provinces]['picture_meet'] = 0;
+            // $data['meet'][$value_pro->provinces]['picture_meet'] = 0;
         
             $data['result'] = \DB::table('meeting')
                                 ->select('users.id as id_user','meeting.id as id_meet',
@@ -65,6 +65,7 @@ class SecureController extends UploadeFileController
                                 ->join('users', 'users.id', '=', 'meeting.id_user')
                                 ->where('meeting.meeting_date', 'like', $timeth.'%')
                                 ->where('users.provinces', $value_pro->provinces)
+                                ->where('users.status', '!=' ,'5')
                                 ->ORDERBY('amphures','deSC')
                                 // ->where('meeting.id_user' ,$value->id)
                                 ->get();
@@ -101,13 +102,13 @@ class SecureController extends UploadeFileController
                     $value->covid = 'ไม่มี';
                 }
                 
-                if($value->picture_meet != '' AND $value->picture_meet != 's:0:"";'){
-                    // dd($value->picture_meet);
-                    $value->picture_meet = 'มี';
-                    $data['meet'][$value_pro->provinces]['picture_meet'] ++;
-                }else{
-                    $value->picture_meet = 'ไม่มี';
-                }
+                // if($value->picture_meet != '' AND $value->picture_meet != 's:0:"";'){
+                //     // dd($value->picture_meet);
+                //     $value->picture_meet = 'มี';
+                //     $data['meet'][$value_pro->provinces]['picture_meet'] ++;
+                // }else{
+                //     $value->picture_meet = 'ไม่มี';
+                // }
             }
         }
         return view('admin::secure.secure',$data);
@@ -145,7 +146,7 @@ class SecureController extends UploadeFileController
             $data['meet'][$value_pro->provinces]['unrest'] = 0;
             $data['meet'][$value_pro->provinces]['guard'] = 0;
             $data['meet'][$value_pro->provinces]['covid'] = 0;
-            $data['meet'][$value_pro->provinces]['picture_meet'] = 0;
+            // $data['meet'][$value_pro->provinces]['picture_meet'] = 0;
         
             $data['result'] = \DB::table('meeting')
                                 ->select('users.id as id_user','meeting.id as id_meet',
@@ -155,6 +156,7 @@ class SecureController extends UploadeFileController
                                 ->join('users', 'users.id', '=', 'meeting.id_user')
                                 ->where('meeting.meeting_date', 'like', $timeth.'%')
                                 ->where('users.provinces', $value_pro->provinces)
+                                ->where('users.status', '!=' ,'5')
                                 ->ORDERBY('amphures','deSC')
                                 // ->where('meeting.id_user' ,$value->id)
                                 ->get();
@@ -190,13 +192,13 @@ class SecureController extends UploadeFileController
                     $value->covid = 'ไม่มี';
                 }
                 
-                if($value->picture_meet != '' AND $value->picture_meet != 's:0:"";'){
-                    // dd($value->picture_meet);
-                    $value->picture_meet = 'มี';
-                    $data['meet'][$value_pro->provinces]['picture_meet'] ++;
-                }else{
-                    $value->picture_meet = 'ไม่มี';
-                }
+                // if($value->picture_meet != '' AND $value->picture_meet != 's:0:"";'){
+                //     // dd($value->picture_meet);
+                //     $value->picture_meet = 'มี';
+                //     $data['meet'][$value_pro->provinces]['picture_meet'] ++;
+                // }else{
+                //     $value->picture_meet = 'ไม่มี';
+                // }
             }
         }
         return view('admin::secure.secure',$data);
@@ -221,6 +223,7 @@ class SecureController extends UploadeFileController
             $data['user'] = \DB::table('users')
                                 ->select('id','provinces','amphures','districts','status')
                                 // ->where('status' ,$id)
+                                ->where('users.status', '!=' ,'5')
                                 ->ORDERBY('provinces','deSC')
                                 ->ORDERBY('amphures','deSC')
                                 ->get();
@@ -245,7 +248,7 @@ class SecureController extends UploadeFileController
                     $data['user'][$key]->$mi['unrest'] = 'ไม่มีการรายงานความไม่สงบ';
                     $data['user'][$key]->$mi['guard'] = 'ไม่มีการรายงานเวรยาม';
                     $data['user'][$key]->$mi['covid'] = 'ไม่มีการรายงานอนามัย';
-                    $data['user'][$key]->$mi['picture_meet'] = 'ไม่มีการรายงานรูปภาพ';
+                    // $data['user'][$key]->$mi['picture_meet'] = 'ไม่มีการรายงานรูปภาพ';
 
                     foreach ($data['result'] as $key_result => $value_result) {
                         if($value_result->narcotics != ''){
@@ -272,12 +275,12 @@ class SecureController extends UploadeFileController
                             $data['user'][$key]->$mi['covid'] = 'ไม่มีประเด็นอนามัย';
                         }
                         
-                        if($value_result->picture_meet != '' AND $value_result->picture_meet != 's:0:"";'){
-                            // dd($value_result->picture_meet);
-                            $data['user'][$key]->$mi['picture_meet'] = 'รูปภาพ';
-                        }else{
-                            $data['user'][$key]->$mi['picture_meet'] = 'ไม่มีรูปภาพ';
-                        }
+                        // if($value_result->picture_meet != '' AND $value_result->picture_meet != 's:0:"";'){
+                        //     // dd($value_result->picture_meet);
+                        //     $data['user'][$key]->$mi['picture_meet'] = 'รูปภาพ';
+                        // }else{
+                        //     $data['user'][$key]->$mi['picture_meet'] = 'ไม่มีรูปภาพ';
+                        // }
         
                     }
             }
