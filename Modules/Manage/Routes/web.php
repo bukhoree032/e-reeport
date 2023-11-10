@@ -16,6 +16,7 @@
 Route::get('/', 'DashboardController@index')->name('dashboard');
 Route::get('/secure', 'SecureController@index')->name('secure');
 Route::put('/secure/search', 'SecureController@index_search')->name('secure.search');
+Route::get('/secure/excell/{id}', 'SecureController@excell')->name('secure.excell');
 
 Route::prefix('manage')->name('auth.')->group(function() {
     Route::get('/profile', 'AuthController@index')->name('profile');
@@ -29,6 +30,7 @@ Route::get('meeting', 'MeetingController@index')->name('index.meeting');
 
 Route::prefix('manage')->name('manage.')->group(function() {
     Route::get('/pages/DetailMeeting/{id}/', 'MeetingController@Detail_meeting')->name('page.detail_meeting');
+    Route::get('/pages/DetailMeetingPDF/{id}/', 'MeetingController@Detail_meeting_pdf')->name('page.detail_meeting_pdf');
 
     Route::get('/pages/create-meeting', 'MeetingController@create')->name('create.meeting'); //1111111111111111111111111
     Route::post('/pages/create-insert/meeting/', 'MeetingController@CreateMeeting')->name('insert.meeting'); //2222222222222222

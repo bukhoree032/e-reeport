@@ -40,7 +40,7 @@ class SecureController extends UploadeFileController
                             ->groupBy('provinces')
                         ->get();
 
-        $time = date('Y-m');
+        $time = date('Y-10');
 
         $data['id'] = $id;
         $data['time'] = $time;
@@ -72,30 +72,41 @@ class SecureController extends UploadeFileController
             foreach ($data['result'] as $key => $value) {
                 $data['data_meet'][$row] = $value;
                 $row ++;
+            
                 if($value->narcotics != ''){
                     $value->narcotics = 'มี';
                     $data['meet'][$value_pro->provinces]['narcotics'] ++;
+                }else{
+                    $value->narcotics = 'ไม่มี';
                 }
                 
                 if($value->unrest != ''){
                     $value->unrest = 'มี';
                     $data['meet'][$value_pro->provinces]['unrest'] ++;
+                }else{
+                    $value->unrest = 'ไม่มี';
                 }
                 
                 if($value->guard != ''){
                     $value->guard = 'มี';
                     $data['meet'][$value_pro->provinces]['guard'] ++;
+                }else{
+                    $value->guard = 'ไม่มี';
                 }
                 
                 if($value->covid != ''){
                     $value->covid = 'มี';
                     $data['meet'][$value_pro->provinces]['covid'] ++;
+                }else{
+                    $value->covid = 'ไม่มี';
                 }
                 
                 if($value->picture_meet != '' AND $value->picture_meet != 's:0:"";'){
                     // dd($value->picture_meet);
                     $value->picture_meet = 'มี';
                     $data['meet'][$value_pro->provinces]['picture_meet'] ++;
+                }else{
+                    $value->picture_meet = 'ไม่มี';
                 }
             }
         }
@@ -154,27 +165,37 @@ class SecureController extends UploadeFileController
                 if($value->narcotics != ''){
                     $value->narcotics = 'มี';
                     $data['meet'][$value_pro->provinces]['narcotics'] ++;
+                }else{
+                    $value->narcotics = 'ไม่มี';
                 }
                 
                 if($value->unrest != ''){
                     $value->unrest = 'มี';
                     $data['meet'][$value_pro->provinces]['unrest'] ++;
+                }else{
+                    $value->unrest = 'ไม่มี';
                 }
                 
                 if($value->guard != ''){
                     $value->guard = 'มี';
                     $data['meet'][$value_pro->provinces]['guard'] ++;
+                }else{
+                    $value->guard = 'ไม่มี';
                 }
                 
                 if($value->covid != ''){
                     $value->covid = 'มี';
                     $data['meet'][$value_pro->provinces]['covid'] ++;
+                }else{
+                    $value->covid = 'ไม่มี';
                 }
                 
                 if($value->picture_meet != '' AND $value->picture_meet != 's:0:"";'){
                     // dd($value->picture_meet);
                     $value->picture_meet = 'มี';
                     $data['meet'][$value_pro->provinces]['picture_meet'] ++;
+                }else{
+                    $value->picture_meet = 'ไม่มี';
                 }
             }
         }
@@ -185,12 +206,82 @@ class SecureController extends UploadeFileController
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function amp($id)
+    public function excell($time)
     {
-        $data['result'] = \DB::table('amphures')
-                        ->where('id',$id)
-                        ->get();
-        return $data;
+        $id =1 ;
+            if(Auth::user()->status != 5){
+                return redirect()->route('index.meeting');
+            }
+            
+            $data['pro'] = \DB::table('users')
+                                ->select('provinces')
+                                ->groupBy('provinces')
+                            ->get();
+    
+            $data['user'] = \DB::table('users')
+                                ->select('id','provinces','amphures','districts','status')
+                                // ->where('status' ,$id)
+                                ->ORDERBY('provinces','deSC')
+                                ->ORDERBY('amphures','deSC')
+                                ->get();
+            
+            foreach ($data['user'] as $key => $value) {
+
+                    $data['id'] = $id;
+                    $data['time'] = $time;
+                    
+                    $timeth=date_create($data['time']);
+                    $timeth = date_format($timeth,"Y")+'543'."-".date_format($timeth,"m");
+                    $data['user'][$key]->date = $timeth;
+
+                    $data['result'] = \DB::table('meeting')
+                                    ->join('activitymeeting', 'activitymeeting.id_meet', '=', 'meeting.id_user')
+                                    ->where('meeting.meeting_date', 'like', $timeth.'%')
+                                    ->where('meeting.id_user' ,$value->id)
+                                    ->get();
+                    // dd($data['result']);
+                    $mi = 'secure';
+                    $data['user'][$key]->$mi['narcotics'] = 'ไม่มีการรายงานยาเสพติด';
+                    $data['user'][$key]->$mi['unrest'] = 'ไม่มีการรายงานความไม่สงบ';
+                    $data['user'][$key]->$mi['guard'] = 'ไม่มีการรายงานเวรยาม';
+                    $data['user'][$key]->$mi['covid'] = 'ไม่มีการรายงานอนามัย';
+                    $data['user'][$key]->$mi['picture_meet'] = 'ไม่มีการรายงานรูปภาพ';
+
+                    foreach ($data['result'] as $key_result => $value_result) {
+                        if($value_result->narcotics != ''){
+                            $data['user'][$key]->$mi['narcotics'] = 'ยาเสพติด';
+                        }else{
+                            $data['user'][$key]->$mi['narcotics'] = 'ไม่มีประเด็นยาเสพติด';
+                        }
+                        
+                        if($value_result->unrest != ''){
+                            $data['user'][$key]->$mi['unrest'] = 'ความไม่สงบ';
+                        }else{
+                            $data['user'][$key]->$mi['unrest'] = 'ไม่มีประเด็นความไม่สงบ';
+                        }
+                        
+                        if($value_result->guard != ''){
+                            $data['user'][$key]->$mi['guard'] = 'เวรยาม';
+                        }else{
+                            $data['user'][$key]->$mi['guard'] = 'ไม่มีประเด็นเวรยาม';
+                        }
+                        
+                        if($value_result->covid != ''){
+                            $data['user'][$key]->$mi['covid'] = 'อนามัย';
+                        }else{
+                            $data['user'][$key]->$mi['covid'] = 'ไม่มีประเด็นอนามัย';
+                        }
+                        
+                        if($value_result->picture_meet != '' AND $value_result->picture_meet != 's:0:"";'){
+                            // dd($value_result->picture_meet);
+                            $data['user'][$key]->$mi['picture_meet'] = 'รูปภาพ';
+                        }else{
+                            $data['user'][$key]->$mi['picture_meet'] = 'ไม่มีรูปภาพ';
+                        }
+        
+                    }
+            }
+            return view('admin::secure.secure_excell',$data);
     }
 
     /**

@@ -3,23 +3,14 @@
 @section('title', 'Evalocal')
 
 @section('content')
-<?php
-if(isset($_GET['act'])){
-	if($_GET['act']== 'excel'){
-		header("Content-Type: application/xls");
-		header("Content-Disposition: attachment; filename=สภาสันติสุขข้อมูลกิจกรรม.xls");
-		header("Pragma: no-cache");
-		header("Expires: 0");
-	}
-}
-?>
-<p>
-  <a href="?act=excel" class="btn btn-success"> Excel  <i class="fa fa-download"></i></a>
-</p>
+
+<a href="{{ route('secure.excell','2023-10') }}" class="btn btn-success">Excel</a>
 {{-- <h4 class="fw-bold py-3 mb-4">
   <span class="text-muted fw-light">ข้อมูลการประชุม </span>
 </h4> --}}
 
+<br>
+<br>
 <form action="{{ route('secure.search') }}" method="post"enctype="multipart/form-data">
   @csrf
   {{ method_field('PUT') }}
@@ -27,14 +18,14 @@ if(isset($_GET['act'])){
 
     <div class="col-md-3">
       <label for="cars">ประจำเดือน:</label>
-
+{{-- @dd($time) --}}
       <select name="cars" id="cars" class="form-control">
-        <option value="2023-6">มิถุนายน 2566</option>
-        <option value="2023-7">กรกฎาคม 2566</option>
-        <option value="2023-8">สิงหาคม 2566</option>
-        <option value="2023-9">กันยายน 2566</option>
-        <option value="2023-10">ตุลาคม 2566</option>
-        <option value="2023-11">พฤศจิกายน 2566</option>
+        <option value="2023-6" @if($time == '2023-6') selected @endif>มิถุนายน 2566</option>
+        <option value="2023-7" @if($time == '2023-7') selected @endif>กรกฎาคม 2566</option>
+        <option value="2023-8" @if($time == '2023-8') selected @endif>สิงหาคม 2566</option>
+        <option value="2023-9" @if($time == '2023-9') selected @endif>กันยายน 2566</option>
+        <option value="2023-10" @if($time == '2023-10') selected @endif>ตุลาคม 2566</option>
+        <option value="2023-11" @if($time == '2023-11') selected @endif>พฤศจิกายน 2566</option>
       </select>
     </div>
 
@@ -325,7 +316,7 @@ nv.addGraph(function() {
 <div class="row">
   <div class="col-lg-12">
     <div class="card">
-      <h5 class="card-header">บันทึกข้อมูลการประชุม  )</h5>
+      <h5 class="card-header">บันทึกข้อมูลการประชุม</h5>
       <div class="table-responsive text-nowrap">
         <table class="table">
           <thead>
@@ -333,50 +324,35 @@ nv.addGraph(function() {
               <th>จังหวัด</th>
               <th>อำเภอ</th>
               <th>ตำบล</th>
-              <th>งบ</th>
-              
-              <th></th>
+              <th>งบประมาณ</th>
 
-              <th>ยาเสพติด6</th>
-              <th>ยาเสพติด7</th>
-              <th>ยาเสพติด8</th>
-              <th>ยาเสพติด9</th>
-              <th>ยาเสพติด10</th>
-              
-              <th></th>
-              
-              <th>ความไม่สงบ6</th>
-              <th>ความไม่สงบ7</th>
-              <th>ความไม่สงบ8</th>
-              <th>ความไม่สงบ9</th>
-              <th>ความไม่สงบ10</th>
-
-              <th></th>
-              
-              <th>เวรยาม6</th>
-              <th>เวรยาม7</th>
-              <th>เวรยาม8</th>
-              <th>เวรยาม9</th>
-              <th>เวรยาม10</th>
-
-              <th></th>
-              
-              <th>อนามัย6</th>
-              <th>อนามัย7</th>
-              <th>อนามัย8</th>
-              <th>อนามัย9</th>
-              <th>อนามัย10</th>
-
-              <th></th>
-              
-              <th>รูปประกอบ6</th>
-              <th>รูปประกอบ7</th>
-              <th>รูปประกอบ8</th>
-              <th>รูปประกอบ9</th>
-              <th>รูปประกอบ10</th>
+              <th>ยาเสพติด</th>
+              <th>ความไม่สงบ</th>
+              <th>เวรยาม</th>
+              <th>อนามัย</th>
+              <th>รูปประกอบ</th>
             </tr> 
           </thead>
           <tbody class="table-border-bottom-0">
+              @foreach ($data_meet as $item =>$value)
+                <tr>
+                  {{-- <td>{{ $value->date }}</td> --}}
+                  <td>{{ $value->provinces }}</td>
+                  <td>{{ $value->amphures }}</td>
+                  <td>{{ $value->districts }}</td>
+                  @if($value->status == 1)
+                    <td>300,000</td>
+                  @else
+                    <td>1,000,000</td>
+                  @endif
+                  <td>{{ $value->narcotics }}</td>
+                  <td>{{ $value->unrest }}</td>
+                  <td>{{ $value->guard }}</td>
+                  <td>{{ $value->covid }}</td>
+                  <td>{{ $value->picture_meet }}</td>
+                <tr>
+                  
+              @endforeach
           </tbody>
         </table>
       </div>
