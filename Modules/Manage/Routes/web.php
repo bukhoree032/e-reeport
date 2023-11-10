@@ -14,6 +14,8 @@
 
 
 Route::get('/', 'DashboardController@index')->name('dashboard');
+Route::get('/secure', 'SecureController@index')->name('secure');
+Route::put('/secure/search', 'SecureController@index_search')->name('secure.search');
 
 Route::prefix('manage')->name('auth.')->group(function() {
     Route::get('/profile', 'AuthController@index')->name('profile');

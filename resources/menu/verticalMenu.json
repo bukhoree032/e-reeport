@@ -3,15 +3,27 @@
             "url": "/",
             "name": "Dashboard",
             "icon": "menu-icon tf-icons bx bx-home-circle",
-            "slug": "dashboard-analytics"
+            "slug": "dashboard"
+        },
+        {
+            "url": "secure",
+            "icon": "menu-icon tf-icons bx bx-table",
+            "name": "รายงานความมั่นคง",
+            "slug": "secure"
         },
         {
             "menuHeader": "Forms & Tables"
         },
         {
+            "url": "activity",
+            "icon": "menu-icon tf-icons bx bx-table",
+            "name": "จัดการกิจกรรม",
+            "slug": "tables-basic"
+        },
+        {
             "name": "บันทึกการประชุม",
             "icon": "menu-icon tf-icons bx bx-collection",
-            "slug": "cards-basic",
+            "slug": "index.meeting",
             "url": "/meeting"
         },
         {
@@ -76,8 +88,8 @@
         {
             "url": "tables/basic",
             "icon": "menu-icon tf-icons bx bx-table",
-            "name": "Tables",
-            "slug": "tables-basic"
+            "name": "Tables1",
+            "slug": "tables-basic1"
         },
 
 
@@ -361,7 +373,7 @@
         {
             "name": "Form Layouts",
             "icon": "menu-icon tf-icons bx bx-detail",
-            "slug": "form-layouts",
+            "slug": "form-layouts1",
             "submenu": [{
                     "url": "form/layouts-vertical",
                     "name": "Vertical Form",
@@ -369,7 +381,7 @@
                 },
                 {
                     "url": "form/layouts-horizontal",
-                    "name": "Horizontal Form",
+                    "name": "Horizontal Form1",
                     "slug": "form-layouts-horizontal"
                 }
             ]
