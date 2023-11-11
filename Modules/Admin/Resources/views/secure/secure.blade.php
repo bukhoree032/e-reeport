@@ -95,12 +95,12 @@
           <svg></svg></svg>
         </div>
         
-        <div id="picture_meet">
+        {{-- <div id="picture_meet">
           <br>
           <br>
           <h4>รูปกิจกรรม</h4>
           <svg></svg></svg>
-        </div>
+        </div> --}}
       </div>
   </div>
 </div>
@@ -263,43 +263,43 @@ nv.addGraph(function() {
  }
  
    
-nv.addGraph(function() {
-   var chart = nv.models.pieChart()
-       .x(function(d) { return d.label })
-       .y(function(d) { return d.value })
-       .showLabels(true)
-       .valueFormat(d3.format(",.0f"))
-       .tooltipContent(function(key, y, e, graph) {return '<span>' + y + ' ตำบล' + '</span>';});
+// nv.addGraph(function() {
+//    var chart = nv.models.pieChart()
+//        .x(function(d) { return d.label })
+//        .y(function(d) { return d.value })
+//        .showLabels(true)
+//        .valueFormat(d3.format(",.0f"))
+//        .tooltipContent(function(key, y, e, graph) {return '<span>' + y + ' ตำบล' + '</span>';});
 
-     d3.select("#picture_meet svg")
-         .datum(picture_meet())
-         .transition().duration(350)
-         .call(chart);
+//      d3.select("#picture_meet svg")
+//          .datum(picture_meet())
+//          .transition().duration(350)
+//          .call(chart);
 
-   return chart;
- });
+//    return chart;
+//  });
 
  //chart example data.
- function picture_meet() {
-   return  [
-       {
-         "label": "นราธิวาส",
-         "value" : {{$meet['นราธิวาส']['picture_meet']}}
-       } ,
-       {
-         "label": "ปัตตานี",
-         "value" : {{$meet['ปัตตานี']['picture_meet']}}
-       } ,
-       {
-         "label": "ยะลา",
-         "value" : {{$meet['ยะลา']['picture_meet']}}
-       } ,
-       {
-         "label": "สงขลา",
-         "value" : {{$meet['สงขลา']['picture_meet']}}
-       }
-     ];
- }
+ //function picture_meet() {
+  //  return  [
+  //      {
+  //        "label": "นราธิวาส",
+  //        "value" : $meet['นราธิวาส']['picture_meet']
+  //      } ,
+  //      {
+  //        "label": "ปัตตานี",
+  //        "value" : $meet['ปัตตานี']['picture_meet']
+  //      } ,
+  //      {
+  //        "label": "ยะลา",
+  //        "value" : $meet['ยะลา']['picture_meet']
+  //      } ,
+  //      {
+  //        "label": "สงขลา",
+  //        "value" : $meet['สงขลา']['picture_meet']
+  //      }
+  //    ];
+//  }
 </script>
 
 
@@ -330,7 +330,7 @@ nv.addGraph(function() {
               <th>ความไม่สงบ</th>
               <th>เวรยาม</th>
               <th>อนามัย</th>
-              <th>รูปประกอบ</th>
+              {{-- <th>รูปประกอบ</th> --}}
             </tr> 
           </thead>
           <tbody class="table-border-bottom-0">
@@ -349,7 +349,7 @@ nv.addGraph(function() {
                   <td>{{ $value->unrest }}</td>
                   <td>{{ $value->guard }}</td>
                   <td>{{ $value->covid }}</td>
-                  <td>{{ $value->picture_meet }}</td>
+                  {{-- <td>{{ $value->picture_meet }}</td> --}}
                 <tr>
                   
               @endforeach
