@@ -152,7 +152,12 @@ class Repository
         if(isset($request['p_meeting'])){
             $request['p_meeting'] = serialize($request['p_meeting']);
         }
-
+        $timeth=date_create($request['meeting_date']);
+        $time_y = date_format($timeth,"Y");
+        if($time_y < '2200'){
+            $timeth = date_format($timeth,"Y")+'543'."-".date_format($timeth,"m-d");
+            $request['meeting_date'] = $timeth;
+        }
         $insert = $this->$db::create($request);
         
         return $insert;
