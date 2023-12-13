@@ -40,7 +40,7 @@ class SecureController extends UploadeFileController
                             ->groupBy('provinces')
                         ->get();
 
-        $time = date('Y-10');
+        $time = date('Y-m');
 
         $data['id'] = $id;
         $data['time'] = $time;

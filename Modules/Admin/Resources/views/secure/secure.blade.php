@@ -26,6 +26,7 @@
         <option value="2023-9" @if($time == '2023-9') selected @endif>กันยายน 2566</option>
         <option value="2023-10" @if($time == '2023-10') selected @endif>ตุลาคม 2566</option>
         <option value="2023-11" @if($time == '2023-11') selected @endif>พฤศจิกายน 2566</option>
+        <option value="2023-11" @if($time == '2023-12') selected @endif>ธันวาคม 2566</option>
       </select>
     </div>
 
