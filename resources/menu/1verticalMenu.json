@@ -6,6 +6,22 @@
             "slug": "dashboard-analytics"
         },
         {
+            "name": "รายงาน",
+            "icon": "menu-icon tf-icons bx bx-file",
+            "slug": "pages-secure",
+            "submenu": [{
+                    "url": "secure",
+                    "name": "รายงานความมั่นคง",
+                    "slug": "secure"
+                },
+                {
+                    "url": "secure_scor",
+                    "name": "รายงานคะแนน",
+                    "slug": "secure_scor"
+                }
+            ]
+        },
+        {
             "menuHeader": "MENU"
         },
         {
