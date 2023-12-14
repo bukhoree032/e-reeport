@@ -18,6 +18,10 @@ Route::get('/secure', 'SecureController@index')->name('secure');
 Route::put('/secure/search', 'SecureController@index_search')->name('secure.search');
 Route::get('/secure/excell/{id}', 'SecureController@excell')->name('secure.excell');
 
+Route::get('/secure_scor', 'Secure_scorController@index')->name('secure_scor');
+Route::put('/secure_scor/search', 'Secure_scorController@index_search')->name('secure_scor.search');
+Route::get('/secure_scor/excell/{id}', 'Secure_scorController@excell')->name('secure_scor.excell');
+
 Route::prefix('manage')->name('auth.')->group(function() {
     Route::get('/profile', 'AuthController@index')->name('profile');
     Route::post('/profile.update', 'AuthController@profileupdate')->name('profile.update');
