@@ -3,8 +3,7 @@
 @section('title', 'Evalocal')
 
 @section('content')
-
-<a href="{{ route('secure.excell','2023-10') }}" class="btn btn-success">Excel</a>
+<a href="{{ route('secure.excell',$time) }}" class="btn btn-success">Excel</a>
 {{-- <h4 class="fw-bold py-3 mb-4">
   <span class="text-muted fw-light">ข้อมูลการประชุม </span>
 </h4> --}}
