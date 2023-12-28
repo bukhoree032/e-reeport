@@ -62,6 +62,8 @@ if(isset($_GET['act'])){
                               <td>บันทึกการประชุม</td>
                             @elseif($item_secure == 'picture_meet')
                               <td>รูปภาพ</td>
+                            @elseif($item_secure == 'strength')
+                              <td>อธิบายกิจกกรม</td>
                             @endif
                             <td>{{ $value_secure }}</td>
                                 

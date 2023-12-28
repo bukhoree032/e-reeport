@@ -59,6 +59,7 @@
               <th>รายงานการประชุม</th>
               <th>บันทึกการประชุม</th>
               <th>รูปประกอบ</th>
+              <th>อธิบายกิจกกรม</th>
             </tr> 
           </thead>
           <tbody class="table-border-bottom-0">

@@ -113,9 +113,17 @@ class Secure_scorController extends UploadeFileController
                         if($value_result->picture_meet != '' AND $value_result->picture_meet != 's:0:"";'){
                             $data['user'][$key]->$mi['picture_meet'] = 'มี';
                         }
+
+                        if($value_result->strength != ''){
+                            $data['user'][$key]->$mi['strength'] = 'มี';
+                        }
                     }
                     if(!isset($data['user'][$key]->$mi['picture_meet'])){
                         $data['user'][$key]->$mi['picture_meet'] = 'ไม่มี';
+                    }
+                    
+                    if(!isset($data['user'][$key]->$mi['strength'])){
+                        $data['user'][$key]->$mi['strength'] = 'ไม่มี';
                     }
                     // รูปภาพ
                 
@@ -194,7 +202,7 @@ class Secure_scorController extends UploadeFileController
                 // บันทึกการประชุม
 
                 $data['result'] = \DB::table('meeting')
-                                ->LEFTJOIN('activitymeeting', 'meeting.id_user', '=', 'activitymeeting.id_meet')
+                                ->LEFTJOIN('activitymeeting', 'meeting.id', '=', 'activitymeeting.id_meet')
                                 ->where('meeting.meeting_date', 'like', $timeth.'%')
                                 ->where('meeting.id_user' ,$value->id)
                                 ->get();
@@ -213,10 +221,18 @@ class Secure_scorController extends UploadeFileController
                     if($value_result->picture_meet != '' AND $value_result->picture_meet != 's:0:"";'){
                         $data['user'][$key]->$mi['picture_meet'] = 'มี';
                     }
+
+                    if($value_result->strength != ''){
+                        $data['user'][$key]->$mi['strength'] = 'มี';
+                    }
                 }
                 
                 if(!isset($data['user'][$key]->$mi['picture_meet'])){
                     $data['user'][$key]->$mi['picture_meet'] = 'ไม่มี';
+                }
+                    
+                if(!isset($data['user'][$key]->$mi['strength'])){
+                    $data['user'][$key]->$mi['strength'] = 'ไม่มี';
                 }
                 // รูปภาพ
             
@@ -293,7 +309,7 @@ class Secure_scorController extends UploadeFileController
                     // บันทึกการประชุม
 
                     $data['result'] = \DB::table('meeting')
-                                    ->LEFTJOIN('activitymeeting', 'meeting.id_user', '=', 'activitymeeting.id_meet')
+                                    ->LEFTJOIN('activitymeeting', 'meeting.id', '=', 'activitymeeting.id_meet')
                                     ->where('meeting.meeting_date', 'like', $timeth.'%')
                                     ->where('meeting.id_user' ,$value->id)
                                     ->get();
@@ -313,9 +329,17 @@ class Secure_scorController extends UploadeFileController
                         if($value_result->picture_meet != '' AND $value_result->picture_meet != 's:0:"";'){
                             $data['user'][$key]->$mi['picture_meet'] = '1';
                         }
+
+                        if($value_result->strength != ''){
+                            $data['user'][$key]->$mi['strength'] = '1';
+                        }
                     }
                     if(!isset($data['user'][$key]->$mi['picture_meet'])){
                         $data['user'][$key]->$mi['picture_meet'] = '0';
+                    }
+                    
+                    if(!isset($data['user'][$key]->$mi['strength'])){
+                        $data['user'][$key]->$mi['strength'] = '0';
                     }
                     // รูปภาพ
                 
