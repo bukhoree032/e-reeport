@@ -8,7 +8,44 @@
 {{-- <h4 class="fw-bold py-3 mb-4">
   <span class="text-muted fw-light">ข้อมูลการประชุม </span>
 </h4> --}}
-
+@php
+  $row = 0;
+  $mont = [
+    ['2023-06','มิถุนายน2566'],
+    ['2023-07','กรกฎาคม2566'],
+    ['2023-08','สิงหาคม2566'],
+    ['2023-09','กันยายน2566'],
+    ['2023-10','ตุลาคม2566'],
+    ['2023-11','พฤศจิกายน2566'],
+    ['2023-12','ธันวาคม2566'],
+    
+    ['2024-01','มกราคม2567'],
+    ['2024-02','กุมภาพันธ์2567'],
+    ['2024-03','มีนาคม2567'],
+    ['2024-04','เมษายน2567'],
+    ['2024-05','พฤษภาคม2567'],
+    ['2024-06','มิถุนายน2567'],
+    ['2024-07','กรกฎาคม2567'],
+    ['2024-08','สิงหาคม2567'],
+    ['2024-09','กันยายน2567'],
+    ['2024-10','ตุลาคม2567'],
+    ['2024-11','พฤศจิกายน2567'],
+    ['2024-12','ธันวาคม2567'],
+    
+    ['2025-01','มกราคม2568'],
+    ['2025-02','กุมภาพันธ์2568'],
+    ['2025-03','มีนาคม2568'],
+    ['2025-04','เมษายน2568'],
+    ['2025-05','พฤษภาคม2568'],
+    ['2025-06','มิถุนายน2568'],
+    ['2025-07','กรกฎาคม2568'],
+    ['2025-08','สิงหาคม2568'],
+    ['2025-09','กันยายน2568'],
+    ['2025-10','ตุลาคม2568'],
+    ['2025-11','พฤศจิกายน2568'],
+    ['2025-12','ธันวาคม2568'],
+  ]
+@endphp
 <br>
 <br>
 <form action="{{ route('secure_scor.search') }}" method="post"enctype="multipart/form-data">
@@ -20,13 +57,16 @@
       <label for="cars">ประจำเดือน:</label>
 {{-- @dd($time) --}}
       <select name="cars" id="cars" class="form-control">
-        <option value="2023-6" @if($time == '2023-6') selected @endif>มิถุนายน 2566</option>
-        <option value="2023-7" @if($time == '2023-7') selected @endif>กรกฎาคม 2566</option>
-        <option value="2023-8" @if($time == '2023-8') selected @endif>สิงหาคม 2566</option>
-        <option value="2023-9" @if($time == '2023-9') selected @endif>กันยายน 2566</option>
-        <option value="2023-10" @if($time == '2023-10') selected @endif>ตุลาคม 2566</option>
-        <option value="2023-11" @if($time == '2023-11') selected @endif>พฤศจิกายน 2566</option>
-        <option value="2023-11" @if($time == '2023-12') selected @endif>ธันวาคม 2566</option>
+        @foreach ($mont as $key => $value)
+                @if($row == 0)
+                  @if($value[0] == date('Y-m'))
+                    <option value="{{ $value[0] }}" @if($time == $value[0])selected @endif>{{ $value[1] }}</option>
+                    @php $row = 1; @endphp
+                  @else
+                    <option value="{{ $value[0] }}" @if($time == $value[0])selected @endif>{{ $value[1] }}</option>
+                  @endif
+                @endif
+              @endforeach
       </select>
     </div>
 
